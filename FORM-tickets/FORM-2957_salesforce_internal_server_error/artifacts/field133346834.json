@@ -1,0 +1,49 @@
+{
+  "id": "133346834",
+  "label": "Complete?",
+  "hide_label": "0",
+  "description": "",
+  "name": "complete",
+  "type": "select",
+  "options": [
+    {
+      "label": "No",
+      "value": "No",
+      "imageUrl": null
+    },
+    {
+      "label": "Complete",
+      "value": "Complete",
+      "imageUrl": null
+    },
+    {
+      "label": "In Progress",
+      "value": "In Progress",
+      "imageUrl": null
+    },
+    {
+      "label": "Cancel",
+      "value": "Cancel",
+      "imageUrl": ""
+    }
+  ],
+  "required": "0",
+  "uniq": "0",
+  "hidden": "1",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "482",
+  "logic": null,
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "No",
+  "select_size": 1,
+  "option_layout": "vertical",
+  "option_other": 0,
+  "option_placeholder": false,
+  "randomize_options": 0,
+  "option_store": "value",
+  "option_show_values": 0,
+  "use_searchable_options": false
+}

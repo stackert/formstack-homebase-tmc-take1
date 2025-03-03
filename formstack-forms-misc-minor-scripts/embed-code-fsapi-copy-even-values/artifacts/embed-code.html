@@ -1,0 +1,88 @@
+<html>
+  <body>
+    <script>
+      // Formstack can not provide support for custom javascript.
+      // Replace with appropriate values
+      "use strict";
+
+      const FORM_ID = "6113001";
+      const FIELD_ID_SOURCE = "180770306"; // Source field to monitor
+      const FIELD_ID_TARGET_EVEN = "180770343"; // Target field for even numbers
+      const FIELD_ID_TARGET_ODD = "180770330"; // Target field for odd numbers
+
+      const form = window.fsApi().getForm(FORM_ID);
+
+      // Function to check if a number is even
+      function isEven(num) {
+        return num % 2 === 0;
+      }
+
+      // Function to handle the value distribution
+      function handleValueChange(event) {
+        if (event.data.fieldId !== FIELD_ID_SOURCE) {
+          return Promise.resolve(event);
+        }
+
+        const sourceField = form.getField(FIELD_ID_SOURCE);
+        const evenField = form.getField(FIELD_ID_TARGET_EVEN);
+        const oddField = form.getField(FIELD_ID_TARGET_ODD);
+
+        // Get the current value
+        const value = sourceField.getValue().value;
+        console.log("Source field value:", value);
+
+        // Convert to number and validate
+        const num = parseInt(value);
+        if (isNaN(num)) {
+          console.log("Invalid number input");
+          // Clear both target fields if input is invalid
+          evenField.setValue({ value: "" });
+          oddField.setValue({ value: "" });
+          return Promise.resolve(event);
+        }
+
+        console.log(`Number ${num} is ${isEven(num) ? "even" : "odd"}`);
+
+        // Clear both fields first
+        evenField.setValue({ value: "" });
+        oddField.setValue({ value: "" });
+
+        // Set the appropriate field based on even/odd
+        if (isEven(num)) {
+          console.log("Setting even field:", value);
+          evenField.setValue({ value: value });
+        } else {
+          console.log("Setting odd field:", value);
+          oddField.setValue({ value: value });
+        }
+
+        return Promise.resolve(event);
+      }
+
+      // Register the change event listener
+      form.registerFormEventListener({
+        type: "change",
+        onFormEvent: handleValueChange,
+      });
+
+      // Check initial value when form loads
+      form.registerFormEventListener({
+        type: "ready",
+        onFormEvent: function (event) {
+          const sourceField = form.getField(FIELD_ID_SOURCE);
+          const initialValue = sourceField.getValue().value;
+
+          if (initialValue) {
+            console.log("Initial value found:", initialValue);
+            handleValueChange({
+              data: {
+                fieldId: FIELD_ID_SOURCE,
+              },
+            });
+          }
+          return Promise.resolve(event);
+        },
+      });
+    </script>
+  </body>
+</html>

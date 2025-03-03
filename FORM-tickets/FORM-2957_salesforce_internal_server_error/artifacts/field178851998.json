@@ -1,0 +1,41 @@
+{
+  "id": "178851998",
+  "label": "",
+  "hide_label": "0",
+  "description": "",
+  "name": "",
+  "type": "section",
+  "options": "",
+  "required": "0",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "129",
+  "logic": {
+    "action": "show",
+    "conditional": "any",
+    "checks": [
+      {
+        "field": 133347310,
+        "condition": "equals",
+        "option": 1010
+      },
+      {
+        "field": 133346842,
+        "condition": "equals",
+        "option": "Confirmation Email"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "section_break": 0,
+  "section_heading": "Confirmation Email",
+  "section_text": "",
+  "text_editor": "wysiwyg",
+  "label_position": "default",
+  "num_columns": "0"
+}

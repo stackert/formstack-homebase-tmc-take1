@@ -1,0 +1,35 @@
+{
+  "id": "133346992",
+  "label": "2. Additional facility booking notes, set-up details, etc.",
+  "hide_label": "0",
+  "description": "",
+  "name": "2_additional_facility_booking_notes_setup_details_etc",
+  "type": "textarea",
+  "options": "",
+  "required": "0",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "184",
+  "logic": {
+    "action": "show",
+    "conditional": "all",
+    "checks": [
+      {
+        "field": 133346989,
+        "condition": "equals",
+        "option": "Zaban Park"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "rows": 2,
+  "cols": 50,
+  "minlength": 0,
+  "maxlength": 0,
+  "placeholder": ""
+}

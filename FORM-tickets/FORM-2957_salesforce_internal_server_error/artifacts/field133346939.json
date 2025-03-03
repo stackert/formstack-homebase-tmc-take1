@@ -1,0 +1,49 @@
+{
+  "id": "133346939",
+  "label": "Minimum Age",
+  "hide_label": "0",
+  "description": "",
+  "name": "minimum_age",
+  "type": "number",
+  "options": "",
+  "required": "1",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "73",
+  "logic": {
+    "action": "show",
+    "conditional": "any",
+    "checks": [
+      {
+        "field": "133346940",
+        "condition": "equals",
+        "option": "Start Date of Program"
+      },
+      {
+        "field": "133346940",
+        "condition": "equals",
+        "option": "Date Registering for Program"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "field_one_calculation": 0,
+  "field_two_calculation": 0,
+  "calculation_units": "",
+  "calculation_operator": "",
+  "calculation_type": "",
+  "calculation_category": "",
+  "calculation_allow_negatives": 0,
+  "text_size": 5,
+  "min_value": "",
+  "max_value": "",
+  "currency": "",
+  "decimals": "1",
+  "slider": "0",
+  "placeholder": ""
+}

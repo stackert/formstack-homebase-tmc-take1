@@ -1,0 +1,51 @@
+{
+  "id": "133346843",
+  "label": "",
+  "hide_label": "0",
+  "description": "",
+  "name": "",
+  "type": "section",
+  "options": "",
+  "required": "0",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "18",
+  "logic": {
+    "action": "show",
+    "conditional": "any",
+    "checks": [
+      {
+        "field": "133348718",
+        "condition": "equals",
+        "option": "1000"
+      },
+      {
+        "field": "133346842",
+        "condition": "equals",
+        "option": "Add Another Course Option"
+      },
+      {
+        "field": "133346842",
+        "condition": "equals",
+        "option": "Registration Type (incl. 3rd party website)"
+      },
+      {
+        "field": "133346842",
+        "condition": "equals",
+        "option": "Pricing"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "section_break": 0,
+  "section_heading": "Registration Type",
+  "section_text": "",
+  "text_editor": "wysiwyg",
+  "label_position": "default",
+  "num_columns": "2"
+}

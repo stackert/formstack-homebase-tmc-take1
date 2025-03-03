@@ -1,0 +1,41 @@
+{
+  "id": "133346893",
+  "label": "",
+  "hide_label": "0",
+  "description": "",
+  "name": "",
+  "type": "section",
+  "options": "",
+  "required": "0",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "42",
+  "logic": {
+    "action": "show",
+    "conditional": "any",
+    "checks": [
+      {
+        "field": "133346842",
+        "condition": "equals",
+        "option": "Registration Questions"
+      },
+      {
+        "field": 133347310,
+        "condition": "equals",
+        "option": 1010
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "section_break": 0,
+  "section_heading": "Registration Questions",
+  "section_text": "",
+  "text_editor": "wysiwyg",
+  "label_position": "default",
+  "num_columns": "0"
+}

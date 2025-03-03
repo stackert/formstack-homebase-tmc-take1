@@ -1,0 +1,22 @@
+{
+  "id": "133346853",
+  "label": "",
+  "hide_label": "0",
+  "description": "",
+  "name": "",
+  "type": "richtext",
+  "options": "",
+  "required": "0",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "2",
+  "sort": "487",
+  "logic": null,
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "section_text": "<p>Please select all <strong>\"</strong><strong>Communities\"</strong> pages where your program should be displayed. <strong><span style=\"color: rgb(226, 80, 65);\">*</span></strong></p>",
+  "text_editor": "wysiwyg"
+}

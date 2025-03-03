@@ -1,0 +1,35 @@
+{
+  "id": "133347297",
+  "label": "Additional Comments",
+  "hide_label": "0",
+  "description": "Please provide any other information you think will be helpful to IT. ",
+  "name": "additional_comments",
+  "type": "textarea",
+  "options": "",
+  "required": "0",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "470",
+  "logic": {
+    "action": "show",
+    "conditional": "all",
+    "checks": [
+      {
+        "field": 133347292,
+        "condition": "equals",
+        "option": "Yes"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "rows": 10,
+  "cols": 50,
+  "minlength": 0,
+  "maxlength": 0,
+  "placeholder": ""
+}

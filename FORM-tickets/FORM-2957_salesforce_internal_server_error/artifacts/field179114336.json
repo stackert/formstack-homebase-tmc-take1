@@ -1,0 +1,37 @@
+{
+  "id": "179114336",
+  "label": "",
+  "hide_label": "0",
+  "description": "",
+  "name": "",
+  "type": "richtext",
+  "options": "",
+  "required": "0",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "2",
+  "sort": "390",
+  "logic": {
+    "action": "show",
+    "conditional": "any",
+    "checks": [
+      {
+        "field": 133347241,
+        "condition": "notequals",
+        "option": 0
+      },
+      {
+        "field": 133347245,
+        "condition": "notequals",
+        "option": 0
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": "BLOCK Latest date the DEPOSIT may be refunded_COPY_2_COPY_COPY_COPY_COPY_COPY",
+  "default": "",
+  "section_text": "<p><span style=\"color: rgb(0, 0, 0);\">The <strong><em>Registration Fee</em></strong> and <strong><em>Deposit</em></strong> amounts <u>must be included</u> in the <strong><em>Total Fee</em></strong> amount for the form to calculate the monthly payments correctly.</span></p>",
+  "text_editor": "wysiwyg"
+}

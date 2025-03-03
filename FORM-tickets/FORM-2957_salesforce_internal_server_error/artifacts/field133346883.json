@@ -1,0 +1,78 @@
+{
+  "id": "133346883",
+  "label": "When should online registration CLOSE to the public?",
+  "hide_label": "0",
+  "description": "After this, registrations can only be entered manually by the Registration Team with the programmer's authorization.",
+  "name": "when_should_online_registration_close_to_the_public",
+  "type": "radio",
+  "options": [
+    {
+      "label": "1 week before the program starts",
+      "value": "1 week before the program starts",
+      "imageUrl": null
+    },
+    {
+      "label": "1 day before the program starts",
+      "value": "1 day before the program starts",
+      "imageUrl": null
+    },
+    {
+      "label": "1 day after the program starts",
+      "value": "1 day after the program starts",
+      "imageUrl": ""
+    },
+    {
+      "label": "1 week after the program starts",
+      "value": "1 week after the program starts",
+      "imageUrl": ""
+    },
+    {
+      "label": "2 weeks after the program starts",
+      "value": "2 weeks after the program starts",
+      "imageUrl": ""
+    },
+    {
+      "label": "Online registration should remain open throughout the program",
+      "value": "Online registration should remain open throughout the program",
+      "imageUrl": ""
+    },
+    {
+      "label": "On a specific date",
+      "value": "On a specific date",
+      "imageUrl": ""
+    }
+  ],
+  "required": "1",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "38",
+  "logic": {
+    "action": "hide",
+    "conditional": "all",
+    "checks": [
+      {
+        "field": 133346881,
+        "condition": "equals",
+        "option": "No online registration"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "option_layout": "vertical",
+  "option_other": 0,
+  "randomize_options": 0,
+  "option_store": "value",
+  "option_show_values": 0,
+  "use_images": 0,
+  "image_dimensions": "customDimensions",
+  "image_height": 100,
+  "image_width": 100,
+  "lock_image_ratio": true,
+  "lock_image_ratio_option": "fitProportionally",
+  "image_label_alignment": "bottom"
+}

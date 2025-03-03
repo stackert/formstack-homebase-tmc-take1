@@ -1,0 +1,629 @@
+{
+  "180022060": {
+    "fieldId": 180022060,
+    "label": "Working Hours Adjustment  IF Lower Than 30 Hours - Main Calulation",
+    "calculation": "( [180022059] / [180022054] ) + .48",
+    "dependsOn": [
+      180022059,
+      180022054
+    ],
+    "isTerminal": false,
+    "circularReference": false
+  },
+  "180022061": {
+    "fieldId": 180022061,
+    "label": "Working Hours Adjustment  IF Lower Than 30 Hours - Difference",
+    "calculation": "[180022060] - 12",
+    "dependsOn": [
+      180022060
+    ],
+    "isTerminal": false,
+    "circularReference": false
+  },
+  "180022062": {
+    "fieldId": 180022062,
+    "label": "Working Hours Adjustment  IF Lower Than 30 Hours",
+    "calculation": "[180022061] + [180022045]",
+    "dependsOn": [
+      180022061,
+      180022045
+    ],
+    "isTerminal": false,
+    "circularReference": false
+  },
+  "180022063": {
+    "fieldId": 180022063,
+    "label": "Course Duration DIFFERENCE IF course Falls Below 12months",
+    "calculation": "( [180022045] + [180022037] ) - 12 - [180022058]",
+    "dependsOn": [
+      180022045,
+      180022037,
+      180022058
+    ],
+    "isTerminal": false,
+    "circularReference": false
+  },
+  "180022067": {
+    "fieldId": 180022067,
+    "label": "Fewer Than 30 - Practical Period End date + Working Hour Adjustment",
+    "calculation": "date_plus([180022065], [180022062], 'Months')",
+    "dependsOn": [
+      180022065,
+      180022062
+    ],
+    "isTerminal": false,
+    "circularReference": false
+  },
+  "180022068": {
+    "fieldId": 180022068,
+    "label": "Fewer Than 30 - Practical Period End date + ALS Adjustment",
+    "calculation": "date_plus([180022067], [180022057], 'Months')",
+    "dependsOn": [
+      180022067,
+      180022057
+    ],
+    "isTerminal": false,
+    "circularReference": false
+  },
+  "180022069": {
+    "fieldId": 180022069,
+    "label": "Final Less Than 30 -Apprenticeship end date Months",
+    "calculation": "date_plus([180022065], [180022079], 'Months')",
+    "dependsOn": [
+      180022065,
+      180022079
+    ],
+    "isTerminal": false,
+    "circularReference": true
+  },
+  "180022070": {
+    "fieldId": 180022070,
+    "label": "Actual App End Date Fewer Than 30 - Start Date + Working Hour Adjustment",
+    "calculation": "date_plus([180022065], [180022062], 'Months')",
+    "dependsOn": [
+      180022065,
+      180022062
+    ],
+    "isTerminal": false,
+    "circularReference": false
+  },
+  "180022071": {
+    "fieldId": 180022071,
+    "label": "Actual App End Date Fewer Than 30 - Start Date + Working Hour Adjustment+EPA",
+    "calculation": "date_plus([180022070], [180022051], 'Months')",
+    "dependsOn": [
+      180022070,
+      180022051
+    ],
+    "isTerminal": false,
+    "circularReference": false
+  },
+  "180022072": {
+    "fieldId": 180022072,
+    "label": "Final (< 30 Hours) Practical Period Months",
+    "calculation": "[180022037] + [180022062] - [180022058]",
+    "dependsOn": [
+      180022037,
+      180022062,
+      180022058
+    ],
+    "isTerminal": false,
+    "circularReference": false
+  },
+  "180022073": {
+    "fieldId": 180022073,
+    "label": "Final < 30 Hours - Practical Period Months - Month Based",
+    "calculation": "[180022037] + [180022045] - [180022058]",
+    "dependsOn": [
+      180022037,
+      180022045,
+      180022058
+    ],
+    "isTerminal": false,
+    "circularReference": false
+  },
+  "180022074": {
+    "fieldId": 180022074,
+    "label": "FINAL (< than 30 Hours) - Actual practical period end date",
+    "calculation": "date_minus([180022068], [180022058], 'Months')",
+    "dependsOn": [
+      180022068,
+      180022058
+    ],
+    "isTerminal": false,
+    "circularReference": false
+  },
+  "180022075": {
+    "fieldId": 180022075,
+    "label": "Actual App End Date Fewer Than 30 - Start Date + Working Hour Adjustment+ EPA+ALS",
+    "calculation": "date_plus([180022071], [180022057], 'Months')",
+    "dependsOn": [
+      180022071,
+      180022057
+    ],
+    "isTerminal": false,
+    "circularReference": false
+  },
+  "180022076": {
+    "fieldId": 180022076,
+    "label": "Final Less Than 30 - Actual End Date Months",
+    "calculation": "date_plus([180022065], [180022079], 'Months')",
+    "dependsOn": [
+      180022065,
+      180022079
+    ],
+    "isTerminal": false,
+    "circularReference": true
+  },
+  "180022077": {
+    "fieldId": 180022077,
+    "label": "More Than 30 - Practical Period End date - Start Date + Course Duration",
+    "calculation": "date_plus([180022065], [180022045], 'Months')",
+    "dependsOn": [
+      180022065,
+      180022045
+    ],
+    "isTerminal": false,
+    "circularReference": false
+  },
+  "180022078": {
+    "fieldId": 180022078,
+    "label": "More Than 30 - Practical Period End date - Start Date + Course Duration + ALS Adjustment",
+    "calculation": "date_plus([180022077], [180022057], 'Months')",
+    "dependsOn": [
+      180022077,
+      180022057
+    ],
+    "isTerminal": false,
+    "circularReference": false
+  },
+  "180022079": {
+    "fieldId": 180022079,
+    "label": "FINAL (< 30 Hours) Apprenticeship end date",
+    "calculation": "date_minus([180022075], [180022058], 'Months')",
+    "dependsOn": [
+      180022075,
+      180022058
+    ],
+    "isTerminal": false,
+    "circularReference": false
+  },
+  "180022080": {
+    "fieldId": 180022080,
+    "label": "Final (=> 30 Hours) Practical Period Months",
+    "calculation": "[180022037] + [180022045] - [180022058]",
+    "dependsOn": [
+      180022037,
+      180022045,
+      180022058
+    ],
+    "isTerminal": false,
+    "circularReference": false
+  },
+  "180022081": {
+    "fieldId": 180022081,
+    "label": "Final => 30 Hours - Practical Period Months - Month Based",
+    "calculation": "[180022037] + [180022045] - [180022058]",
+    "dependsOn": [
+      180022037,
+      180022045,
+      180022058
+    ],
+    "isTerminal": false,
+    "circularReference": false
+  },
+  "180022082": {
+    "fieldId": 180022082,
+    "label": "More Than 30 - Actual End date Start Date+ Course Duration",
+    "calculation": "date_plus([180022065], [180022045], 'Months')",
+    "dependsOn": [
+      180022065,
+      180022045
+    ],
+    "isTerminal": false,
+    "circularReference": false
+  },
+  "180022083": {
+    "fieldId": 180022083,
+    "label": "More Than 30 - Actual End date Start Date+ Course Duration + EPA",
+    "calculation": "date_plus([180022082], [180022051], 'Months')",
+    "dependsOn": [
+      180022082,
+      180022051
+    ],
+    "isTerminal": false,
+    "circularReference": false
+  },
+  "180022084": {
+    "fieldId": 180022084,
+    "label": "More Than 30 - Actual End date Start Date+ Course Duration + EPA + ALS",
+    "calculation": "date_plus([180022083], [180022057], 'Months')",
+    "dependsOn": [
+      180022083,
+      180022057
+    ],
+    "isTerminal": false,
+    "circularReference": false
+  },
+  "180022085": {
+    "fieldId": 180022085,
+    "label": "FINAL (=> 30 Hours) Practical Period End date",
+    "calculation": "date_minus([180022078], [180022058], 'Months')",
+    "dependsOn": [
+      180022078,
+      180022058
+    ],
+    "isTerminal": false,
+    "circularReference": false
+  },
+  "180022086": {
+    "fieldId": 180022086,
+    "label": "FINAL (=> 30 Hours) Apprenticeship end date",
+    "calculation": "date_minus([180022084], [180022058], 'Months')",
+    "dependsOn": [
+      180022084,
+      180022058
+    ],
+    "isTerminal": false,
+    "circularReference": false
+  },
+  "180022087": {
+    "fieldId": 180022087,
+    "label": "Final More Than 30 - Actual End Date Months",
+    "calculation": "date_plus([180022065], [180022086], 'Months')",
+    "dependsOn": [
+      180022065,
+      180022086
+    ],
+    "isTerminal": false,
+    "circularReference": true
+  },
+  "180022088": {
+    "fieldId": 180022088,
+    "label": "FALL BACK DATE FINAL Course Duration MIN Practicle Period -  12 Months",
+    "calculation": "date_plus([180022065], [180022064], 'Days')",
+    "dependsOn": [
+      180022065,
+      180022064
+    ],
+    "isTerminal": false,
+    "circularReference": false
+  },
+  "180022089": {
+    "fieldId": 180022089,
+    "label": "FALL BACK DATE FINAL Course Duration MIN Actual End Date - 12 Months",
+    "calculation": "date_plus([180022088], [180022051], 'Months')",
+    "dependsOn": [
+      180022088,
+      180022051
+    ],
+    "isTerminal": false,
+    "circularReference": false
+  },
+  "180022090": {
+    "fieldId": 180022090,
+    "label": "Fewer than OTJH Weeks Date 1",
+    "calculation": "date_minus([180022075], [180022051], 'Months')",
+    "dependsOn": [
+      180022075,
+      180022051
+    ],
+    "isTerminal": false,
+    "circularReference": true
+  },
+  "180022091": {
+    "fieldId": 180022091,
+    "label": "Fewer than OTJH Weeks to Days",
+    "calculation": "date_plus([180022065], [180022090], 'days')",
+    "dependsOn": [
+      180022065,
+      180022090
+    ],
+    "isTerminal": false,
+    "circularReference": true
+  },
+  "180022092": {
+    "fieldId": 180022092,
+    "label": "Greater than OTJH Weeks Date 1",
+    "calculation": "date_minus([180022084], [180022051], 'Months')",
+    "dependsOn": [
+      180022084,
+      180022051
+    ],
+    "isTerminal": false,
+    "circularReference": true
+  },
+  "180022093": {
+    "fieldId": 180022093,
+    "label": "Greater Than 30 than OTJH Weeks to Days",
+    "calculation": "date_plus([180022065], [180022085], 'days')",
+    "dependsOn": [
+      180022065,
+      180022085
+    ],
+    "isTerminal": false,
+    "circularReference": true
+  },
+  "180022094": {
+    "fieldId": 180022094,
+    "label": "Greater Than 30 than OTJH Weeks on Pogramme",
+    "calculation": "[180022093] / 7",
+    "dependsOn": [
+      180022093
+    ],
+    "isTerminal": false,
+    "circularReference": true
+  },
+  "180022095": {
+    "fieldId": 180022095,
+    "label": "Fewer than OTJH Weeks on Programme",
+    "calculation": "[180022091] / 7",
+    "dependsOn": [
+      180022091
+    ],
+    "isTerminal": false,
+    "circularReference": true
+  },
+  "180022096": {
+    "fieldId": 180022096,
+    "label": "Fall Back OTJH Days on Programme",
+    "calculation": "date_plus([180022065], [180022088], 'days')",
+    "dependsOn": [
+      180022065,
+      180022088
+    ],
+    "isTerminal": false,
+    "circularReference": true
+  },
+  "180022097": {
+    "fieldId": 180022097,
+    "label": "Fall Back OTJH Weeks on Programme",
+    "calculation": "[180022096] / 7",
+    "dependsOn": [
+      180022096
+    ],
+    "isTerminal": false,
+    "circularReference": true
+  },
+  "180022098": {
+    "fieldId": 180022098,
+    "label": "Fall Back Months o",
+    "calculation": "[180022096] / 7",
+    "dependsOn": [
+      180022096
+    ],
+    "isTerminal": false,
+    "circularReference": true
+  },
+  "180022099": {
+    "fieldId": 180022099,
+    "label": "Fewer than 30 - Course Difference",
+    "calculation": "date_plus([180022079], [180022065], 'days')",
+    "dependsOn": [
+      180022079,
+      180022065
+    ],
+    "isTerminal": false,
+    "circularReference": true
+  },
+  "180022100": {
+    "fieldId": 180022100,
+    "label": "Greater than 30 - Course Difference",
+    "calculation": "date_plus([180022086], [180022065], 'days')",
+    "dependsOn": [
+      180022086,
+      180022065
+    ],
+    "isTerminal": false,
+    "circularReference": true
+  },
+  "180022148": {
+    "fieldId": 180022148,
+    "label": "Age at signup",
+    "calculation": "date_plus([180022147], [180022065], 'Years')",
+    "dependsOn": [
+      180022147,
+      180022065
+    ],
+    "isTerminal": false,
+    "circularReference": false
+  },
+  "180022261": {
+    "fieldId": 180022261,
+    "label": "Total Recommended OTJ Hours reduction (NB: This cannot result in fewer hours than the required minimum duration) ",
+    "calculation": " +  +  +  + ",
+    "dependsOn": [],
+    "isTerminal": true,
+    "circularReference": false
+  },
+  "180022271": {
+    "fieldId": 180022271,
+    "label": "( < 30 Hours) Annual statutory leave entitlement including bank holidays (weeks)",
+    "calculation": "(  / 5 ) - .49",
+    "dependsOn": [],
+    "isTerminal": true,
+    "circularReference": false
+  },
+  "180022273": {
+    "fieldId": 180022273,
+    "label": "(>= 30 Hours) Annual statutory leave entitlement including bank holidays (weeks)",
+    "calculation": "(  / 5 ) - .49",
+    "dependsOn": [],
+    "isTerminal": true,
+    "circularReference": false
+  },
+  "180022274": {
+    "fieldId": 180022274,
+    "label": "( <30 Hours ) Get Hours a Day",
+    "calculation": "[180022054] / ",
+    "dependsOn": [
+      180022054
+    ],
+    "isTerminal": false,
+    "circularReference": false
+  },
+  "180022275": {
+    "fieldId": 180022275,
+    "label": "(=>30 Hours) Get Hours a Day",
+    "calculation": "[180022054] / ",
+    "dependsOn": [
+      180022054
+    ],
+    "isTerminal": false,
+    "circularReference": false
+  },
+  "180022276": {
+    "fieldId": 180022276,
+    "label": "( < 30 Hours) Annual Leave entitlement hours",
+    "calculation": " * ",
+    "dependsOn": [],
+    "isTerminal": true,
+    "circularReference": false
+  },
+  "180022277": {
+    "fieldId": 180022277,
+    "label": "(>= 30 Hours) Annual Leave entitlement hours",
+    "calculation": " * ",
+    "dependsOn": [],
+    "isTerminal": true,
+    "circularReference": false
+  },
+  "180022278": {
+    "fieldId": 180022278,
+    "label": "Debug: Course Minimum Total Weeks on Programme 372 days",
+    "calculation": "[180022096] / 7",
+    "dependsOn": [
+      180022096
+    ],
+    "isTerminal": false,
+    "circularReference": true
+  },
+  "180022279": {
+    "fieldId": 180022279,
+    "label": "Fewer: Calculation - Hours Worked",
+    "calculation": "[180022054] *  - ",
+    "dependsOn": [
+      180022054
+    ],
+    "isTerminal": false,
+    "circularReference": false
+  },
+  "180022280": {
+    "fieldId": 180022280,
+    "label": "Greater: Calculation - Hours Worked",
+    "calculation": " *  - ",
+    "dependsOn": [],
+    "isTerminal": true,
+    "circularReference": false
+  },
+  "180022281": {
+    "fieldId": 180022281,
+    "label": "(< 30 Hours)  Minimum OTJT Calculation",
+    "calculation": "( ( (  -  ) *  ) / 100 * 20 ) + .49",
+    "dependsOn": [],
+    "isTerminal": true,
+    "circularReference": false
+  },
+  "180022282": {
+    "fieldId": 180022282,
+    "label": "(=> 30 Hours) Minimum OTJT calculation",
+    "calculation": "(  -  ) * 6",
+    "dependsOn": [],
+    "isTerminal": true,
+    "circularReference": false
+  },
+  "180022285": {
+    "fieldId": 180022285,
+    "label": " Minimum off the job hours",
+    "calculation": "( 0.2 *  ) * ",
+    "dependsOn": [],
+    "isTerminal": true,
+    "circularReference": false
+  },
+  "180022286": {
+    "fieldId": 180022286,
+    "label": "( < 30 Hours ) Off the job hours difference",
+    "calculation": " - ",
+    "dependsOn": [],
+    "isTerminal": true,
+    "circularReference": false
+  },
+  "180022287": {
+    "fieldId": 180022287,
+    "label": "Course Minimum Off the job hours difference",
+    "calculation": " - ",
+    "dependsOn": [],
+    "isTerminal": true,
+    "circularReference": false
+  },
+  "180022288": {
+    "fieldId": 180022288,
+    "label": "(=> 30 Hours) Off the job hours difference",
+    "calculation": " - ",
+    "dependsOn": [],
+    "isTerminal": true,
+    "circularReference": false
+  },
+  "180022290": {
+    "fieldId": 180022290,
+    "label": "RPL Hours % (Course Cost Reduction)",
+    "calculation": "(  / [180022052] * 100 ) / 2",
+    "dependsOn": [
+      180022052
+    ],
+    "isTerminal": false,
+    "circularReference": false
+  },
+  "180022292": {
+    "fieldId": 180022292,
+    "label": "RPL Hours % (Course Cost Reduction) New Version - Not in Use",
+    "calculation": " / [180022052] * 100",
+    "dependsOn": [
+      180022052
+    ],
+    "isTerminal": false,
+    "circularReference": false
+  },
+  "180022293": {
+    "fieldId": 180022293,
+    "label": "Planned OTJ Hours",
+    "calculation": "[180022052] - ",
+    "dependsOn": [
+      180022052
+    ],
+    "isTerminal": false,
+    "circularReference": false
+  },
+  "180022295": {
+    "fieldId": 180022295,
+    "label": "Planned OTJ Hours - Copy - Not in Use",
+    "calculation": "[180022052] - ",
+    "dependsOn": [
+      180022052
+    ],
+    "isTerminal": false,
+    "circularReference": false
+  },
+  "180022333": {
+    "fieldId": 180022333,
+    "label": "FS English : Expected End Date",
+    "calculation": "date_plus([180022332], [180022328], 'Months')",
+    "dependsOn": [
+      180022332,
+      180022328
+    ],
+    "isTerminal": false,
+    "circularReference": false
+  },
+  "180022336": {
+    "fieldId": 180022336,
+    "label": "FS Maths : Expected End Date ",
+    "calculation": "date_plus([180022065], [180022328], 'Months')",
+    "dependsOn": [
+      180022065,
+      180022328
+    ],
+    "isTerminal": false,
+    "circularReference": false
+  }
+}

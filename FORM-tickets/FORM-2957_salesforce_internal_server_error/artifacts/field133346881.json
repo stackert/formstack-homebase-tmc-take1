@@ -1,0 +1,78 @@
+{
+  "id": "133346881",
+  "label": "When should online registration OPEN to the public?",
+  "hide_label": "0",
+  "description": "",
+  "name": "when_should_online_registration_open_to_the_public",
+  "type": "radio",
+  "options": [
+    {
+      "label": "With all early fall programs",
+      "value": "With all early fall programs",
+      "imageUrl": ""
+    },
+    {
+      "label": "With all late fall programs",
+      "value": "With all late fall programs",
+      "imageUrl": ""
+    },
+    {
+      "label": "With all winter programs",
+      "value": "With all winter programs",
+      "imageUrl": ""
+    },
+    {
+      "label": "With all early spring programs",
+      "value": "With all early spring programs",
+      "imageUrl": ""
+    },
+    {
+      "label": "With all late spring programs",
+      "value": "With all late spring programs",
+      "imageUrl": ""
+    },
+    {
+      "label": "With all summer programs",
+      "value": "With all summer programs",
+      "imageUrl": ""
+    },
+    {
+      "label": "ASAP",
+      "value": "ASAP",
+      "imageUrl": null
+    },
+    {
+      "label": "On a specific date",
+      "value": "On a specific date",
+      "imageUrl": null
+    },
+    {
+      "label": "No online registration",
+      "value": "No online registration",
+      "imageUrl": ""
+    }
+  ],
+  "required": "1",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "37",
+  "logic": null,
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "option_layout": "vertical",
+  "option_other": 0,
+  "randomize_options": 0,
+  "option_store": "value",
+  "option_show_values": 0,
+  "use_images": 0,
+  "image_dimensions": "customDimensions",
+  "image_height": 100,
+  "image_width": 100,
+  "lock_image_ratio": true,
+  "lock_image_ratio_option": "fitProportionally",
+  "image_label_alignment": "bottom"
+}

@@ -1,0 +1,55 @@
+{
+  "id": "133347305",
+  "label": "Supervisor's Name",
+  "hide_label": "0",
+  "description": "",
+  "name": "supervisors_name",
+  "type": "text",
+  "options": "",
+  "required": "1",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "478",
+  "logic": {
+    "action": "show",
+    "conditional": "any",
+    "checks": [
+      {
+        "field": "133346842",
+        "condition": "equals",
+        "option": "A/V Equipment Request"
+      },
+      {
+        "field": "133347292",
+        "condition": "equals",
+        "option": "Yes"
+      },
+      {
+        "field": 135275317,
+        "condition": "equals",
+        "option": "Yes"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "text_size": 50,
+  "minlength": 0,
+  "maxlength": 0,
+  "placeholder": "",
+  "field_one_calculation": 0,
+  "field_two_calculation": 0,
+  "calculation_units": "",
+  "calculation_operator": "",
+  "calculation_type": "",
+  "calculation_allow_negatives": 0,
+  "hide_input_characters": 0,
+  "remove_data_from_emails": 0,
+  "require_confirmation": 0,
+  "confirmationText": "",
+  "restrict_data_access": 0
+}

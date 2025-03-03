@@ -1,0 +1,40 @@
+{
+  "id": "133346869",
+  "label": "Program Description",
+  "hide_label": "0",
+  "description": "This should be a comprehensive, detailed description with everything a person needs to know about the program. Please ensure that all details are correct and up-to-date, as well as spelling, punctuation, etc..",
+  "name": "program_description",
+  "type": "textarea",
+  "options": "",
+  "required": "1",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "2",
+  "sort": "34",
+  "logic": {
+    "action": "show",
+    "conditional": "any",
+    "checks": [
+      {
+        "field": "133346842",
+        "condition": "equals",
+        "option": "MJCCA Website - Program Description"
+      },
+      {
+        "field": 133348718,
+        "condition": "equals",
+        "option": "1000"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "rows": 12,
+  "cols": 50,
+  "minlength": 0,
+  "maxlength": 0,
+  "placeholder": ""
+}

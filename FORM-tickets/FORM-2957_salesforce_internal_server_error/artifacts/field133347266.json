@@ -1,0 +1,33 @@
+{
+  "id": "133347266",
+  "label": "Name: Host or Site Contact",
+  "hide_label": "0",
+  "description": "",
+  "name": "name_host_or_site_contact",
+  "type": "name",
+  "options": "",
+  "required": "0",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "439",
+  "logic": null,
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "show_prefix": 0,
+  "show_middle": 0,
+  "show_initial": 0,
+  "show_suffix": 0,
+  "text_size": 20,
+  "middle_initial_optional": 0,
+  "middle_name_optional": 0,
+  "prefix_optional": 0,
+  "suffix_optional": 0,
+  "visible_subfields": [
+    "first",
+    "last"
+  ]
+}

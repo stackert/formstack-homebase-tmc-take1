@@ -1,0 +1,53 @@
+{
+  "id": "133346877",
+  "label": "If someone is on the MJCCA website and wants to participate in this program, what is their next step?",
+  "hide_label": "0",
+  "description": "This text will be included with the program listing on the website, linking people to their next step.",
+  "name": "if_someone_is_on_the_mjcca_website_and_wants_to_participate_in_this_program_what_is_their_next_step",
+  "type": "radio",
+  "options": [
+    {
+      "label": "Continue to Registration",
+      "value": "5",
+      "imageUrl": null
+    },
+    {
+      "label": "Buy Tickets",
+      "value": "3",
+      "imageUrl": ""
+    },
+    {
+      "label": "Apply Now",
+      "value": "4",
+      "imageUrl": ""
+    },
+    {
+      "label": "No Registration Required",
+      "value": "1",
+      "imageUrl": ""
+    }
+  ],
+  "required": "1",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "19",
+  "logic": null,
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "5",
+  "option_layout": "vertical",
+  "option_other": false,
+  "randomize_options": false,
+  "option_store": "label",
+  "option_show_values": true,
+  "use_images": false,
+  "image_dimensions": "customDimensions",
+  "image_height": 100,
+  "image_width": 100,
+  "lock_image_ratio": true,
+  "lock_image_ratio_option": "fitProportionally",
+  "image_label_alignment": "bottom"
+}

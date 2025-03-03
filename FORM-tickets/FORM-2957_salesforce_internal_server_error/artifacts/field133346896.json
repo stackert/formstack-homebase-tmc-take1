@@ -1,0 +1,37 @@
+{
+  "id": "133346896",
+  "label": "Confirmation email",
+  "hide_label": "0",
+  "description": "",
+  "name": "confirmation_email",
+  "type": "file",
+  "options": "",
+  "required": "1",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "2",
+  "sort": "131",
+  "logic": {
+    "action": "show",
+    "conditional": "any",
+    "checks": [
+      {
+        "field": "135443482",
+        "condition": "equals",
+        "option": "Yes"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "text_size": "30",
+  "file_types": "jpg,jpeg,gif,png,bmp,tif,psd,pdf,doc,docx,csv,xls,xlsx,txt,mp3,mp4,aac,wav,au,wmv,avi,mpg,mpeg,zip,gz,rar,z,tgz,tar,sitx",
+  "allowMultipleFiles": false,
+  "fileLimit": 10,
+  "fileSizeUnit": "MB",
+  "maxFileSizeMagnitude": 10,
+  "minFileSizeMagnitude": 0
+}

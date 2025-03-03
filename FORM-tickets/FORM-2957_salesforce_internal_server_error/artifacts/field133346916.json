@@ -1,0 +1,22 @@
+{
+  "id": "133346916",
+  "label": "",
+  "hide_label": "0",
+  "description": "",
+  "name": "",
+  "type": "richtext",
+  "options": "",
+  "required": "0",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "480",
+  "logic": null,
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "section_text": "<p><u><strong>Drinks</strong></u></p><p>Coca-Cola is a sponsor of the MJCCA, so only Coca-Cola brands may be provided at MJCCA programs and events (e.g. Coke, Dasani, Powerade, Minute Maid, &nbsp;SmartWater, VitaminWater, AHA)</p><p>Alcoholic beverages may only be served by a licensed bartender. &nbsp;If serving alcohol, please contact David Fried or Janice Wolf.</p><p><strong><u>Catering</u></strong></p><p>A Kosher Touch is the MJCCA’s kosher caterer of choice. &nbsp;If the MJCCA is sponsoring an event, A Kosher Touch should be given the opportunity to provide a quote for food at the event. &nbsp;Contact Wendy Cohen, wendy@sandrasaddedtouch.com.</p><p><strong><u>Kosher Policy</u></strong></p><p>Unless catered by a Kosher vendor, all food, other than kosher fish, must be non-meat.&nbsp;</p><ul><li>Non-meat refers to products that do not contain flesh foods, as well as byproducts of meat and poultry (such as animal gelatins or rennet – for example Jello, marshmallows, or some cheeses).&nbsp;</li><li>Kosher fish refers to fish that have fins and scales. Examples of kosher fish are tuna, grouper, bass, flounder, salmon, etc. Examples of non-kosher fish are catfish, shellfish, shrimp, lobster, marlin, monk fish, mussels, etc.</li></ul><p>If kosher meat is served, the following guidelines will be strictly followed:</p><ul><li>Approval from JCC rabbi / mashgiach.</li><li>Meat must contain AKC accepted hechsher.</li><li>Equipment (grills, utensils, tools) will be stored and reserved for this purpose only.</li><li>Meat and milk products will not be served together.</li><li>Adequate signage will always be used to designate the kashrut status of served foods.</li><li>For all JCC sponsored events, there will always be an AKC (or similarly accepted supervision) food option.</li></ul><p>Please reach out to Rabbi Glusman before ordering or serving food at MJCCA sponsored events.</p><p><a href=\"https://www.atlantajcc.org/about/facility-rentals/\" rel=\"noopener noreferrer\" target=\"_blank\">Kosher Policy for Rentals</a></p><p>To learn more about Jewish Dietary Laws (known as kashrut in Hebrew), go to <a href=\"http://www.myjewishlearning.com/article/kashrut-101\" rel=\"noopener noreferrer\" target=\"_blank\">www.myjewishlearning.com/article/kashrut-101</a>.</p>",
+  "text_editor": "wysiwyg"
+}

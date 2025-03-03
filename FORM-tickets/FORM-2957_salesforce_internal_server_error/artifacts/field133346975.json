@@ -1,0 +1,40 @@
+{
+  "id": "133346975",
+  "label": "Pricing Notes",
+  "hide_label": "0",
+  "description": "",
+  "name": "pricing_notes",
+  "type": "textarea",
+  "options": "",
+  "required": "0",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "88",
+  "logic": {
+    "action": "show",
+    "conditional": "any",
+    "checks": [
+      {
+        "field": "133347312",
+        "condition": "greaterthan",
+        "option": 0
+      },
+      {
+        "field": 133346888,
+        "condition": "equals",
+        "option": "0"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "rows": 3,
+  "cols": 50,
+  "minlength": 0,
+  "maxlength": 0,
+  "placeholder": ""
+}

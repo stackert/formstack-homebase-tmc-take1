@@ -1,0 +1,41 @@
+{
+  "id": "133346874",
+  "label": "MJCCA website promotion date",
+  "hide_label": "0",
+  "description": "This must happen before emails, newsletters, or other marketing materials can be published.  This is not necessarily the date that registration opens to the public.",
+  "name": "mjcca_website_promotion_date",
+  "type": "datetime",
+  "options": "",
+  "required": "0",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "30",
+  "logic": {
+    "action": "show",
+    "conditional": "any",
+    "checks": [
+      {
+        "field": 137575979,
+        "condition": "equals",
+        "option": "On a specific date"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "field_one_calculation": 0,
+  "field_two_calculation": 0,
+  "calculation_units": "",
+  "calculation_operator": "",
+  "calculation_type": "",
+  "date_format": "M d, Y",
+  "max_date": "",
+  "time_format": "",
+  "year_minus": "",
+  "year_plus": 5,
+  "display_option": "calendar"
+}

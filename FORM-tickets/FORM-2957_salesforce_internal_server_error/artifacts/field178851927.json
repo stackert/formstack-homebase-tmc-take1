@@ -1,0 +1,76 @@
+{
+  "id": "178851927",
+  "label": "",
+  "hide_label": "0",
+  "description": "",
+  "name": "",
+  "type": "section",
+  "options": "",
+  "required": "0",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "122",
+  "logic": {
+    "action": "show",
+    "conditional": "any",
+    "checks": [
+      {
+        "field": 133348718,
+        "condition": "equals",
+        "option": "1000"
+      },
+      {
+        "field": 133346842,
+        "condition": "equals",
+        "option": "Location"
+      },
+      {
+        "field": 133346842,
+        "condition": "equals",
+        "option": "Event Security Checklist"
+      },
+      {
+        "field": 133346842,
+        "condition": "equals",
+        "option": "A/V Equipment Request"
+      },
+      {
+        "field": 133348718,
+        "condition": "equals",
+        "option": "10"
+      },
+      {
+        "field": 133348718,
+        "condition": "equals",
+        "option": "20"
+      },
+      {
+        "field": 133346842,
+        "condition": "equals",
+        "option": "Add Another Course Option"
+      },
+      {
+        "field": 133348718,
+        "condition": "equals",
+        "option": "100"
+      },
+      {
+        "field": 133346898,
+        "condition": "greaterthan",
+        "option": 74
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "section_break": 0,
+  "section_heading": "Location",
+  "section_text": "",
+  "text_editor": "wysiwyg",
+  "label_position": "default",
+  "num_columns": "2"
+}

@@ -1,0 +1,11 @@
+INSERT INTO `formApprover` (`id`, `form`, `user`, `level`, `settings`, `account`) VALUES
+(157985, 4742610, 866210, 1, 'a:1:{s:5:\"logic\";a:3:{s:7:\"boolean\";s:3:\"AND\";s:6:\"checks\";a:1:{i:0;a:3:{s:5:\"field\";s:9:\"122688046\";s:9:\"condition\";s:2:\"==\";s:6:\"option\";s:16:\"Student Activity\";}}s:6:\"fields\";a:1:{i:0;s:9:\"122688046\";}}}', NULL),
+(157986, 4742610, 892760, 1, 'a:1:{s:5:\"logic\";a:3:{s:7:\"boolean\";s:3:\"AND\";s:6:\"checks\";a:1:{i:0;a:3:{s:5:\"field\";s:9:\"122688046\";s:9:\"condition\";s:2:\"==\";s:6:\"option\";s:8:\"Academic\";}}s:6:\"fields\";a:1:{i:0;s:9:\"122688046\";}}}', NULL),
+(157987, 4742610, 799128, 1, 'a:1:{s:5:\"logic\";a:3:{s:7:\"boolean\";s:3:\"AND\";s:6:\"checks\";a:1:{i:0;a:3:{s:5:\"field\";s:9:\"122688046\";s:9:\"condition\";s:2:\"==\";s:6:\"option\";s:16:\"Student Services\";}}s:6:\"fields\";a:1:{i:0;s:9:\"122688046\";}}}', NULL),
+(157988, 4742610, 778943, 1, 'a:1:{s:5:\"logic\";a:3:{s:7:\"boolean\";s:3:\"AND\";s:6:\"checks\";a:1:{i:0;a:3:{s:5:\"field\";s:9:\"122688046\";s:9:\"condition\";s:2:\"==\";s:6:\"option\";s:10:\"Vocational\";}}s:6:\"fields\";a:1:{i:0;s:9:\"122688046\";}}}', NULL),
+(157990, 4742610, 798893, 1, 'a:1:{s:5:\"logic\";a:3:{s:7:\"boolean\";s:3:\"AND\";s:6:\"checks\";a:1:{i:0;a:3:{s:5:\"field\";s:9:\"122688050\";s:9:\"condition\";s:2:\"==\";s:6:\"option\";s:3:\"Yes\";}}s:6:\"fields\";a:1:{i:0;s:9:\"122688050\";}}}', NULL),
+(201802, 4742610, 2094223, 1, 'a:1:{s:5:\"logic\";a:3:{s:7:\"boolean\";s:3:\"AND\";s:6:\"checks\";a:1:{i:0;a:3:{s:5:\"field\";s:9:\"122688046\";s:9:\"condition\";s:2:\"==\";s:6:\"option\";s:8:\"Adult Ed\";}}s:6:\"fields\";a:1:{i:0;s:9:\"122688046\";}}}', NULL),
+(201805, 4742610, 1945709, 1, 'a:1:{s:5:\"logic\";a:3:{s:7:\"boolean\";s:3:\"AND\";s:6:\"checks\";a:1:{i:0;a:3:{s:5:\"field\";s:9:\"122688046\";s:9:\"condition\";s:2:\"==\";s:6:\"option\";s:9:\"Athletics\";}}s:6:\"fields\";a:1:{i:0;s:9:\"122688046\";}}}', NULL),
+(207606, 4742610, 660902, 1, 'a:1:{s:5:\"logic\";a:3:{s:7:\"boolean\";s:3:\"AND\";s:6:\"checks\";a:1:{i:0;a:3:{s:5:\"field\";s:9:\"122688049\";s:9:\"condition\";s:2:\"==\";s:6:\"option\";s:3:\"Yes\";}}s:6:\"fields\";a:1:{i:0;s:9:\"122688049\";}}}', NULL),
+(207607, 4742610, 822489, 2, 'a:1:{s:5:\"logic\";a:0:{}}', NULL),
+(207608, 4742610, 734812, 3, '', NULL);

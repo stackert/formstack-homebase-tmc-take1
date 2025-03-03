@@ -1,0 +1,73 @@
+{
+  "id": "133346938",
+  "label": "Age/Grade Requirement",
+  "hide_label": "0",
+  "description": "",
+  "name": "agegrade_requirement",
+  "type": "radio",
+  "options": [
+    {
+      "label": "Any Age / Any Grade",
+      "value": "Any Age / Any Grade",
+      "imageUrl": null
+    },
+    {
+      "label": "Specific Age(s) Only",
+      "value": "Specific Age(s) Only",
+      "imageUrl": null
+    },
+    {
+      "label": "Specific Grade(s) Only",
+      "value": "Specific Grade(s) Only",
+      "imageUrl": ""
+    },
+    {
+      "label": "Specific Age(s) & Grade(s)",
+      "value": "Specific Age(s) & Grade(s)",
+      "imageUrl": ""
+    }
+  ],
+  "required": "1",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "66",
+  "logic": {
+    "action": "show",
+    "conditional": "any",
+    "checks": [
+      {
+        "field": 133348718,
+        "condition": "equals",
+        "option": "1000"
+      },
+      {
+        "field": 133346842,
+        "condition": "equals",
+        "option": "Add Another Course Option"
+      },
+      {
+        "field": 133346842,
+        "condition": "equals",
+        "option": "Who Can Participate - Age/Grade Requirement"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "option_layout": "vertical",
+  "option_other": 0,
+  "randomize_options": 0,
+  "option_store": "value",
+  "option_show_values": 0,
+  "use_images": 0,
+  "image_dimensions": "customDimensions",
+  "image_height": 100,
+  "image_width": 100,
+  "lock_image_ratio": true,
+  "lock_image_ratio_option": "fitProportionally",
+  "image_label_alignment": "bottom"
+}

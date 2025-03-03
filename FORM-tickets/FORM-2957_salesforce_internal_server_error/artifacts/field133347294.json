@@ -1,0 +1,65 @@
+{
+  "id": "133347294",
+  "label": "What capabilities will the presenter need?",
+  "hide_label": "0",
+  "description": "Check all that apply",
+  "name": "what_capabilities_will_the_presenter_need",
+  "type": "checkbox",
+  "options": [
+    {
+      "label": "Internet Access",
+      "value": "Internet Access",
+      "imageUrl": null
+    },
+    {
+      "label": "Microsoft Office (PowerPoint, Excel, Word, Publisher)",
+      "value": "Microsoft Office (PowerPoint, Excel, Word, Publisher)",
+      "imageUrl": null
+    },
+    {
+      "label": "DVD Player",
+      "value": "DVD Player",
+      "imageUrl": null
+    },
+    {
+      "label": "Online Videos (Youtube)",
+      "value": "Online Videos (Youtube)",
+      "imageUrl": ""
+    }
+  ],
+  "required": "0",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "467",
+  "logic": {
+    "action": "show",
+    "conditional": "all",
+    "checks": [
+      {
+        "field": 133347292,
+        "condition": "equals",
+        "option": "Yes"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "option_layout": "vertical",
+  "option_other": false,
+  "option_checkall": false,
+  "randomize_options": false,
+  "option_store": "value",
+  "option_show_values": false,
+  "use_images": false,
+  "image_dimensions": "customDimensions",
+  "image_height": 100,
+  "image_width": 100,
+  "lock_image_ratio": true,
+  "lock_image_ratio_option": "fitProportionally",
+  "image_label_alignment": "bottom",
+  "hide_option_button": true
+}

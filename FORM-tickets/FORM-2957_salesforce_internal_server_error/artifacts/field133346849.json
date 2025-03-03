@@ -1,0 +1,53 @@
+{
+  "id": "133346849",
+  "label": "Marketing Lead",
+  "hide_label": "0",
+  "description": "",
+  "name": "marketing_lead",
+  "type": "radio",
+  "options": [
+    {
+      "label": "Jennifer Bienstock",
+      "value": "Jennifer.Bienstock@atlantajcc.org",
+      "imageUrl": ""
+    },
+    {
+      "label": "Melanie Cummings",
+      "value": "Melanie.Cummings@atlantajcc.org",
+      "imageUrl": null
+    },
+    {
+      "label": "Eliana Weiss",
+      "value": "Eliana.Weiss@atlantajcc.org",
+      "imageUrl": ""
+    },
+    {
+      "label": "Keely Sime",
+      "value": "keely.sime@atlantajcc.org",
+      "imageUrl": ""
+    }
+  ],
+  "required": "1",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "411",
+  "logic": null,
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "option_layout": "vertical",
+  "option_other": 0,
+  "randomize_options": 0,
+  "option_store": "both",
+  "option_show_values": true,
+  "use_images": 0,
+  "image_dimensions": "customDimensions",
+  "image_height": 100,
+  "image_width": 100,
+  "lock_image_ratio": true,
+  "lock_image_ratio_option": "fitProportionally",
+  "image_label_alignment": "bottom"
+}

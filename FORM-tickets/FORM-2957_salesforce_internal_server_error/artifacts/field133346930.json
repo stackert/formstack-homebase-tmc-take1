@@ -1,0 +1,32 @@
+{
+  "id": "133346930",
+  "label": "",
+  "hide_label": "0",
+  "description": "",
+  "name": "",
+  "type": "richtext",
+  "options": "",
+  "required": "0",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "2",
+  "sort": "63",
+  "logic": {
+    "action": "show",
+    "conditional": "all",
+    "checks": [
+      {
+        "field": 133346922,
+        "condition": "equals",
+        "option": "Multiple Dates"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "section_text": "<p style=\"text-align: center;\">If this program has additional mid-week practices, a performance, or other gatherings outside of the dates/times provided here, please also submit a <em><u>Facility Booking (other use)</u></em> request for the additional meeting dates.</p>",
+  "text_editor": "wysiwyg"
+}

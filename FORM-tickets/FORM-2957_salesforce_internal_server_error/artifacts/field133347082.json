@@ -1,0 +1,43 @@
+{
+  "id": "133347082",
+  "label": "3. Should the FINAL PAYMENT be reduced by the amount of the deposit?",
+  "hide_label": "0",
+  "description": "",
+  "name": "3_should_the_final_payment_be_reduced_by_the_amount_of_the_deposit",
+  "type": "radio",
+  "options": [
+    {
+      "label": "Yes",
+      "value": "2",
+      "imageUrl": null
+    },
+    {
+      "label": "No",
+      "value": "1",
+      "imageUrl": null
+    }
+  ],
+  "required": "1",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "223",
+  "logic": null,
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "1",
+  "option_layout": "horizontal",
+  "option_other": 0,
+  "randomize_options": 0,
+  "option_store": "label",
+  "option_show_values": true,
+  "use_images": 0,
+  "image_dimensions": "customDimensions",
+  "image_height": 100,
+  "image_width": 100,
+  "lock_image_ratio": true,
+  "lock_image_ratio_option": "fitProportionally",
+  "image_label_alignment": "bottom"
+}

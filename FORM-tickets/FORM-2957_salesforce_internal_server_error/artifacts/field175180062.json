@@ -1,0 +1,43 @@
+{
+  "id": "175180062",
+  "label": "zzExclude from website program listings?",
+  "hide_label": "0",
+  "description": "For programs not advertised to the public.",
+  "name": "zzexclude_from_website_program_listings",
+  "type": "radio",
+  "options": [
+    {
+      "label": "Yes",
+      "value": "Yes",
+      "imageUrl": null
+    },
+    {
+      "label": "No",
+      "value": "No",
+      "imageUrl": null
+    }
+  ],
+  "required": "0",
+  "uniq": "0",
+  "hidden": "1",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "505",
+  "logic": null,
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "option_layout": "horizontal",
+  "option_other": 0,
+  "randomize_options": 0,
+  "option_store": "value",
+  "option_show_values": 0,
+  "use_images": 0,
+  "image_dimensions": "customDimensions",
+  "image_height": 100,
+  "image_width": 100,
+  "lock_image_ratio": true,
+  "lock_image_ratio_option": "fitProportionally",
+  "image_label_alignment": "bottom"
+}

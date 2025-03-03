@@ -1,0 +1,36 @@
+{
+  "id": "133347204",
+  "label": "",
+  "hide_label": "0",
+  "description": "",
+  "name": "",
+  "type": "section",
+  "options": "",
+  "required": "0",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "355",
+  "logic": {
+    "action": "show",
+    "conditional": "any",
+    "checks": [
+      {
+        "field": "133346918",
+        "condition": "greaterthan",
+        "option": 5
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "section_break": 0,
+  "section_heading": "",
+  "section_text": "<hr><hr><h1 style=\"text-align: center;\">COURSE OPTION #6</h1><hr><hr>",
+  "text_editor": "wysiwyg",
+  "label_position": "default",
+  "num_columns": "2"
+}

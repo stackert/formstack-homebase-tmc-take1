@@ -1,0 +1,106 @@
+{
+  "id": "133346848",
+  "label": "",
+  "hide_label": "0",
+  "description": "",
+  "name": "",
+  "type": "section",
+  "options": "",
+  "required": "0",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "410",
+  "logic": {
+    "action": "show",
+    "conditional": "any",
+    "checks": [
+      {
+        "field": "133346842",
+        "condition": "equals",
+        "option": "Add Another Course Option"
+      },
+      {
+        "field": "133346842",
+        "condition": "equals",
+        "option": "Dates & Times"
+      },
+      {
+        "field": "133346842",
+        "condition": "equals",
+        "option": "Instructor"
+      },
+      {
+        "field": "133346842",
+        "condition": "equals",
+        "option": "Location"
+      },
+      {
+        "field": "133346842",
+        "condition": "equals",
+        "option": "MJCCA Website - Program Description"
+      },
+      {
+        "field": "133346842",
+        "condition": "equals",
+        "option": "Pricing"
+      },
+      {
+        "field": "133346842",
+        "condition": "equals",
+        "option": "Program/Event Name"
+      },
+      {
+        "field": "133348718",
+        "condition": "equals",
+        "option": "1000"
+      },
+      {
+        "field": "133348718",
+        "condition": "equals",
+        "option": "30"
+      },
+      {
+        "field": "133348718",
+        "condition": "equals",
+        "option": "3000"
+      },
+      {
+        "field": "133346842",
+        "condition": "equals",
+        "option": "MJCCA Program Guide"
+      },
+      {
+        "field": 133346842,
+        "condition": "equals",
+        "option": "Marketing Materials"
+      },
+      {
+        "field": 133346842,
+        "condition": "equals",
+        "option": "Who Can Participate - Membership Requirement"
+      },
+      {
+        "field": 133346842,
+        "condition": "equals",
+        "option": "Who Can Participate - Age/Grade Requirement"
+      },
+      {
+        "field": 133346842,
+        "condition": "equals",
+        "option": "Registration Type (incl. 3rd party website)"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "section_break": 0,
+  "section_heading": "Marketing",
+  "section_text": "",
+  "text_editor": "wysiwyg",
+  "label_position": "default",
+  "num_columns": "2"
+}

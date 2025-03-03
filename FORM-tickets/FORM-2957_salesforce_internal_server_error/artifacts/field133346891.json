@@ -1,0 +1,73 @@
+{
+  "id": "133346891",
+  "label": "Is this program dependent care eligible / tax deductible?",
+  "hide_label": "0",
+  "description": "Select YES for the following: Club J (after school program only, not enrichment classes), School's Out Camps, Preschool Vacation Camp, Preschool, or Day Camps",
+  "name": "is_this_program_dependent_care_eligible__tax_deductible",
+  "type": "radio",
+  "options": [
+    {
+      "label": "Yes",
+      "value": "Yes",
+      "imageUrl": null
+    },
+    {
+      "label": "No",
+      "value": "No",
+      "imageUrl": null
+    }
+  ],
+  "required": "1",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "82",
+  "logic": {
+    "action": "show",
+    "conditional": "any",
+    "checks": [
+      {
+        "field": 133346846,
+        "condition": "equals",
+        "option": "a2b1M000001FOaVQAW"
+      },
+      {
+        "field": 133346846,
+        "condition": "equals",
+        "option": "a2b1M000001FObWQAW"
+      },
+      {
+        "field": 133346846,
+        "condition": "equals",
+        "option": "a2bVy0000001kjxIAA"
+      },
+      {
+        "field": 133346846,
+        "condition": "equals",
+        "option": "a2b1M0000011dW8QAI"
+      },
+      {
+        "field": 133346846,
+        "condition": "equals",
+        "option": "a2b1M000001FPEuQAO"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "No",
+  "option_layout": "vertical",
+  "option_other": 0,
+  "randomize_options": 0,
+  "option_store": "value",
+  "option_show_values": 0,
+  "use_images": 0,
+  "image_dimensions": "customDimensions",
+  "image_height": 100,
+  "image_width": 100,
+  "lock_image_ratio": true,
+  "lock_image_ratio_option": "fitProportionally",
+  "image_label_alignment": "bottom"
+}

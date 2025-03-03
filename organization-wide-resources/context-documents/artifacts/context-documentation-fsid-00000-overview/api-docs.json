@@ -1,0 +1,4797 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Internal API",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://admin.dev-formstack.com:8085/internal-api/v1",
+      "description": "Local Dev Version"
+    },
+    {
+      "url": "https://admin.formstack.com/internal-api/v1",
+      "description": "Production"
+    },
+    {
+      "url": "https://admin.staging-formstack.com/internal-api/v1",
+      "description": "Staging"
+    },
+    {
+      "url": "https://admin.testing-formstack.com/internal-api/v1",
+      "description": "Testing"
+    }
+  ],
+  "paths": {
+    "/organizations/{organizationId}/billing/addons": {
+      "get": {
+        "tags": ["Billing"],
+        "operationId": "getAddonsStatus",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "in": "path",
+            "description": "ID of organization",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get addons available to an organization",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "title": "addonStatus",
+                    "properties": {
+                      "handle": {
+                        "type": "string",
+                        "example": "c:forms-workflows"
+                      },
+                      "name": {
+                        "type": "string",
+                        "example": "Forms: Workflows"
+                      },
+                      "state": {
+                        "type": "string",
+                        "example": "billed"
+                      },
+                      "canStartTrial": {
+                        "type": "boolean"
+                      }
+                    },
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Organization could not be found"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/organizations/{organizationId}/billing/addons/trial/{addonHandle}": {
+      "post": {
+        "tags": ["Billing"],
+        "operationId": "startAddonTrial",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "in": "path",
+            "description": "ID of organization",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "addonHandle",
+            "in": "path",
+            "description": "Handle of the addon",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "c:forms-workflows"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "title": "startAddonTrialRequestPayload",
+                "properties": {
+                  "userId": {
+                    "description": "Id of the user whom wants to add the addon",
+                    "nullable": false
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "The addon was added"
+          },
+          "404": {
+            "description": "Organization, user or addon could not be found"
+          },
+          "422": {
+            "description": "The addon could not be added"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/organizations/{organizationId}/flex/{feature}": {
+      "patch": {
+        "tags": ["Organization"],
+        "operationId": "requestFlex",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "in": "path",
+            "description": "ID of the organization",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "feature",
+            "in": "path",
+            "description": "Flex Feature",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "merges"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "requestCount": {
+                    "description": "Count of the underlying item, including the pending one",
+                    "type": "integer"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully added flex",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "number"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Organization could not be found"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/organizations/{organizationId}/flex/": {
+      "get": {
+        "tags": ["Organization"],
+        "operationId": "flexFeatures",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "in": "path",
+            "description": "ID of the organization",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Organization is eligible to use flexFeature",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Flex Features",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Organization could not be found"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/organizations/{organizationId}/billing/apps/trial/{applicationId}": {
+      "post": {
+        "tags": ["Billing"],
+        "operationId": "startTrialOfApp",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "in": "path",
+            "description": "ID of organization",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of application to start trial for",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "webmerge"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "title": "startAppTrialRequestPayload",
+                "properties": {
+                  "userId": {
+                    "description": "Id of the user whom wants to start the trial",
+                    "nullable": false
+                  },
+                  "trialDays": {
+                    "description": "How many days the trial should last",
+                    "nullable": false
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "The addon was added"
+          },
+          "404": {
+            "description": "Organization, user or addon could not be found"
+          },
+          "422": {
+            "description": "The addon could not be added"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/idp/subaccounts": {
+      "get": {
+        "tags": ["Subaccounts"],
+        "description": "get subaccounts of parent org",
+        "operationId": "subaccountsListing",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Filter by subaccount name",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "products[]",
+            "in": "query",
+            "description": "Filter by products",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "example": "formstack_classic"
+              }
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "perPage",
+            "in": "query",
+            "description": "Per page",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 10,
+              "enum": [10, 25, 50]
+            }
+          },
+          {
+            "name": "orderBy",
+            "in": "query",
+            "description": "Order by",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "createdAt",
+              "enum": ["name", "createdAt"]
+            }
+          },
+          {
+            "name": "orderDir",
+            "in": "query",
+            "description": "Order dir",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": ["asc", "desc"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Subaccount listing results"
+          }
+        }
+      }
+    },
+    "/subaccounts/{organizationId}/login": {
+      "post": {
+        "tags": ["Subaccounts"],
+        "operationId": "login",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "in": "path",
+            "description": "Child org id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "302": {
+            "description": "Redirect response"
+          },
+          "403": {
+            "description": "Unathorized"
+          }
+        }
+      }
+    },
+    "/subaccounts/logout": {
+      "post": {
+        "tags": ["Subaccounts"],
+        "description": "log out of subaccount and get back to parent org",
+        "operationId": "logout",
+        "responses": {
+          "302": {
+            "description": "Redirect response"
+          },
+          "403": {
+            "description": "Unathorized"
+          }
+        }
+      }
+    },
+    "/membership-survey/industries": {
+      "get": {
+        "tags": ["MembershipSurvey"],
+        "operationId": "getIndustries",
+        "responses": {
+          "200": {
+            "description": "Get list of industries",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "properties": {
+                      "label": {
+                        "type": "string",
+                        "example": "Animals/Agriculture/Livestock"
+                      },
+                      "value": {
+                        "type": "string",
+                        "example": "agriculture"
+                      }
+                    },
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/membership-survey/departments": {
+      "get": {
+        "tags": ["MembershipSurvey"],
+        "operationId": "getDepartments",
+        "responses": {
+          "200": {
+            "description": "Get list of departments",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "properties": {
+                      "label": {
+                        "type": "string",
+                        "example": "Operations"
+                      },
+                      "value": {
+                        "type": "string",
+                        "example": "operations"
+                      }
+                    },
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/membership-survey/number-of-employees": {
+      "get": {
+        "tags": ["MembershipSurvey"],
+        "operationId": "getNumberOfEmployees",
+        "responses": {
+          "200": {
+            "description": "Get list of number of employees",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "properties": {
+                      "label": {
+                        "type": "string",
+                        "example": "1-19 employees"
+                      },
+                      "value": {
+                        "type": "string",
+                        "example": "1-19"
+                      }
+                    },
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/organizations/{organizationId}/product-trial/{productId}": {
+      "post": {
+        "tags": ["Organization"],
+        "operationId": "enableProductTrial",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "in": "path",
+            "description": "ID of the organization",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "ID of the product",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "formstack_classic"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/organization_product_trial_payload"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "404": {
+            "description": "Organization or product could not be found"
+          },
+          "422": {
+            "description": "Errors occured",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/general_validation_error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/organizations/{orgId}/bulk-users/{productId}": {
+      "patch": {
+        "tags": ["BulkActions"],
+        "operationId": "bulkUpdateOrganizationUsers",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "description": "ID of the org",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "ID of product",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "title": "bulk_update_organization_users_payload",
+                "properties": {
+                  "userIds": {
+                    "title": "userIds",
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "uuid"
+                    }
+                  },
+                  "role": {
+                    "title": "role",
+                    "type": "string",
+                    "example": "admin"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Users were updated"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/organizations/{orgId}/delete/log": {
+      "post": {
+        "tags": ["DeletionLogs"],
+        "operationId": "log",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "description": "ID of the org",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeletionLog"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Log entry submitted"
+          },
+          "422": {
+            "description": "Errors occured",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/general_validation_error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/organizations/{orgId}/delete/start": {
+      "put": {
+        "tags": ["DeletionLogs"],
+        "operationId": "start",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "description": "ID of the org",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Logged start"
+          },
+          "422": {
+            "description": "Errors occured",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/general_validation_error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/organizations/{orgId}/delete/success": {
+      "put": {
+        "tags": ["DeletionLogs"],
+        "operationId": "success",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "description": "ID of the org",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success recorded"
+          },
+          "422": {
+            "description": "Errors occured",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/general_validation_error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/organizations/{orgId}/fraud": {
+      "post": {
+        "tags": ["Fraud"],
+        "operationId": "report",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "description": "ID of the org",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "reason": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Organization marked as Fraud"
+          },
+          "422": {
+            "description": "Errors occured",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/general_validation_error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/organizations/{orgId}/idps": {
+      "get": {
+        "tags": ["OrganizationIdp"],
+        "operationId": "getOrganizationIdps",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "description": "ID of the org",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Organization idps",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/OrganizationIdp"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Organization could not be found"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/organizations/{orgId}/invitations": {
+      "post": {
+        "tags": ["Organization"],
+        "operationId": "invite",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "description": "ID of the org",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "email",
+                  "firstName",
+                  "lastName",
+                  "initiatorUserId",
+                  "roles"
+                ],
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "firstName": {
+                    "type": "string"
+                  },
+                  "lastName": {
+                    "type": "string"
+                  },
+                  "initiatorUserId": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "roles": {
+                    "type": "object",
+                    "example": {
+                      "organization": "admin",
+                      "formstack_classic": "regular",
+                      "webmerge": "admin",
+                      "insure_sign": "regular",
+                      "odin": "admin"
+                    }
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Invitation has been sent",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "membershipId": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "userId": {
+                      "type": "string",
+                      "format": "uuid",
+                      "nullable": true
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Errors occurred",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/general_validation_error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/organizations/{orgId}/memberships/{membershipId}": {
+      "delete": {
+        "tags": ["OrganizationMembership"],
+        "operationId": "deleteOrganizationMember",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "description": "ID of the org",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "membershipId",
+            "in": "path",
+            "description": "ID of membership",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Membership was deleted"
+          },
+          "404": {
+            "description": "Entity not be found"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "patch": {
+        "tags": ["OrganizationMembership"],
+        "operationId": "updateOrganizationMember",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "description": "ID of the org",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "membershipId",
+            "in": "path",
+            "description": "ID of membership",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": ["roles"],
+                "properties": {
+                  "roles": {
+                    "type": "object",
+                    "example": {
+                      "organization": "admin",
+                      "formstack_classic": "regular",
+                      "webmerge": "admin",
+                      "insure_sign": "regular",
+                      "odin": "admin"
+                    }
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Membership was updated"
+          },
+          "404": {
+            "description": "Entity not be found"
+          },
+          "422": {
+            "description": "Role change not allowed, cannot remove last admin"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/organizations/{organizationId}/product-settings/{productId}": {
+      "get": {
+        "tags": ["Organization"],
+        "operationId": "getOrganizationProductSettings",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "in": "path",
+            "description": "ID of the organization",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "ID of the product",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "formstack_classic"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Settings for the organization and product",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "settings": {
+                      "title": "settings",
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Organization or product could not be found"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "patch": {
+        "tags": ["Organization"],
+        "operationId": "updateOrganizationProductSettings",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "in": "path",
+            "description": "ID of the organization",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "ID of the product",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "formstack_classic"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/organization_product_settings_payload"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Settings for the organization and product",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "settings": {
+                      "title": "settings",
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Organization or product could not be found"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/organization-migrations": {
+      "post": {
+        "tags": ["OrganizationMigration"],
+        "operationId": "migrateOrganization",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/organization_migration_request_payload"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Migrate a new organization and users",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "organization_migration_response",
+                  "properties": {
+                    "organizationId": {
+                      "description": "ID of the inserted organization",
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "users": {
+                      "type": "array",
+                      "items": {
+                        "properties": {
+                          "id": {
+                            "description": "ID of the inserted user",
+                            "type": "string",
+                            "format": "uuid"
+                          },
+                          "email": {
+                            "description": "Email of the inserted user",
+                            "type": "string",
+                            "format": "email"
+                          }
+                        },
+                        "type": "object"
+                      }
+                    },
+                    "preExistingEmails": {
+                      "description": "Emails of users already in the system. Security credentials will be left alone for these users. Only memberships changed",
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "format": "email"
+                      }
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Errors occured",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/general_validation_error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/organization-migrations/using-url": {
+      "post": {
+        "tags": ["OrganizationMigration"],
+        "operationId": "migrateOrganizationUsingDataUrl",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "url": {
+                    "description": "Url that the payload can be pulled from",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Migrate a new organization and users",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "organization_migration_response",
+                  "properties": {
+                    "organizationId": {
+                      "description": "ID of the inserted organization",
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "users": {
+                      "type": "array",
+                      "items": {
+                        "properties": {
+                          "id": {
+                            "description": "ID of the inserted user",
+                            "type": "string",
+                            "format": "uuid"
+                          },
+                          "email": {
+                            "description": "Email of the inserted user",
+                            "type": "string",
+                            "format": "email"
+                          }
+                        },
+                        "type": "object"
+                      }
+                    },
+                    "preExistingEmails": {
+                      "description": "Emails of users already in the system. Security credentials will be left alone for these users. Only memberships changed",
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "format": "email"
+                      }
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Errors occured",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/general_validation_error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/organizations/{organizationId}": {
+      "get": {
+        "tags": ["Organization"],
+        "operationId": "getOrganizationDetails",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "in": "path",
+            "description": "ID of the organization",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get Organization Details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Organization"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Organization could not be found"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "patch": {
+        "tags": ["Organization"],
+        "description": "Only changing name is supported",
+        "operationId": "updateOrganization",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "in": "path",
+            "description": "ID of the organization",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Organization"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Organization",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Organization"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Organization could not be found"
+          },
+          "422": {
+            "description": "Errors occured",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/general_validation_error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/organizations/ssoDomain/{domainOrEmail}": {
+      "get": {
+        "tags": ["Organization"],
+        "operationId": "findOrganizationBySsoDomain",
+        "parameters": [
+          {
+            "name": "domainOrEmail",
+            "in": "path",
+            "description": "Domain or email",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get Organization Details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Organization"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Organization could not be found"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/organizations/{organizationId}/product/{productId}": {
+      "post": {
+        "tags": ["Organization"],
+        "operationId": "enableOrganizationProduct",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "in": "path",
+            "description": "ID of the organization",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "ID of the product",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "formstack_classic"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "404": {
+            "description": "Organization could not be found"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": ["Organization"],
+        "operationId": "cancelOrganizationProduct",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "in": "path",
+            "description": "ID of the organization",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "ID of the product",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "formstack_classic"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "404": {
+            "description": "Organization could not be found"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/organizations/{organizationId}/applicationProvisioned/{applicationId}": {
+      "post": {
+        "tags": ["Organization"],
+        "operationId": "applicationProvisionedCallback",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "in": "path",
+            "description": "ID of the organization",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "formstack_classic"
+          }
+        ],
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "title": "app_provisioned_callback_payload",
+                "properties": {
+                  "nativeId": {
+                    "title": "nativeId",
+                    "type": "string",
+                    "example": "1010"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "404": {
+            "description": "Organization could not be found"
+          },
+          "422": {
+            "description": "Errors occured",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/general_validation_error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/deprecated-password-check": {
+      "post": {
+        "tags": ["User"],
+        "operationId": "deprecatedCheckPassword",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "title": "password_check_request_payload",
+                "properties": {
+                  "email": {
+                    "title": "Email of the user",
+                    "type": "string"
+                  },
+                  "password": {
+                    "title": "Passwod supplied by the user",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Are the credentials good",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "password_check_response_payload",
+                  "properties": {
+                    "valid": {
+                      "title": "Were the credentials good",
+                      "type": "boolean"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/sessions/{id}": {
+      "delete": {
+        "tags": ["Sessions"],
+        "operationId": "destroySessionById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id of the FSID session (same as what is used for session poller)",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Session has been killed if it existed"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/users/{userId}": {
+      "get": {
+        "tags": ["User"],
+        "operationId": "getUserDetails",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "ID of user",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "includeOrganizations",
+            "in": "query",
+            "description": "Include details of organizations the user is a member of",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": "false"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get User Details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User could not be found"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "patch": {
+        "tags": ["User"],
+        "operationId": "updateUser",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "ID of the user",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "User",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User could not be found"
+          },
+          "422": {
+            "description": "Errors occured",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/general_validation_error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/users/email/{email}": {
+      "get": {
+        "tags": ["User"],
+        "operationId": "getUserDetailsByEmail",
+        "parameters": [
+          {
+            "name": "email",
+            "in": "path",
+            "description": "Email of user",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "email"
+            }
+          },
+          {
+            "name": "includeOrganizations",
+            "in": "query",
+            "description": "Include details of organizations the user is a member of",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": "false"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get User Details By Email address",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User could not be found"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/organizations/{orgId}/users/{userId}": {
+      "get": {
+        "tags": ["OrganizationUser"],
+        "operationId": "getOrganizationUserDetails",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "description": "ID of the org",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "ID of user",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get Organization User Details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrganizationUser"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User/org could not be found"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": ["OrganizationUser"],
+        "operationId": "deleteOrganizationUser",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "description": "ID of the org",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "ID of user",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "404": {
+            "description": "User/org could not be found"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "patch": {
+        "tags": ["OrganizationUser"],
+        "operationId": "updateOrganizationUser",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "description": "ID of the org",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "ID of user",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "User",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not be found"
+          },
+          "422": {
+            "description": "Errors occured",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/general_validation_error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/organizations/{orgId}/users/{userId}/product/{productId}": {
+      "put": {
+        "tags": ["OrganizationUser"],
+        "operationId": "changeProductRoleForOrganizationUser",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "description": "ID of the org",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "ID of user",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "ID of product",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProductRole"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Organization User Details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User/org could not be found"
+          },
+          "422": {
+            "description": "Errors occured",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/general_validation_error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/organizations/{orgId}/users": {
+      "get": {
+        "tags": ["OrganizationUser"],
+        "operationId": "listOrganizationUsers",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "description": "ID of the org",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "product",
+            "in": "query",
+            "description": "Product",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "searchTerm",
+            "in": "query",
+            "description": "Filter by name/email",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "perPage",
+            "in": "query",
+            "description": "Per page",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 10,
+              "enum": [10, 25, 50]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Organization users",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/OrganizationUser"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Organization could not be found"
+          },
+          "422": {
+            "description": "Errors occured",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/general_validation_error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "post": {
+        "tags": ["OrganizationUser"],
+        "operationId": "createUser",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "description": "ID of the org",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrganizationUser"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "User",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Organization could not be found"
+          },
+          "422": {
+            "description": "Errors occured",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/general_validation_error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "events_organization_application_feature_sets_updated": {
+        "title": "Organization application featureSets updated event",
+        "required": ["organizationId", "applicationFeatureSets"],
+        "properties": {
+          "organizationId": {
+            "title": "organizationId",
+            "description": "Id of the organization",
+            "type": "string",
+            "example": "5969b10c-e397-11e9-81b4-2a2ae2dbcce4"
+          },
+          "applicationFeatureSets": {
+            "title": "applicationFeatureSets",
+            "description": "Product holdings by application",
+            "properties": {
+              "formstack_classic": {
+                "$ref": "#/components/schemas/FormstackClassicFeatureSet"
+              },
+              "webmerge": {
+                "$ref": "#/components/schemas/WebmergeFeatureSet"
+              },
+              "insure_sign": {
+                "$ref": "#/components/schemas/InsureSignFeatureSet"
+              },
+              "dobby": {
+                "$ref": "#/components/schemas/DobbyFeatureSet"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "events_organization_billing_updated_event": {
+        "title": "Organization billing updated event",
+        "required": ["organizationId", "applicationFeatureSets"],
+        "properties": {
+          "organizationId": {
+            "title": "organizationId",
+            "description": "Id of the organization",
+            "type": "string",
+            "example": "5969b10c-e397-11e9-81b4-2a2ae2dbcce4"
+          },
+          "hasBillingAccount": {
+            "title": "hasBillingAccount",
+            "description": "Org has billing account",
+            "type": "boolean"
+          },
+          "isSuspended": {
+            "title": "isSuspended",
+            "description": "Is organization suspended due either to non payment or fraud. Soon to be deprecated in favour of isMaliciousSuspended & isLatePaymentSuspended",
+            "type": "boolean"
+          },
+          "isMaliciousSuspended": {
+            "title": "isMaliciousSuspended",
+            "description": "Is organization suspended due to malicious use or suspected fraud",
+            "type": "boolean"
+          },
+          "isLatePaymentSuspended": {
+            "title": "isLatePaymentSuspended",
+            "description": "Is organization suspended due to overdue payment",
+            "type": "boolean"
+          },
+          "restrictAppAccessDueToNoPaymentMethod": {
+            "title": "restrictAppAccessDueToNoPaymentMethod",
+            "description": "Organization is lacking payment method and we want to push them to add a payment method before using apps. (apps don't use this currently, only unified messenger)",
+            "type": "boolean"
+          },
+          "periodicity": {
+            "title": "periodicity",
+            "description": "Either monthly or yearly",
+            "type": "string",
+            "example": "monthly"
+          },
+          "isFlexMergesEnabled": {
+            "title": "isFlexMergesEnabled",
+            "description": "Is Auto-Upgrade merge enabled for organization",
+            "type": "boolean"
+          },
+          "availableAutoUpgradeFeatures": {
+            "title": "autoUpgradeFeatures",
+            "description": "List of Available Auto Upgrade Features",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "autoUpgradesPaused": {
+            "title": "autoUpgradesPaused",
+            "description": "Are auto-upgrades paused due to billing issue",
+            "type": "boolean"
+          },
+          "appIsTrialing": {
+            "title": "appIsTrialing",
+            "description": "App trialing state by application",
+            "properties": {
+              "formstack_classic": {
+                "type": "boolean"
+              },
+              "webmerge": {
+                "type": "boolean"
+              },
+              "insure_sign": {
+                "type": "boolean"
+              },
+              "dobby": {
+                "type": "boolean"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "AutoUpgradeChangePreview": {
+        "properties": {
+          "baseCount": {
+            "type": "integer",
+            "example": "250"
+          },
+          "feature": {
+            "type": "string",
+            "example": "merges"
+          },
+          "autoUpgradeCount": {
+            "type": "integer",
+            "example": "75"
+          },
+          "autoUpgradeDetail": {
+            "type": "string",
+            "example": "Auto Upgrade Usage: Merges (pack of 75) x 1"
+          },
+          "price": {
+            "type": "string",
+            "example": "$50 per month"
+          },
+          "totalCount": {
+            "type": "integer",
+            "example": "325"
+          }
+        },
+        "type": "object"
+      },
+      "OrganizationBillingAddress": {
+        "properties": {
+          "address1": {
+            "description": "Address 1",
+            "example": "1 bill lane"
+          },
+          "address2": {
+            "description": "Address 2",
+            "example": "somewhere"
+          },
+          "city": {
+            "description": "City",
+            "example": "Indianapolis"
+          },
+          "country": {
+            "description": "Country",
+            "example": "US"
+          },
+          "state": {
+            "description": "State",
+            "example": "IN"
+          },
+          "zip": {
+            "description": "Zip or Postal Code",
+            "type": "string",
+            "example": "90210"
+          }
+        },
+        "type": "object"
+      },
+      "BillingChangePreview": {
+        "properties": {
+          "immediateCharge": {
+            "$ref": "#/components/schemas/MoneyAmount"
+          },
+          "regularCharge": {
+            "$ref": "#/components/schemas/MoneyAmount"
+          },
+          "takesEffectOn": {
+            "description": "If the change will take effect at a future date, this will be the date it takes effect",
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          }
+        },
+        "type": "object"
+      },
+      "OrganizationBillingContact": {
+        "properties": {
+          "email": {
+            "description": "Email address",
+            "format": "email",
+            "example": "test@example.com"
+          },
+          "firstName": {
+            "description": "First Name",
+            "example": "John"
+          },
+          "lastName": {
+            "description": "Last Name",
+            "example": "Smith"
+          },
+          "phone": {
+            "description": "Phone Number",
+            "example": "+1111111111"
+          },
+          "address": {
+            "$ref": "#/components/schemas/OrganizationBillingAddress"
+          }
+        },
+        "type": "object"
+      },
+      "CancelPlanPreview": {
+        "properties": {
+          "canDowngradeToFree": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "nextRenewalDate": {
+            "description": "If the org is being billed, when will the cancellation happen",
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true,
+            "example": "2021-09-07T00:00:00+00:00",
+            "nullable": true
+          },
+          "freePlanFeatureSet": {
+            "type": "array",
+            "items": {
+              "discriminator": {
+                "propertyName": "type"
+              },
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/FormstackClassicFeatureSet"
+                },
+                {
+                  "$ref": "#/components/schemas/WebmergeFeatureSet"
+                },
+                {
+                  "$ref": "#/components/schemas/InsureSignFeatureSet"
+                }
+              ]
+            },
+            "nullable": true
+          }
+        },
+        "type": "object"
+      },
+      "BillingComponentPurchaseOrderForm": {
+        "properties": {
+          "sections": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BillingComponentPurchaseOrderSection"
+            }
+          }
+        },
+        "type": "object"
+      },
+      "BillingComponentPurchaseOrderContactComponent": {
+        "properties": {
+          "type": {
+            "description": "Type of component",
+            "type": "string",
+            "example": "contact"
+          },
+          "name": {
+            "description": "Product Name",
+            "type": "string",
+            "example": "Extra widgets"
+          },
+          "pricingInfo": {
+            "description": "Pricing Info",
+            "type": "string",
+            "example": "$5 each or 10 for $50, bargain!"
+          },
+          "buttonText": {
+            "description": "Button text",
+            "type": "string",
+            "example": "Contact Us"
+          }
+        },
+        "type": "object"
+      },
+      "BillingComponentPurchaseOrderQuantityComponent": {
+        "properties": {
+          "type": {
+            "description": "Type of component",
+            "type": "string",
+            "example": "quantity"
+          },
+          "handle": {
+            "description": "Component handle",
+            "type": "string",
+            "example": "c:platform-plan-forms-extra-user"
+          },
+          "name": {
+            "description": "Name",
+            "type": "string",
+            "example": "Forms"
+          },
+          "value": {
+            "description": "How many to purchase",
+            "type": "integer"
+          },
+          "pricingInfo": {
+            "description": "Pricing Info",
+            "type": "string",
+            "example": "$10 per user"
+          }
+        },
+        "type": "object"
+      },
+      "BillingComponentPurchaseOrderSection": {
+        "properties": {
+          "sectionKey": {
+            "description": "A name for the section",
+            "type": "string",
+            "example": "Forms"
+          },
+          "components": {
+            "type": "array",
+            "items": {
+              "discriminator": {
+                "propertyName": "type"
+              },
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/BillingComponentPurchaseOrderQuantityComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/BillingComponentPurchaseOrderContactComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/BillingComponentPurchaseOrderSelectComponent"
+                }
+              ]
+            }
+          }
+        },
+        "type": "object"
+      },
+      "BillingComponentPurchaseOrderSelectComponent": {
+        "properties": {
+          "type": {
+            "description": "Type of component",
+            "type": "string",
+            "example": "select"
+          },
+          "name": {
+            "description": "Name",
+            "type": "string",
+            "example": "Forms"
+          },
+          "pricingInfo": {
+            "description": "Pricing Info",
+            "type": "string",
+            "example": "$10 per user"
+          },
+          "value": {
+            "description": "A component handle followed by a colon and a quantity of that handle",
+            "type": "string",
+            "example": "c:100-pack-of-things:1"
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "properties": {
+                "value": {
+                  "description": "Component handle",
+                  "type": "string",
+                  "example": "c:100-pack-of-things"
+                },
+                "label": {
+                  "type": "string",
+                  "example": "100 of them"
+                }
+              },
+              "type": "object"
+            }
+          }
+        },
+        "type": "object"
+      },
+      "Discount": {
+        "properties": {
+          "name": {
+            "description": "Discount name",
+            "type": "string",
+            "readOnly": true,
+            "example": "Non Profit",
+            "nullable": true
+          },
+          "handle": {
+            "description": "Discount product handle",
+            "type": "string",
+            "readOnly": true,
+            "example": "d:non-profit",
+            "nullable": true
+          },
+          "percentage": {
+            "description": "Discount percentage that this org receieves discounts for any subaccount it sells",
+            "type": "integer",
+            "readOnly": true,
+            "example": "10"
+          },
+          "saving": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/MoneyAmount"
+              }
+            ],
+            "nullable": true,
+            "description": "Amount Saved having discounts",
+            "readOnly": true
+          }
+        },
+        "type": "object"
+      },
+      "DobbyFeatureSet": {
+        "properties": {
+          "maxWorkspaceUsers": {
+            "type": "integer"
+          },
+          "workspace": {
+            "type": "boolean"
+          },
+          "conditionalLogic": {
+            "type": "boolean"
+          },
+          "approvals": {
+            "type": "boolean"
+          },
+          "apiConnector": {
+            "type": "boolean"
+          }
+        },
+        "type": "object",
+        "readOnly": true,
+        "additionalProperties": true
+      },
+      "FormstackClassicFeatureSet": {
+        "properties": {
+          "mvpPlan": {
+            "type": "string"
+          },
+          "maxUsers": {
+            "type": "integer"
+          },
+          "maxForms": {
+            "type": "integer"
+          },
+          "maxSubmissions": {
+            "type": "integer"
+          },
+          "maxAnalystUsers": {
+            "type": "integer"
+          },
+          "maxParticipantUsers": {
+            "description": "treat null as INF",
+            "type": "integer",
+            "nullable": true
+          },
+          "canAddParticipantUsers": {
+            "type": "boolean"
+          },
+          "maxPortalUsers": {
+            "type": "integer"
+          },
+          "formIdp": {
+            "type": "boolean"
+          },
+          "portals": {
+            "type": "boolean"
+          },
+          "workflows": {
+            "type": "boolean"
+          },
+          "gaPlugin": {
+            "type": "boolean"
+          },
+          "bottlenecks": {
+            "type": "boolean"
+          },
+          "formAbTesting": {
+            "description": "deprecated",
+            "type": "boolean"
+          },
+          "utmTracking": {
+            "type": "boolean"
+          },
+          "fieldAutoCapture": {
+            "type": "boolean"
+          },
+          "siteTracking": {
+            "type": "boolean"
+          },
+          "prefillMapping": {
+            "type": "boolean"
+          },
+          "maxStorage": {
+            "type": "integer"
+          },
+          "api": {
+            "type": "boolean"
+          },
+          "maxApiCallsPerDay": {
+            "type": "integer"
+          },
+          "dataEncryption": {
+            "type": "boolean"
+          },
+          "approvals": {
+            "type": "boolean"
+          },
+          "smartLists": {
+            "type": "boolean"
+          },
+          "advancedPdf": {
+            "type": "boolean"
+          },
+          "salesforce": {
+            "type": "boolean"
+          },
+          "formV4AdvancedHtml": {
+            "type": "boolean"
+          },
+          "applicationAccess": {
+            "type": "boolean"
+          },
+          "dataSecurity": {
+            "type": "boolean"
+          },
+          "webhooksForHipaa": {
+            "type": "boolean"
+          },
+          "ai": {
+            "type": "boolean"
+          }
+        },
+        "type": "object",
+        "readOnly": true,
+        "additionalProperties": true
+      },
+      "InsureSignFeatureSet": {
+        "properties": {
+          "mvpPlan": {
+            "type": "string"
+          },
+          "maxUsers": {
+            "type": "integer"
+          },
+          "api": {
+            "type": "boolean"
+          },
+          "applicationAccess": {
+            "type": "boolean"
+          },
+          "integrations": {
+            "type": "boolean"
+          }
+        },
+        "type": "object",
+        "readOnly": true,
+        "additionalProperties": true
+      },
+      "Invoice": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "INV123"
+          },
+          "amount": {
+            "$ref": "#/components/schemas/MoneyAmount"
+          },
+          "dueDate": {
+            "type": "string",
+            "example": "2020-09-08"
+          },
+          "invoiceDate": {
+            "type": "string",
+            "example": "2020-09-08"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["paid", "unpaid", "cancelled"]
+          },
+          "title": {
+            "type": "string",
+            "example": "Platform Starter - Monthly Charge"
+          },
+          "href": {
+            "description": "URL that will download a PDF of the invoice",
+            "type": "string",
+            "example": "https://admin.dev-formstack.com:8085/api/v1/billing/invoices/INV123"
+          }
+        },
+        "type": "object",
+        "readOnly": true
+      },
+      "MoneyAmount": {
+        "properties": {
+          "amount": {
+            "description": "amount in cents/smallest monetary unit for a currency",
+            "type": "string",
+            "example": "4200"
+          },
+          "currency": {
+            "type": "string",
+            "example": "USD"
+          },
+          "formatted": {
+            "type": "string",
+            "example": "$400.00"
+          }
+        },
+        "type": "object",
+        "readOnly": true
+      },
+      "OrganizationBillingDetailsPaymentMethodCreditCard": {
+        "properties": {
+          "type": {
+            "description": "payment method type",
+            "example": "CreditCard"
+          },
+          "maskedNumber": {
+            "description": "Masked credit card number",
+            "example": "************1111"
+          },
+          "expirationMonth": {
+            "description": "Month in which the credit card expires",
+            "example": "01"
+          },
+          "expirationYear": {
+            "description": "Year in which the credit card expires",
+            "example": "06"
+          },
+          "cardType": {
+            "example": "Visa"
+          }
+        },
+        "type": "object"
+      },
+      "OrganizationBillingDetailsPaymentMethodCheck": {
+        "properties": {
+          "type": {
+            "description": "payment method type",
+            "example": "NonCreditCard"
+          },
+          "name": {
+            "description": "Name that describes the payment method such as Check, or ACH",
+            "example": "Check"
+          }
+        },
+        "type": "object"
+      },
+      "OrganizationBillingDetails": {
+        "properties": {
+          "periodicity": {
+            "description": "Billing periodicity",
+            "type": "string",
+            "enum": [
+              "monthly",
+              "yearly",
+              "quarterly",
+              "semi_annual",
+              "two_yearly",
+              "three_yearly"
+            ],
+            "readOnly": true,
+            "example": "monthly"
+          },
+          "amount": {
+            "$ref": "#/components/schemas/MoneyAmount"
+          },
+          "nextBillDate": {
+            "description": "If the org is being billed, when will the next payment be taken (user tz)",
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true,
+            "example": "2021-09-07T00:00:00+00:00",
+            "nullable": true
+          },
+          "scheduledForCancellationAt": {
+            "description": "If the org is currently scheduled for cancellation they will not be able to update any billing (user tz)",
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true,
+            "example": "2021-09-07T00:00:00+00:00",
+            "nullable": true
+          },
+          "isSuspended": {
+            "description": "Is The org suspended due to non payment",
+            "type": "boolean",
+            "readOnly": true,
+            "nullable": false
+          },
+          "hasActiveSubscription": {
+            "description": "Does the org have a paid active subscription",
+            "type": "boolean",
+            "readOnly": true,
+            "nullable": false
+          },
+          "payedForAppsOnPreviousSubscription": {
+            "description": "When org doesn't have active subscription, did they paid for apps in the past",
+            "type": "boolean",
+            "readOnly": true,
+            "nullable": true
+          },
+          "isSubaccountComped": {
+            "description": "Is this subaccount comped (likely pays for themselves)",
+            "type": "boolean",
+            "readOnly": true,
+            "nullable": true
+          },
+          "paymentMethod": {
+            "discriminator": {
+              "propertyName": "type",
+              "mapping": {
+                "CreditCard": "#/components/schemas/OrganizationBillingDetailsPaymentMethodCreditCard",
+                "NonCreditCard": "#/components/schemas/OrganizationBillingDetailsPaymentMethodCheck"
+              }
+            },
+            "readOnly": true,
+            "example": {
+              "type": "NonCreditCard",
+              "name": "ACH"
+            },
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/OrganizationBillingDetailsPaymentMethodCreditCard"
+              },
+              {
+                "$ref": "#/components/schemas/OrganizationBillingDetailsPaymentMethodCheck"
+              }
+            ]
+          },
+          "canUpdateCardDetails": {
+            "description": "Allow updating/setting card details",
+            "type": "boolean",
+            "readOnly": true,
+            "example": "false"
+          },
+          "resellerStatus": {
+            "$ref": "#/components/schemas/ResellerStatus"
+          },
+          "contact": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/OrganizationBillingContact"
+              }
+            ],
+            "nullable": true
+          },
+          "overview": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/OrganizationBillingOverview"
+              }
+            ],
+            "nullable": true,
+            "readOnly": true
+          },
+          "discount": {
+            "$ref": "#/components/schemas/Discount"
+          }
+        },
+        "type": "object"
+      },
+      "OrganizationBillingOverview": {
+        "title": "View data for billing overview section",
+        "properties": {
+          "planNames": {
+            "title": "plan names",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "Forms Pro"
+            }
+          },
+          "apps": {
+            "title": "apps",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrganizationBillingOverviewApp"
+            }
+          },
+          "plans": {
+            "title": "plans",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrganizationBillingOverviewPlan"
+            }
+          },
+          "showPurchasePlan": {
+            "title": "showPurchasePlan",
+            "type": "boolean"
+          },
+          "showPurchasePlanExtrasButton": {
+            "title": "showPurchasePlanExtrasButton",
+            "type": "boolean"
+          },
+          "canHaveAutoUpgrade": {
+            "title": "canHaveAutoUpgrade",
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "OrganizationBillingOverviewApp": {
+        "properties": {
+          "applicationKey": {
+            "description": "Key to identify the application",
+            "type": "string",
+            "example": "formstack_classic"
+          },
+          "features": {
+            "title": "features",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrganizationBillingOverviewFeature"
+            }
+          },
+          "autoUpgradeOptions": {
+            "title": "autoUpgrade",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrganizationBillingOverviewAutoUpgrade"
+            }
+          },
+          "usages": {
+            "title": "usages",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrganizationBillingOverviewUsage"
+            }
+          },
+          "usageLastUpdatedAt": {
+            "description": "date when usages for application was last updated(in user tz)",
+            "type": "string",
+            "format": "date",
+            "example": "2022-11-14T17:00:50-05:00",
+            "nullable": true
+          }
+        },
+        "type": "object"
+      },
+      "OrganizationBillingOverviewAutoUpgrade": {
+        "properties": {
+          "enabled": {
+            "description": "Is this Auto Upgrade feature enabled",
+            "type": "boolean",
+            "example": "true"
+          },
+          "enabledChangedAt": {
+            "description": "date when enabled was last changed(in user tz)",
+            "type": "string",
+            "format": "date",
+            "example": "2022-11-14T17:00:50-05:00",
+            "nullable": true
+          },
+          "autoUpgradeFeature": {
+            "description": "Name of auto upgrade feature",
+            "type": "string",
+            "example": "merge"
+          },
+          "handle": {
+            "description": "Handle of auto upgrade component",
+            "type": "string",
+            "example": "c:docs-flex-150-merges"
+          },
+          "name": {
+            "description": "Name of the auto upgrade component",
+            "type": "string",
+            "example": "Docs: Auto Upgrade Merge pack of 150 merges"
+          },
+          "price": {
+            "description": "Expected price for the renewed auto upgrade components",
+            "type": "string",
+            "example": "$80.00"
+          },
+          "quantity": {
+            "description": "Quantity of auto upgrade components currently purchased",
+            "type": "integer",
+            "example": "4"
+          },
+          "renewalQuantity": {
+            "description": "Quantity of auto upgrade components that will renew next bill period",
+            "type": "integer",
+            "example": "4"
+          },
+          "features": {
+            "description": "Featureset this auto upgrade component gives access to",
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "canDowngrade": {
+            "description": "Whether org can remove/downgrade auto-upgrade packs",
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "OrganizationBillingOverviewFeature": {
+        "properties": {
+          "label": {
+            "description": "Text for the feature",
+            "type": "string",
+            "example": "Users"
+          },
+          "value": {
+            "description": "Value for the feature. Can either be textual representation of a number or boolean to determine whether to show tick or not",
+            "example": "1,000"
+          },
+          "trialExpDate": {
+            "description": "Date the base plan trial expires if trialing",
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "icon": {
+            "description": "What icon to display",
+            "type": "string",
+            "enum": ["tick", "plus"],
+            "example": "tick"
+          },
+          "onClick": {
+            "description": "What to do when clicked",
+            "type": "string",
+            "enum": [null, "open_usages_dialog"],
+            "example": "open_usages_dialog",
+            "nullable": true
+          },
+          "notice": {
+            "description": "Used currently to show docs auto charge state",
+            "properties": {
+              "label": {
+                "type": "string",
+                "example": "Auto upgrade: on"
+              },
+              "tooltip": {
+                "type": "string",
+                "example": "We will auto upgrade you when you go over your limits"
+              }
+            },
+            "type": "object",
+            "nullable": true
+          }
+        },
+        "type": "object"
+      },
+      "OrganizationBillingOverviewPlan": {
+        "properties": {
+          "planName": {
+            "description": "Plan name",
+            "type": "string",
+            "example": "Forms Teams"
+          },
+          "familyKey": {
+            "description": "Plan family key",
+            "type": "string",
+            "example": "formstack_classic"
+          },
+          "trialExpDate": {
+            "description": "Date the base plan trial expires if trialing",
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "scheduledForChangeAtPillText": {
+            "description": "If set, the date of which this app will be removed/downgraded to free",
+            "type": "string",
+            "format": "string",
+            "nullable": true
+          }
+        },
+        "type": "object"
+      },
+      "OrganizationBillingOverviewUsage": {
+        "properties": {
+          "label": {
+            "description": "Text for the feature",
+            "type": "string",
+            "example": "Users"
+          },
+          "current": {
+            "description": "current usage value for the feature",
+            "type": "integer",
+            "example": 2
+          },
+          "currentFormatted": {
+            "description": "current usage formatted (optional)",
+            "type": "string",
+            "example": "512M",
+            "nullable": true
+          },
+          "limit": {
+            "description": "maximum usage value for the feature",
+            "type": "integer",
+            "example": 10
+          },
+          "limitFormatted": {
+            "description": "limit formatted (optional)",
+            "type": "string",
+            "example": "3G",
+            "nullable": true
+          },
+          "warningMessage": {
+            "description": "Warning message",
+            "type": "string",
+            "example": "Nearing monthly limit"
+          },
+          "validUntil": {
+            "description": "Usage valid until",
+            "type": "string",
+            "example": "6 days 20 hours",
+            "nullable": true
+          }
+        },
+        "type": "object"
+      },
+      "ResellerStatus": {
+        "properties": {
+          "isReseller": {
+            "description": "Is this organization a reseller",
+            "type": "boolean",
+            "readOnly": true,
+            "example": "true"
+          },
+          "discountTierName": {
+            "description": "Tier name that this org receieves discounts for any subaccount it sells",
+            "type": "string",
+            "readOnly": true,
+            "example": "gold",
+            "nullable": true
+          },
+          "discountTierPercentage": {
+            "description": "Tier percentage that this org receieves discounts for any subaccount it sells",
+            "type": "integer",
+            "readOnly": true,
+            "example": "10"
+          },
+          "discountTierLastChanged": {
+            "description": "When the reseller tier was last changed",
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true,
+            "example": "2021-09-07T00:00:00+00:00",
+            "nullable": true
+          }
+        },
+        "type": "object"
+      },
+      "CreateSubaccountPreview": {
+        "properties": {
+          "immediateCharge": {
+            "$ref": "#/components/schemas/MoneyAmount"
+          },
+          "regularCharge": {
+            "$ref": "#/components/schemas/MoneyAmount"
+          },
+          "resellerStatus": {
+            "$ref": "#/components/schemas/ResellerStatus"
+          },
+          "paymentMethod": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/OrganizationBillingDetailsPaymentMethodCreditCard"
+              },
+              {
+                "$ref": "#/components/schemas/OrganizationBillingDetailsPaymentMethodCheck"
+              }
+            ]
+          }
+        },
+        "type": "object"
+      },
+      "CreateSubaccountRequest": {
+        "required": [
+          "orgName",
+          "email",
+          "firstName",
+          "lastName",
+          "hipaa",
+          "productHandles"
+        ],
+        "properties": {
+          "orgName": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "logoBase64": {
+            "description": "Optional logo which should be base64 encoded data urls https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs",
+            "type": "string"
+          },
+          "periodicity": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "WebmergeFeatureSet": {
+        "properties": {
+          "mvpPlan": {
+            "type": "string"
+          },
+          "maxUsers": {
+            "type": "integer"
+          },
+          "maxMerges": {
+            "type": "integer"
+          },
+          "maxTestMerges": {
+            "type": "integer"
+          },
+          "maxDocuments": {
+            "oneOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "dataRouting": {
+            "type": "boolean"
+          },
+          "api": {
+            "type": "boolean"
+          },
+          "salesforceDelivery": {
+            "type": "boolean"
+          },
+          "docsForSalesforce": {
+            "type": "boolean"
+          },
+          "thirdPartyDelivery": {
+            "type": "boolean"
+          },
+          "applicationAccess": {
+            "type": "boolean"
+          },
+          "dataSecurity": {
+            "type": "boolean"
+          }
+        },
+        "type": "object",
+        "readOnly": true,
+        "additionalProperties": true
+      },
+      "events_product_trial_requested": {
+        "title": "Application trial requested. This only fires for cases where product should manage billing and will be phased out",
+        "required": ["userId", "organizationId", "productId"],
+        "properties": {
+          "requestId": {
+            "title": "requestId",
+            "description": "Id of the request",
+            "type": "string",
+            "example": "5969b10c-e397-11e9-81b4-2a2ae2dbcce4"
+          },
+          "userId": {
+            "title": "userId",
+            "description": "Id of the user",
+            "type": "string",
+            "example": "5969b10c-e397-11e9-81b4-2a2ae2dbcce4"
+          },
+          "organizationId": {
+            "title": "organizationId",
+            "description": "Id of the organization",
+            "type": "string",
+            "example": "5969b10c-e397-11e9-81b4-2a2ae2dbcce4"
+          },
+          "productId": {
+            "title": "productId",
+            "description": "Id of the product",
+            "type": "string",
+            "example": "formstack_classic"
+          },
+          "productPlan": {
+            "title": "productPlan",
+            "description": "Product plan",
+            "type": "string",
+            "example": "silver",
+            "nullable": true
+          },
+          "referrer": {
+            "title": "referrer",
+            "description": "Referrer",
+            "type": "string",
+            "example": "sales",
+            "nullable": true
+          },
+          "hipaa": {
+            "description": "HIPAA status",
+            "type": "boolean",
+            "nullable": true
+          },
+          "signupMetadata": {
+            "description": "Signup metadata. Only set if trial request was triggered as a result of a new signup",
+            "type": "object",
+            "nullable": true,
+            "additionalProperties": true
+          }
+        },
+        "type": "object"
+      },
+      "events_formstack_classic_applied_auto_delete_submissions_to_existing_forms": {
+        "title": "Forms: Applied auto-delete submissions settings to existing forms",
+        "required": ["organizationId"],
+        "properties": {
+          "organizationId": {
+            "title": "organizationId",
+            "description": "Id of the organization",
+            "type": "string",
+            "example": "5969b10c-e397-11e9-81b4-2a2ae2dbcce4"
+          }
+        },
+        "type": "object"
+      },
+      "events_group_changed": {
+        "title": "Group changed",
+        "required": ["organizationId", "groupId", "name"],
+        "properties": {
+          "groupId": {
+            "title": "groupId",
+            "description": "Id of the group",
+            "type": "string",
+            "example": "5969b10c-e397-11e9-81b4-2a2ae2dbcce4"
+          },
+          "organizationId": {
+            "title": "organizationId",
+            "description": "Id of the organization",
+            "type": "string",
+            "example": "5969b10c-e397-11e9-81b4-2a2ae2dbcce4"
+          },
+          "name": {
+            "title": "name",
+            "description": "Name of the group",
+            "type": "string",
+            "example": "group name"
+          },
+          "productMetadata": {
+            "description": "Product permissions json",
+            "type": "object",
+            "example": {
+              "formstack_classic": [],
+              "webmerge": []
+            },
+            "nullable": true
+          }
+        },
+        "type": "object"
+      },
+      "events_group_created": {
+        "title": "Group Created",
+        "properties": {
+          "groupId": {
+            "title": "groupId",
+            "description": "Id of the group",
+            "type": "string",
+            "example": "5969b10c-e397-11e9-81b4-2a2ae2dbcce4"
+          },
+          "organizationId": {
+            "title": "organizationId",
+            "description": "Id of the organization",
+            "type": "string",
+            "example": "5969b10c-e397-11e9-81b4-2a2ae2dbcce4"
+          },
+          "name": {
+            "title": "name",
+            "description": "Name of the group",
+            "type": "string",
+            "example": "group name"
+          }
+        },
+        "type": "object"
+      },
+      "events_group_membership_added": {
+        "title": "Group membership was added",
+        "required": ["organizationId", "groupId", "userId"],
+        "properties": {
+          "groupId": {
+            "title": "groupId",
+            "description": "Id of the group",
+            "type": "string",
+            "example": "5969b10c-e397-11e9-81b4-2a2ae2dbcce4"
+          },
+          "organizationId": {
+            "title": "organizationId",
+            "description": "Id of the organization",
+            "type": "string",
+            "example": "5969b10c-e397-11e9-81b4-2a2ae2dbcce4"
+          },
+          "userId": {
+            "title": "userId",
+            "description": "Id of the user",
+            "type": "string",
+            "example": "5969b10c-e397-11e9-81b4-2a2ae2dbcce4"
+          }
+        },
+        "type": "object"
+      },
+      "events_group_membership_removed": {
+        "title": "Group membership was removed",
+        "required": ["organizationId", "groupId", "userId"],
+        "properties": {
+          "groupId": {
+            "title": "groupId",
+            "description": "Id of the group",
+            "type": "string",
+            "example": "5969b10c-e397-11e9-81b4-2a2ae2dbcce4"
+          },
+          "organizationId": {
+            "title": "organizationId",
+            "description": "Id of the organization",
+            "type": "string",
+            "example": "5969b10c-e397-11e9-81b4-2a2ae2dbcce4"
+          },
+          "userId": {
+            "title": "userId",
+            "description": "Id of the user",
+            "type": "string",
+            "example": "5969b10c-e397-11e9-81b4-2a2ae2dbcce4"
+          }
+        },
+        "type": "object"
+      },
+      "events_group_removed": {
+        "title": "Group Removed From Organization Event",
+        "properties": {
+          "groupId": {
+            "title": "groupId",
+            "description": "Id of the group",
+            "type": "string",
+            "example": "5969b10c-e397-11e9-81b4-2a2ae2dbcce4"
+          },
+          "organizationId": {
+            "title": "organizationId",
+            "description": "Id of the organization",
+            "type": "string",
+            "example": "5969b10c-e397-11e9-81b4-2a2ae2dbcce4"
+          }
+        },
+        "type": "object"
+      },
+      "events_membership_created": {
+        "title": "Membership Created Event",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "roles": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "user": {
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "firstName": {
+                "type": "string"
+              },
+              "lastName": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "avatarUrl": {
+                "type": "string"
+              },
+              "timezone": {
+                "type": "string"
+              }
+            },
+            "type": "object",
+            "nullable": true
+          },
+          "invitee": {
+            "properties": {
+              "firstName": {
+                "type": "string"
+              },
+              "lastName": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              }
+            },
+            "type": "object",
+            "nullable": true
+          },
+          "organizationId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "site": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "type": "object"
+      },
+      "events_membership_deleted": {
+        "title": "Membership Deleted Event",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "organizationId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "site": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "type": "object"
+      },
+      "events_membership_updated": {
+        "title": "Membership Updated Event",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "roles": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "user": {
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "firstName": {
+                "type": "string"
+              },
+              "lastName": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "avatar": {
+                "type": "string"
+              },
+              "timezone": {
+                "type": "string"
+              }
+            },
+            "type": "object",
+            "nullable": true
+          },
+          "invitee": {
+            "properties": {
+              "firstName": {
+                "type": "string"
+              },
+              "lastName": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              }
+            },
+            "type": "object",
+            "nullable": true
+          },
+          "organizationId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "site": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "type": "object"
+      },
+      "events_organization_deletion_requested": {
+        "title": "Organization Deletion Requested Event",
+        "required": ["organizationId"],
+        "properties": {
+          "organizationId": {
+            "title": "organizationId",
+            "description": "Id of the organization",
+            "type": "string",
+            "example": "5969b10c-e397-11e9-81b4-2a2ae2dbcce4"
+          }
+        },
+        "type": "object"
+      },
+      "events_organization_security_policy_updated": {
+        "title": "Organization Security Policy Updated",
+        "required": ["organizationId"],
+        "properties": {
+          "organizationId": {
+            "title": "organizationId",
+            "description": "Id of the organization",
+            "type": "string",
+            "example": "5969b10c-e397-11e9-81b4-2a2ae2dbcce4"
+          }
+        },
+        "type": "object"
+      },
+      "events_organization_updated": {
+        "title": "Organization Updated Event",
+        "required": ["organizationId", "name"],
+        "properties": {
+          "organizationId": {
+            "title": "organizationId",
+            "description": "Id of the organization",
+            "type": "string",
+            "example": "5969b10c-e397-11e9-81b4-2a2ae2dbcce4"
+          },
+          "name": {
+            "title": "name",
+            "description": "Name",
+            "type": "string",
+            "example": "Test org"
+          },
+          "logoUrl": {
+            "title": "logoUrl",
+            "description": "logo url",
+            "type": "string",
+            "example": "https://admin.dev-formstack.com:8086/localbucket/organizations/:id/logos/:filename",
+            "nullable": true
+          },
+          "parentOrganizationId": {
+            "title": "parentOrganizationId",
+            "description": "Id of parent organization",
+            "type": "string",
+            "example": "5969b10c-e397-11e9-81b4-2a2ae2dbcce4",
+            "nullable": true
+          },
+          "hipaa": {
+            "title": "HIPAA",
+            "description": "HIPAA Organization",
+            "type": "boolean",
+            "example": "false",
+            "nullable": true
+          },
+          "emailVerified": {
+            "title": "emailVerified",
+            "description": "Is email verified",
+            "type": "boolean"
+          },
+          "aiFeatureToggles": {
+            "title": "aiFeatureToggles",
+            "description": "AI Feature toggles",
+            "properties": {
+              "aiForms": {
+                "description": "AI Forms feature toggle",
+                "type": "boolean",
+                "example": "true"
+              },
+              "aiDocs": {
+                "description": "AI Docs feature toggle",
+                "type": "boolean",
+                "example": "true"
+              }
+            },
+            "type": "object"
+          },
+          "formsAutoDeleteSubmissions": {
+            "title": "formsAutoDeleteSubmissions",
+            "description": "Forms auto delete submissions",
+            "properties": {
+              "available": {
+                "description": "Feature turned on but not configured",
+                "type": "boolean",
+                "example": "true",
+                "nullable": true
+              },
+              "active": {
+                "description": "Feature is on and configured",
+                "type": "boolean",
+                "example": "true",
+                "nullable": true
+              },
+              "appliestoNewForms": {
+                "description": "Feature is active and set to apply to new forms",
+                "type": "boolean",
+                "example": "true",
+                "nullable": true
+              },
+              "autoDeleteDays": {
+                "description": "Feature is active and set # days",
+                "type": "integer",
+                "example": "true",
+                "nullable": true
+              }
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "events_organizations_merged": {
+        "title": "Organizations Merged Event",
+        "required": [
+          "fromOrganizationId",
+          "toOrganizationId",
+          "resultOrganizationId"
+        ],
+        "properties": {
+          "fromOrganizationId": {
+            "title": "fromOrganizationId",
+            "description": "Id of the from Organization",
+            "type": "string",
+            "example": "5969b10c-e397-11e9-81b4-2a2ae2dbcce4"
+          },
+          "toOrganizationId": {
+            "title": "toOrganizationId",
+            "description": "Id of the to Organization",
+            "type": "string",
+            "example": "5969b10c-e397-11e9-81b4-2a2ae2dbcce5"
+          },
+          "resultOrganizationId": {
+            "title": "resultOrganizationId",
+            "description": "Id of the result Organization",
+            "type": "string",
+            "example": "5969b10c-e397-11e9-81b4-2a2ae2dbcce6"
+          }
+        },
+        "type": "object"
+      },
+      "events_user_product_membership_changed": {
+        "title": "User Product Membership Changed",
+        "required": [
+          "organizationId",
+          "userId",
+          "productId",
+          "role",
+          "oldRole"
+        ],
+        "properties": {
+          "organizationId": {
+            "title": "organizationId",
+            "description": "Id of the organization",
+            "type": "string",
+            "example": "5969b10c-e397-11e9-81b4-2a2ae2dbcce4"
+          },
+          "userId": {
+            "title": "userId",
+            "description": "Id of the user",
+            "type": "string",
+            "example": "5969b10c-e397-11e9-81b4-2a2ae2dbcce4"
+          },
+          "productId": {
+            "title": "productId",
+            "description": "Id of the product",
+            "type": "string",
+            "example": "formstack_classic"
+          },
+          "role": {
+            "title": "role",
+            "description": "The role given within the product",
+            "type": "string",
+            "example": "admin"
+          },
+          "oldRole": {
+            "title": "oldRole",
+            "description": "The role that the users had before",
+            "type": "string",
+            "example": "regular"
+          },
+          "productMetadata": {
+            "description": "Product permissions json",
+            "type": "object",
+            "example": {
+              "formstack_classic": [],
+              "webmerge": []
+            },
+            "nullable": true
+          }
+        },
+        "type": "object"
+      },
+      "events_user_product_role_added": {
+        "title": "User Product Role Added",
+        "required": ["organizationId", "userId", "productId", "role"],
+        "properties": {
+          "organizationId": {
+            "title": "organizationId",
+            "description": "Id of the organization",
+            "type": "string",
+            "example": "5969b10c-e397-11e9-81b4-2a2ae2dbcce4"
+          },
+          "userId": {
+            "title": "userId",
+            "description": "Id of the user",
+            "type": "string",
+            "example": "5969b10c-e397-11e9-81b4-2a2ae2dbcce4"
+          },
+          "productId": {
+            "title": "productId",
+            "description": "Id of the product",
+            "type": "string",
+            "example": "formstack_classic"
+          },
+          "role": {
+            "title": "role",
+            "description": "The role given within the product",
+            "type": "string",
+            "example": "admin"
+          },
+          "productMetadata": {
+            "description": "Product permissions json",
+            "type": "object",
+            "example": {
+              "formstack_classic": [],
+              "webmerge": []
+            },
+            "nullable": true
+          }
+        },
+        "type": "object"
+      },
+      "events_user_product_role_removed": {
+        "title": "User Product Role Removed",
+        "required": ["organizationId", "userId", "productId"],
+        "properties": {
+          "organizationId": {
+            "title": "organizationId",
+            "description": "Id of the organization",
+            "type": "string",
+            "example": "5969b10c-e397-11e9-81b4-2a2ae2dbcce4"
+          },
+          "userId": {
+            "title": "userId",
+            "description": "Id of the user",
+            "type": "string",
+            "example": "5969b10c-e397-11e9-81b4-2a2ae2dbcce4"
+          },
+          "productId": {
+            "title": "productId",
+            "description": "Id of the product",
+            "type": "string",
+            "example": "formstack_classic"
+          },
+          "role": {
+            "title": "role",
+            "description": "The role given within the product",
+            "type": "string",
+            "example": "admin"
+          }
+        },
+        "type": "object"
+      },
+      "events_user_removed_from_organization": {
+        "title": "User Removed From Organization Event",
+        "properties": {
+          "userId": {
+            "title": "userId",
+            "description": "Id of the user",
+            "type": "string",
+            "example": "5969b10c-e397-11e9-81b4-2a2ae2dbcce4"
+          },
+          "userEmail": {
+            "title": "userEmail",
+            "description": "User email",
+            "type": "string"
+          },
+          "userName": {
+            "title": "userName",
+            "description": "User name",
+            "type": "string"
+          },
+          "organizationId": {
+            "title": "organizationId",
+            "description": "Id of the organization",
+            "type": "string",
+            "example": "5969b10c-e397-11e9-81b4-2a2ae2dbcce4"
+          }
+        },
+        "type": "object"
+      },
+      "events_user_suspended": {
+        "title": "User suspended",
+        "required": ["userId", "suspended"],
+        "properties": {
+          "userId": {
+            "title": "userId",
+            "description": "Id of the user",
+            "type": "string",
+            "example": "5969b10c-e397-11e9-81b4-2a2ae2dbcce4"
+          },
+          "suspended": {
+            "title": "suspended",
+            "description": "Suspended",
+            "type": "boolean",
+            "example": true
+          }
+        },
+        "type": "object"
+      },
+      "events_user_updated": {
+        "title": "User Updated Event",
+        "required": ["userId", "firstName", "lastName", "email"],
+        "properties": {
+          "userId": {
+            "title": "userId",
+            "description": "Id of the user",
+            "type": "string",
+            "example": "5969b10c-e397-11e9-81b4-2a2ae2dbcce4"
+          },
+          "firstName": {
+            "title": "firstName",
+            "description": "First Name",
+            "type": "string",
+            "example": "John"
+          },
+          "lastName": {
+            "title": "lastName",
+            "description": "Last Name",
+            "type": "string",
+            "example": "Smith"
+          },
+          "email": {
+            "title": "email",
+            "description": "Email",
+            "type": "string",
+            "example": "john.smith@formstack.com"
+          },
+          "avatarUrl": {
+            "title": "avatarUrl",
+            "description": "Avatar url",
+            "type": "string",
+            "example": "https://admin.dev-formstack.com:8086/localbucket/users/:id/avatars/:filename",
+            "nullable": true
+          },
+          "timezone": {
+            "description": "User timezone",
+            "type": "string",
+            "example": "Europe/London"
+          }
+        },
+        "type": "object"
+      },
+      "general_validation_error": {
+        "properties": {
+          "message": {
+            "description": "Basic error description",
+            "type": "string",
+            "example": "The given data failed to pass validation."
+          },
+          "errors": {
+            "description": "Basic error description",
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "example": "cannot be blank"
+              }
+            }
+          }
+        },
+        "type": "object"
+      },
+      "DeletionLog": {
+        "properties": {
+          "type": {
+            "description": "Message Type",
+            "type": "string",
+            "example": "START"
+          },
+          "message": {
+            "description": "Message",
+            "type": "string",
+            "example": "Start"
+          }
+        },
+        "type": "object"
+      },
+      "MembershipSurvey": {
+        "properties": {
+          "industry": {
+            "description": "industry",
+            "type": "string",
+            "example": "agriculture"
+          },
+          "department": {
+            "description": "department",
+            "type": "string",
+            "example": "operations"
+          },
+          "number_of_employees": {
+            "description": "numberOfEmployees",
+            "type": "string",
+            "example": "20-99"
+          }
+        },
+        "type": "object"
+      },
+      "Organization": {
+        "properties": {
+          "id": {
+            "description": "ID of the organization",
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true
+          },
+          "createdAt": {
+            "description": "Org created at",
+            "type": "string",
+            "readOnly": true,
+            "example": "2019-01-01 05:00:00",
+            "nullable": true
+          },
+          "name": {
+            "description": "Organization Name",
+            "type": "string",
+            "example": "Foo Corp"
+          },
+          "signupMetadata": {
+            "description": "Signup metadata",
+            "type": "object",
+            "nullable": true
+          },
+          "isHipaa": {
+            "description": "Hipaa flag",
+            "type": "boolean",
+            "readOnly": true,
+            "example": true
+          },
+          "accessibleApps": {
+            "description": "Apps that org has access to",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "billingIsManagedByFsid": {
+            "description": "Is billing managed by FSID",
+            "type": "boolean"
+          },
+          "hasBillingAccount": {
+            "description": "Has billing account",
+            "type": "boolean"
+          },
+          "isBillingSuspended": {
+            "description": "Is billing suspended",
+            "type": "boolean"
+          },
+          "hasCompedHoldings": {
+            "description": "Has any comped products",
+            "type": "boolean"
+          },
+          "emailVerified": {
+            "description": "Has email verified",
+            "type": "boolean"
+          },
+          "parentOrganizationId": {
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true,
+            "nullable": true
+          },
+          "applicationFeatureSets": {
+            "description": "Product holdings by application",
+            "type": "object",
+            "nullable": true
+          },
+          "hasDeletionScheduled": {
+            "description": "Is scheduled for deletion",
+            "type": "boolean"
+          },
+          "aiFeatureToggles": {
+            "description": "AI feature toggles",
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "organization_product_trial_payload": {
+        "properties": {
+          "settings": {
+            "description": "Product Specific settings",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "user_requesting_trial": {
+            "type": "string"
+          },
+          "user_requesting_trial_role": {
+            "type": "string"
+          },
+          "request_id": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "type": "object"
+      },
+      "OrganizationIdp": {
+        "properties": {
+          "id": {
+            "description": "ID of the IdP",
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true
+          },
+          "name": {
+            "description": "IdP Name",
+            "type": "string",
+            "example": "saml auth"
+          },
+          "login_url": {
+            "description": "Login with this IdP url",
+            "type": "string",
+            "example": "https://admin.formstack.com/orgIdp/74147a54-9504-11ea-9529-0242ac120005/auth"
+          },
+          "custom_fields": {
+            "title": "custom fields(key-label pairs)",
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        },
+        "type": "object"
+      },
+      "organization_product_settings_payload": {
+        "title": "Organization Product settings Payload",
+        "properties": {
+          "settings": {
+            "title": "settings",
+            "type": "object",
+            "additionalProperties": true
+          }
+        },
+        "type": "object"
+      },
+      "OrganizationUser": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/User"
+          },
+          {
+            "properties": {
+              "roles": {
+                "description": "product roles",
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ProductRole"
+                }
+              },
+              "membershipId": {
+                "description": "User/Org membership ID",
+                "type": "string"
+              },
+              "membershipSurvey": {
+                "$ref": "#/components/schemas/MembershipSurvey"
+              }
+            },
+            "type": "object"
+          }
+        ]
+      },
+      "ProductRole": {
+        "properties": {
+          "product": {
+            "description": "Product id",
+            "type": "string",
+            "example": "formstack_classic"
+          },
+          "role": {
+            "description": "Product role",
+            "type": "string",
+            "example": "admin"
+          }
+        },
+        "type": "object"
+      },
+      "User": {
+        "properties": {
+          "id": {
+            "description": "ID of the user",
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true
+          },
+          "firstName": {
+            "description": "First Name",
+            "type": "string",
+            "example": "John"
+          },
+          "lastName": {
+            "description": "Last Name",
+            "type": "string",
+            "example": "Doe"
+          },
+          "email": {
+            "description": "Email",
+            "type": "string",
+            "example": "john@doe.com"
+          },
+          "timezone": {
+            "description": "Timezone",
+            "type": "string",
+            "example": "US/Eastern"
+          },
+          "password": {
+            "description": "Password Hash",
+            "type": "string",
+            "writeOnly": true,
+            "example": "$2y$10$Bs.TCShI9WHGAk3jqPWSouO6hhwI3mIhOIVWqs6L8fGvlh2TMGaw2"
+          },
+          "lastLoginAt": {
+            "description": "Last login at",
+            "type": "string",
+            "readOnly": true,
+            "example": "2019-01-01 05:00:00",
+            "nullable": true
+          },
+          "passwordChangeNeeded": {
+            "description": "Password change required",
+            "type": "boolean",
+            "example": true
+          },
+          "idpManaged": {
+            "description": "Is user managed by idp (user.external in forms)",
+            "type": "boolean",
+            "default": false
+          },
+          "organizations": {
+            "description": "List of organizations a user is a member of",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserOrganization"
+            },
+            "nullable": true
+          }
+        },
+        "type": "object"
+      },
+      "UserOrganization": {
+        "properties": {
+          "id": {
+            "description": "ID of the organization",
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true
+          },
+          "name": {
+            "description": "Organization Name",
+            "type": "string",
+            "example": "Foo Corp"
+          },
+          "roles": {
+            "description": "product roles",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductRole"
+            }
+          },
+          "membershipSurvey": {
+            "$ref": "#/components/schemas/MembershipSurvey"
+          }
+        },
+        "type": "object"
+      },
+      "organization_migration_request_payload": {
+        "title": "Organization Migration Payload",
+        "required": ["orgName", "users", "product"],
+        "properties": {
+          "dryRun": {
+            "description": "Just run validation only",
+            "type": "boolean",
+            "default": false
+          },
+          "orgName": {
+            "description": "Name of the organization",
+            "type": "string",
+            "example": "Foo Corp"
+          },
+          "orgId": {
+            "description": "Id of org if already exists. If set then the name will be ignored. Security policy & logo will only be set if currently empty",
+            "type": "string",
+            "format": "guid"
+          },
+          "logoUrl": {
+            "description": "Publically accessible logo url",
+            "type": "string",
+            "example": "https://example.com/logo.png"
+          },
+          "isHipaa": {
+            "description": "Is this organization Hipaa",
+            "type": "boolean",
+            "default": false
+          },
+          "securityPolicy": {
+            "$ref": "#/components/schemas/organization_migration_request_security_policy"
+          },
+          "users": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/organization_migration_request_user"
+            }
+          },
+          "product": {
+            "description": "Which Product this migration is for",
+            "type": "string",
+            "example": "formstack_classic"
+          },
+          "productSettings": {
+            "description": "Product Specific settings",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "orgIdps": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/organization_migration_request_org_idp"
+            }
+          },
+          "orgIdpSettings": {
+            "$ref": "#/components/schemas/organization_migration_request_org_idp_settings"
+          },
+          "hasSubaccounts": {
+            "description": "Whether account has access to subaccounts (agency model)",
+            "type": "boolean",
+            "default": false
+          }
+        },
+        "type": "object"
+      },
+      "organization_migration_request_org_idp": {
+        "title": "Organization Migration Org IdP",
+        "required": ["type", "name", "legacyFormsIdpId", "settings"],
+        "properties": {
+          "name": {
+            "description": "idp name",
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["saml"]
+          },
+          "settings": {
+            "description": "IdP-specific settings object",
+            "type": "object"
+          },
+          "customFields": {
+            "description": "custom mappable fields(key-label pairs",
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "legacyFormsIdpId": {
+            "description": "forms auth provider id",
+            "type": "integer",
+            "example": 42
+          },
+          "enabled": {
+            "description": "idp enabled flag",
+            "type": "boolean",
+            "default": false
+          }
+        },
+        "type": "object"
+      },
+      "organization_migration_request_org_idp_settings": {
+        "title": "Organization Migration Org IdP settings",
+        "properties": {
+          "organizationSsoDomain": {
+            "description": "org verified sso domain",
+            "type": "string",
+            "nullable": true
+          },
+          "allowUserCreation": {
+            "description": "Allow user creation through custom org idp",
+            "type": "boolean",
+            "nullable": true
+          },
+          "enforceIdpAuth": {
+            "description": "Enforce idp auth",
+            "type": "boolean",
+            "nullable": true
+          }
+        },
+        "type": "object"
+      },
+      "organization_migration_request_security_policy": {
+        "title": "Organization Migration Request Security Policy",
+        "properties": {
+          "passwordFormatRule": {
+            "description": "Password Format Rule: no_rules or alphanumeric",
+            "type": "string",
+            "default": "no_rules",
+            "example": "no_rules"
+          },
+          "passwordMinimumLength": {
+            "description": "Minimum Password Length",
+            "type": "integer",
+            "default": 8,
+            "example": 8
+          },
+          "enforcePasswordPeriodicChange": {
+            "description": "Prevent Password Reuse",
+            "type": "boolean",
+            "default": false,
+            "example": false
+          },
+          "preventPasswordReuse": {
+            "description": "Prevent Password Reuse. Only used if $enforcePasswordPeriodicChange is true",
+            "type": "boolean",
+            "default": false,
+            "example": false
+          },
+          "sessionDuration": {
+            "description": "Session Duration (only used if non hipaa)",
+            "type": "integer",
+            "default": 14400,
+            "example": 14400
+          },
+          "enforceTwoFactorAuth": {
+            "description": "Enforce two factor authentication",
+            "type": "boolean",
+            "default": false,
+            "example": false
+          }
+        },
+        "type": "object"
+      },
+      "organization_migration_request_user": {
+        "title": "Organization Migration User Payload",
+        "required": [
+          "email",
+          "hashedPassword",
+          "firstName",
+          "lastName",
+          "role"
+        ],
+        "properties": {
+          "email": {
+            "description": "Email address for the user",
+            "type": "string",
+            "example": "test@example.com"
+          },
+          "hashedPassword": {
+            "description": "Hashed Password",
+            "type": "string",
+            "example": "$2y$12$Ec5PHJLBkMKw3VSFhHMSiO68CNuVj7LC3AAQU9Z/Xal4mzEalB1aS"
+          },
+          "firstName": {
+            "description": "First Name",
+            "type": "string",
+            "example": "John"
+          },
+          "lastName": {
+            "description": "Last Name",
+            "type": "string",
+            "example": "Smith"
+          },
+          "role": {
+            "description": "Role: is dependent on which product is being migrated",
+            "type": "string",
+            "example": "admin"
+          },
+          "passwordLastChangedAt": {
+            "description": "Password last changed at",
+            "type": "string",
+            "format": "date-time",
+            "example": "2017-07-21T17:32:28Z"
+          },
+          "lastLoginAt": {
+            "description": "Last login at",
+            "type": "string",
+            "format": "date-time",
+            "example": "2017-07-21T17:32:28Z"
+          },
+          "secondFactor": {
+            "$ref": "#/components/schemas/organization_migration_request_user_second_factor"
+          },
+          "forcePasswordChange": {
+            "description": "Force user to change passord on next login",
+            "type": "boolean",
+            "default": false,
+            "example": false
+          },
+          "previousPasswordHashes": {
+            "description": "Previously used passwords - oldest first",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "timezone": {
+            "description": "User timezone",
+            "type": "string",
+            "example": "Europe/London"
+          },
+          "avatarUrl": {
+            "description": "Publically accessible avatar url",
+            "type": "string",
+            "example": "https://example.com/logo.png"
+          },
+          "idpManaged": {
+            "description": "Is user managed by idp (user.external in forms)",
+            "type": "boolean",
+            "default": false,
+            "example": false
+          }
+        },
+        "type": "object"
+      },
+      "organization_migration_request_user_second_factor": {
+        "title": "Second Factor for authentication for a user",
+        "required": ["totpSeed", "primaryMethod"],
+        "properties": {
+          "totpSeed": {
+            "description": "TOTP Seed",
+            "type": "string",
+            "example": "GYZDGOJWHAZTQOJX"
+          },
+          "primaryMethod": {
+            "description": "app or sms. If SMS then there should be a primarySmsNumber",
+            "type": "string",
+            "example": "app"
+          },
+          "primarySmsNumber": {
+            "description": "Primary SMS number. Used if primaryMethod is sms",
+            "type": "string",
+            "example": "+44770011223344"
+          },
+          "backupSmsNumber": {
+            "description": "Backup SMS number. Used if user does not have access to primary sms or app",
+            "type": "string",
+            "example": "+44779988776655"
+          },
+          "backupCodes": {
+            "description": "Backup codes that user can print out. Comma separated",
+            "type": "string",
+            "example": "189786,567384,92764,363728"
+          }
+        },
+        "type": "object"
+      }
+    },
+    "responses": {
+      "404": {
+        "description": "Organization could not be found"
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "Bearer authentication"
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Billing",
+      "description": "Billing"
+    },
+    {
+      "name": "Organization",
+      "description": "Organization"
+    },
+    {
+      "name": "Subaccounts",
+      "description": "Subaccounts"
+    },
+    {
+      "name": "MembershipSurvey",
+      "description": "MembershipSurvey"
+    },
+    {
+      "name": "BulkActions",
+      "description": "BulkActions"
+    },
+    {
+      "name": "DeletionLogs",
+      "description": "DeletionLogs"
+    },
+    {
+      "name": "Fraud",
+      "description": "Fraud"
+    },
+    {
+      "name": "OrganizationIdp",
+      "description": "OrganizationIdp"
+    },
+    {
+      "name": "OrganizationMembership",
+      "description": "OrganizationMembership"
+    },
+    {
+      "name": "OrganizationMigration",
+      "description": "OrganizationMigration"
+    },
+    {
+      "name": "User",
+      "description": "User"
+    },
+    {
+      "name": "Sessions",
+      "description": "Sessions"
+    },
+    {
+      "name": "OrganizationUser",
+      "description": "OrganizationUser"
+    }
+  ]
+}

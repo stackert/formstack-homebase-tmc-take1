@@ -1,0 +1,43 @@
+{
+  "id": "133347022",
+  "label": "2. Monthly billing date",
+  "hide_label": "0",
+  "description": "",
+  "name": "2_monthly_billing_date",
+  "type": "radio",
+  "options": [
+    {
+      "label": "3rd of the month",
+      "value": "3rd of the month",
+      "imageUrl": null
+    },
+    {
+      "label": "17th of the month",
+      "value": "17th of the month",
+      "imageUrl": null
+    }
+  ],
+  "required": "1",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "162",
+  "logic": null,
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "option_layout": "vertical",
+  "option_other": 0,
+  "randomize_options": 0,
+  "option_store": "value",
+  "option_show_values": 0,
+  "use_images": 0,
+  "image_dimensions": "customDimensions",
+  "image_height": 100,
+  "image_width": 100,
+  "lock_image_ratio": true,
+  "lock_image_ratio_option": "fitProportionally",
+  "image_label_alignment": "bottom"
+}

@@ -1,0 +1,58 @@
+{
+  "id": "133346943",
+  "label": "Must be the required grade during which school year?",
+  "hide_label": "0",
+  "description": "",
+  "name": "must_be_the_required_grade_during_which_school_year",
+  "type": "radio",
+  "options": [
+    {
+      "label": "Current School Year",
+      "value": "Current School Year",
+      "imageUrl": ""
+    },
+    {
+      "label": "Next School Year",
+      "value": "Next School Year",
+      "imageUrl": ""
+    }
+  ],
+  "required": "1",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "67",
+  "logic": {
+    "action": "show",
+    "conditional": "any",
+    "checks": [
+      {
+        "field": 133346938,
+        "condition": "equals",
+        "option": "Specific Grade(s) Only"
+      },
+      {
+        "field": 133346938,
+        "condition": "equals",
+        "option": "Specific Age(s) & Grade(s)"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "option_layout": "vertical",
+  "option_other": 0,
+  "randomize_options": 0,
+  "option_store": "value",
+  "option_show_values": 0,
+  "use_images": 0,
+  "image_dimensions": "customDimensions",
+  "image_height": 100,
+  "image_width": 100,
+  "lock_image_ratio": true,
+  "lock_image_ratio_option": "fitProportionally",
+  "image_label_alignment": "bottom"
+}

@@ -1,0 +1,37 @@
+{
+  "id": "133346871",
+  "label": "Image File",
+  "hide_label": "0",
+  "description": "",
+  "name": "image_file",
+  "type": "file",
+  "options": "",
+  "required": "1",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "2",
+  "sort": "33",
+  "logic": {
+    "action": "show",
+    "conditional": "all",
+    "checks": [
+      {
+        "field": 133346870,
+        "condition": "equals",
+        "option": "Yes"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "text_size": "30",
+  "file_types": "jpg,jpeg,gif,png,bmp,tif,psd",
+  "allowMultipleFiles": false,
+  "fileLimit": 10,
+  "fileSizeUnit": "MB",
+  "maxFileSizeMagnitude": 5,
+  "minFileSizeMagnitude": 0
+}

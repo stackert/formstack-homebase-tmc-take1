@@ -1,0 +1,63 @@
+{
+  "id": "133346971",
+  "label": "Prorate fee automatically if someone registers after the program starts?",
+  "hide_label": "0",
+  "description": "",
+  "name": "prorate_fee_automatically_if_someone_registers_after_the_program_starts",
+  "type": "radio",
+  "options": [
+    {
+      "label": "Yes",
+      "value": "By Bookings",
+      "imageUrl": null
+    },
+    {
+      "label": "No",
+      "value": "Do Not Prorate",
+      "imageUrl": null
+    }
+  ],
+  "required": "1",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "81",
+  "logic": {
+    "action": "show",
+    "conditional": "all",
+    "checks": [
+      {
+        "field": "133346922",
+        "condition": "equals",
+        "option": "Multiple Dates"
+      },
+      {
+        "field": "133347312",
+        "condition": "greaterthan",
+        "option": 1
+      },
+      {
+        "field": 133346878,
+        "condition": "notequals",
+        "option": "20"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "Do Not Prorate",
+  "option_layout": "horizontal",
+  "option_other": 0,
+  "randomize_options": 0,
+  "option_store": "value",
+  "option_show_values": true,
+  "use_images": 0,
+  "image_dimensions": "customDimensions",
+  "image_height": 100,
+  "image_width": 100,
+  "lock_image_ratio": true,
+  "lock_image_ratio_option": "fitProportionally",
+  "image_label_alignment": "bottom"
+}

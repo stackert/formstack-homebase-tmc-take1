@@ -1,0 +1,42 @@
+{
+  "id": "137841218",
+  "label": "",
+  "hide_label": "0",
+  "description": "",
+  "name": "",
+  "type": "richtext",
+  "options": "",
+  "required": "0",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "2",
+  "sort": "44",
+  "logic": {
+    "action": "show",
+    "conditional": "any",
+    "checks": [
+      {
+        "field": 168611237,
+        "condition": "equals",
+        "option": "Early Childhood (0-5)"
+      },
+      {
+        "field": 168611237,
+        "condition": "equals",
+        "option": "Youth (6-11)"
+      },
+      {
+        "field": 168611237,
+        "condition": "equals",
+        "option": "Teens (12-18)"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "section_text": "<p><u><strong>Inclusion in Youth Programming</strong></u><br>All youth programming registrations should include the following question:&nbsp;&nbsp;<em>Would your child benefit from any extra support or resources in this program? (Does your child have any physical, sensory, developmental, mental or emotional conditions that may impact their participation? )</em><br>Participant responses will be reviewed by the inclusion department.</p>",
+  "text_editor": "wysiwyg"
+}

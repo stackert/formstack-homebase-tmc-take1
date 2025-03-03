@@ -1,0 +1,35 @@
+{
+  "id": "133347307",
+  "label": "Notes for the Registration Team",
+  "hide_label": "0",
+  "description": "",
+  "name": "notes_for_the_registration_team",
+  "type": "textarea",
+  "options": "",
+  "required": "0",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "2",
+  "sort": "6",
+  "logic": {
+    "action": "show",
+    "conditional": "all",
+    "checks": [
+      {
+        "field": 133347309,
+        "condition": "greaterthan",
+        "option": 999
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "rows": 4,
+  "cols": 50,
+  "minlength": 0,
+  "maxlength": 0,
+  "placeholder": ""
+}

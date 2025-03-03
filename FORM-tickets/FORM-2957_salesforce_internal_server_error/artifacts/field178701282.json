@@ -1,0 +1,75 @@
+{
+  "id": "178701282",
+  "label": "Select the settings that are the SAME for all Course Options in this request.",
+  "hide_label": "0",
+  "description": "If checked, you will only be asked for those details ONCE.",
+  "name": "select_the_settings_that_are_the_same_for_all_course_options_in_this_request",
+  "type": "checkbox",
+  "options": [
+    {
+      "label": "Age/Grade Requirement",
+      "value": "Age/Grade Requirement",
+      "imageUrl": null
+    },
+    {
+      "label": "Fees",
+      "value": "Fees",
+      "imageUrl": null
+    },
+    {
+      "label": "Capacity",
+      "value": "Capacity",
+      "imageUrl": null
+    },
+    {
+      "label": "Location",
+      "value": "Location",
+      "imageUrl": ""
+    },
+    {
+      "label": "Instructor",
+      "value": "Instructor",
+      "imageUrl": ""
+    },
+    {
+      "label": "Confirmation Email",
+      "value": "Confirmation Email",
+      "imageUrl": ""
+    }
+  ],
+  "required": "0",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "24",
+  "logic": {
+    "action": "show",
+    "conditional": "any",
+    "checks": [
+      {
+        "field": "133346918",
+        "condition": "greaterthan",
+        "option": 1
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "option_layout": "vertical",
+  "option_other": 0,
+  "option_checkall": 0,
+  "randomize_options": 0,
+  "option_store": "value",
+  "option_show_values": 0,
+  "use_images": 0,
+  "image_dimensions": "customDimensions",
+  "image_height": 100,
+  "image_width": 100,
+  "lock_image_ratio": true,
+  "lock_image_ratio_option": "fitProportionally",
+  "image_label_alignment": "bottom",
+  "hide_option_button": true
+}

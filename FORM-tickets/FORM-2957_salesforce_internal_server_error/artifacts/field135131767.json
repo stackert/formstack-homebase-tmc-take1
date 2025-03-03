@@ -1,0 +1,22 @@
+{
+  "id": "135131767",
+  "label": "",
+  "hide_label": "0",
+  "description": "",
+  "name": "",
+  "type": "richtext",
+  "options": "",
+  "required": "0",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "2",
+  "logic": null,
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "section_text": "<p><br></p><p><span style=\"font-size: 14px;\"><u>Facility Booking (other use)</u> Only select for rentals, meetings, or other events that are not MJCCA programs.</span></p><p><span style=\"font-size: 14px;\"><u>Ad Hoc Request</u> Only select if <em>nothing</em> about your program has changed since the original program request was submitted (or since the most recent change request). &nbsp;Otherwise, select the \"CHANGE\" option, which will also make these request forms available. &nbsp;This ensures that all necessary individuals/departments are kept informed about changes to your program.</span></p>",
+  "text_editor": "wysiwyg"
+}

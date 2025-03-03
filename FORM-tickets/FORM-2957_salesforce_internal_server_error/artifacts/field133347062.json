@@ -1,0 +1,44 @@
+{
+  "id": "133347062",
+  "label": "3. Program Capacity ",
+  "hide_label": "0",
+  "description": "Limit # people that can register",
+  "name": "3_program_capacity_",
+  "type": "number",
+  "options": "",
+  "required": "1",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "234",
+  "logic": {
+    "action": "show",
+    "conditional": "all",
+    "checks": [
+      {
+        "field": 135412509,
+        "condition": "equals",
+        "option": "Yes, capacity is limited"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "field_one_calculation": 0,
+  "field_two_calculation": 0,
+  "calculation_units": "",
+  "calculation_operator": "",
+  "calculation_type": "",
+  "calculation_category": "",
+  "calculation_allow_negatives": 0,
+  "text_size": 5,
+  "min_value": "",
+  "max_value": "",
+  "currency": "",
+  "decimals": "0",
+  "slider": "0",
+  "placeholder": ""
+}

@@ -1,0 +1,78 @@
+{
+  "id": "133346867",
+  "label": "Exclude from the website's calendar of programs/events? ",
+  "hide_label": "0",
+  "description": "Only for programs with multiple options that all meet daily and would clutter up the calendar, e.g. Preschool, Camp Barney Medintz, etc., or programs not advertised to the public.",
+  "name": "exclude_from_the_websites_calendar_of_programsevents_",
+  "type": "radio",
+  "options": [
+    {
+      "label": "Yes",
+      "value": "Yes",
+      "imageUrl": ""
+    },
+    {
+      "label": "No",
+      "value": "No",
+      "imageUrl": ""
+    }
+  ],
+  "required": "0",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "35",
+  "logic": {
+    "action": "show",
+    "conditional": "any",
+    "checks": [
+      {
+        "field": "133346846",
+        "condition": "equals",
+        "option": "a2b1M000001FObkQAG"
+      },
+      {
+        "field": "133346846",
+        "condition": "equals",
+        "option": "a2b1M000001FOa4QAG"
+      },
+      {
+        "field": "133346846",
+        "condition": "equals",
+        "option": "a2b1M000001FPEuQAO"
+      },
+      {
+        "field": "133346846",
+        "condition": "equals",
+        "option": "a2b1M000001FOaVQAW"
+      },
+      {
+        "field": "133346846",
+        "condition": "equals",
+        "option": "a2b1M0000011dW8QAI"
+      },
+      {
+        "field": "137575979",
+        "condition": "equals",
+        "option": "Do not promote - Exclude from website program listings"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "No",
+  "option_layout": "horizontal",
+  "option_other": 0,
+  "randomize_options": 0,
+  "option_store": "value",
+  "option_show_values": 0,
+  "use_images": 0,
+  "image_dimensions": "customDimensions",
+  "image_height": 100,
+  "image_width": 100,
+  "lock_image_ratio": true,
+  "lock_image_ratio_option": "fitProportionally",
+  "image_label_alignment": "bottom"
+}

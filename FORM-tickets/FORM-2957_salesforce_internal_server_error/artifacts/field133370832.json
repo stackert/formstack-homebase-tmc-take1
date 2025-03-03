@@ -1,0 +1,40 @@
+{
+  "id": "133370832",
+  "label": "Brief Description of Program (key and compelling details only)",
+  "hide_label": "0",
+  "description": "i.e. T-Ball is an introductory program where your slugger will learn basic baseball skills in a casual and playful environment. During the season, kids will learn skills like fielding and batting. Each meeting will consist of practice and a scrimmage game. In no time, they’ll be ready to step up to the big leagues! Players need to provide their own baseball pants (optional) and bats to play with. Bats should be between the sizes of 27’-29’. Cleats (optional) should not have metal spikes.",
+  "name": "brief_description_of_program_key_and_compelling_details_only",
+  "type": "textarea",
+  "options": "",
+  "required": "1",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "2",
+  "sort": "424",
+  "logic": {
+    "action": "show",
+    "conditional": "any",
+    "checks": [
+      {
+        "field": 133348718,
+        "condition": "equals",
+        "option": "1000"
+      },
+      {
+        "field": 133346842,
+        "condition": "equals",
+        "option": "MJCCA Program Guide"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "rows": 10,
+  "cols": 50,
+  "minlength": 0,
+  "maxlength": 0,
+  "placeholder": "Summary of program for the Program Guide."
+}

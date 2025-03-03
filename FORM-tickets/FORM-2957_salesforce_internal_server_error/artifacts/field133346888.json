@@ -1,0 +1,68 @@
+{
+  "id": "133346888",
+  "label": "Is there a fee to participate?",
+  "hide_label": "0",
+  "description": "",
+  "name": "is_there_a_fee_to_participate",
+  "type": "radio",
+  "options": [
+    {
+      "label": "Required Fee",
+      "value": "3",
+      "imageUrl": null
+    },
+    {
+      "label": "Required Fee + Optional Additional Fee",
+      "value": "2",
+      "imageUrl": ""
+    },
+    {
+      "label": "FREE Program + Optional Additional Fee",
+      "value": "1",
+      "imageUrl": ""
+    },
+    {
+      "label": "FREE Program",
+      "value": "0",
+      "imageUrl": null
+    }
+  ],
+  "required": "1",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "78",
+  "logic": {
+    "action": "show",
+    "conditional": "any",
+    "checks": [
+      {
+        "field": 133346886,
+        "condition": "equals",
+        "option": "Members Only"
+      },
+      {
+        "field": 133346886,
+        "condition": "equals",
+        "option": "Open to the Community (Members & Nonmembers)"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "option_layout": "vertical",
+  "option_other": 0,
+  "randomize_options": 0,
+  "option_store": "value",
+  "option_show_values": true,
+  "use_images": 0,
+  "image_dimensions": "customDimensions",
+  "image_height": 100,
+  "image_width": 100,
+  "lock_image_ratio": true,
+  "lock_image_ratio_option": "fitProportionally",
+  "image_label_alignment": "bottom"
+}

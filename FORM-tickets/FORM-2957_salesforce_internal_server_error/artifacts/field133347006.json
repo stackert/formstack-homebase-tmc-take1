@@ -1,0 +1,53 @@
+{
+  "id": "133347006",
+  "label": "2. Create waitlist if capacity is reached?",
+  "hide_label": "0",
+  "description": "Programmer is responsible for monitoring/managing the waitlist",
+  "name": "2_create_waitlist_if_capacity_is_reached",
+  "type": "radio",
+  "options": [
+    {
+      "label": "Yes",
+      "value": "Yes",
+      "imageUrl": null
+    },
+    {
+      "label": "No",
+      "value": "No",
+      "imageUrl": null
+    }
+  ],
+  "required": "1",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "179",
+  "logic": {
+    "action": "show",
+    "conditional": "all",
+    "checks": [
+      {
+        "field": 135412512,
+        "condition": "equals",
+        "option": "Yes, capacity is limited"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "option_layout": "horizontal",
+  "option_other": 0,
+  "randomize_options": 0,
+  "option_store": "value",
+  "option_show_values": 0,
+  "use_images": 0,
+  "image_dimensions": "customDimensions",
+  "image_height": 100,
+  "image_width": 100,
+  "lock_image_ratio": true,
+  "lock_image_ratio_option": "fitProportionally",
+  "image_label_alignment": "bottom"
+}

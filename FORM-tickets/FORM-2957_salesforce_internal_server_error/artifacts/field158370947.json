@@ -1,0 +1,37 @@
+{
+  "id": "158370947",
+  "label": "",
+  "hide_label": "0",
+  "description": "",
+  "name": "",
+  "type": "richtext",
+  "options": "",
+  "required": "0",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "2",
+  "sort": "416",
+  "logic": {
+    "action": "show",
+    "conditional": "any",
+    "checks": [
+      {
+        "field": 133348718,
+        "condition": "equals",
+        "option": "1000"
+      },
+      {
+        "field": 133346842,
+        "condition": "equals",
+        "option": "MJCCA Program Guide"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "section_text": "<p><em><strong>Example Submissions</strong></em></p><table style=\"width: 100%; margin-left: calc(0%);\"><tbody><tr><td style=\"width: 56.8768%; vertical-align: top;\">T-BALL<br>Boys and Girls, Grades PreK-1<br>March 3-May 5<br>PreK (Minors): Sundays, 1:00-2:00 pm<br>Grades K-1 (Majors): Sundays, 2:00-3:00 pm<br>T-Ball is an introductory program where your slugger will learn basic baseball skills in a casual and playful environment. During the season, kids will learn skills like fielding and batting. Each meeting will consist of practice and a scrimmage game. In no time, they’ll be ready to step up to the big leagues! Players need to provide their own baseball pants (optional) and bats to play with. Bats should be between the sizes of 27’-29’. Cleats (optional) should not have metal spikes.<br>Fee: Member $195; Community $275 (8 sessions)<br><br></td><td style=\"width: 1.9194%;\"><br></td><td style=\"width: 40.691%; vertical-align: top;\">TUMBLING TWOS<br>Boys &amp; Girls, Ages 1-2<br>January 7-May 12<br>Sundays, 9:15-9:45 am<br>Tumbling Twos teaches basic gymnastics skills and movements. Children will have the opportunity to utilize the preschool gymnastics equipment while learning basic motor and socialization skills. This is a parent-assisted class.<br>Fee: $225<br><br></td></tr></tbody></table>",
+  "text_editor": "wysiwyg"
+}

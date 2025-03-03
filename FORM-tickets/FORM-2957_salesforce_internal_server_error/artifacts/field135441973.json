@@ -1,0 +1,53 @@
+{
+  "id": "135441973",
+  "label": "Is this the first time this program is being offered by the MJCCA?",
+  "hide_label": "0",
+  "description": "If Yes, Development will receive a copy of this request.",
+  "name": "is_this_the_first_time_this_program_is_being_offered_by_the_mjcca",
+  "type": "radio",
+  "options": [
+    {
+      "label": "Yes",
+      "value": "Yes",
+      "imageUrl": null
+    },
+    {
+      "label": "No",
+      "value": "No",
+      "imageUrl": null
+    }
+  ],
+  "required": "0",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "7",
+  "logic": {
+    "action": "show",
+    "conditional": "any",
+    "checks": [
+      {
+        "field": "133348718",
+        "condition": "equals",
+        "option": "1000"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "option_layout": "horizontal",
+  "option_other": 0,
+  "randomize_options": 0,
+  "option_store": "value",
+  "option_show_values": 0,
+  "use_images": 0,
+  "image_dimensions": "customDimensions",
+  "image_height": 100,
+  "image_width": 100,
+  "lock_image_ratio": true,
+  "lock_image_ratio_option": "fitProportionally",
+  "image_label_alignment": "bottom"
+}

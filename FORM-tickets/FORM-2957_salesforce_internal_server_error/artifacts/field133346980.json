@@ -1,0 +1,44 @@
+{
+  "id": "133346980",
+  "label": "2. How many times will this program/event occur?",
+  "hide_label": "0",
+  "description": "i.e. # Classes being offered",
+  "name": "2_how_many_times_will_this_programevent_occur",
+  "type": "number",
+  "options": "",
+  "required": "1",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "137",
+  "logic": {
+    "action": "show",
+    "conditional": "all",
+    "checks": [
+      {
+        "field": 133346979,
+        "condition": "equals",
+        "option": "Multiple Dates"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "field_one_calculation": 0,
+  "field_two_calculation": 0,
+  "calculation_units": "",
+  "calculation_operator": "plus",
+  "calculation_type": "date",
+  "calculation_category": "",
+  "calculation_allow_negatives": 0,
+  "text_size": 5,
+  "min_value": 1,
+  "max_value": "",
+  "currency": "",
+  "decimals": "0",
+  "slider": "0",
+  "placeholder": ""
+}

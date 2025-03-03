@@ -1,0 +1,75 @@
+{
+  "id": "133347293",
+  "label": "What equipment is needed?",
+  "hide_label": "0",
+  "description": "Check all that apply",
+  "name": "what_equipment_is_needed",
+  "type": "checkbox",
+  "options": [
+    {
+      "label": "Laptop",
+      "value": "Laptop",
+      "imageUrl": null
+    },
+    {
+      "label": "Screen",
+      "value": "Screen",
+      "imageUrl": null
+    },
+    {
+      "label": "Microphone",
+      "value": "Microphone",
+      "imageUrl": null
+    },
+    {
+      "label": "Speakers",
+      "value": "Speakers",
+      "imageUrl": ""
+    },
+    {
+      "label": "Projector",
+      "value": "Projector",
+      "imageUrl": ""
+    },
+    {
+      "label": "Podium",
+      "value": "Podium",
+      "imageUrl": ""
+    }
+  ],
+  "required": "0",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "466",
+  "logic": {
+    "action": "show",
+    "conditional": "any",
+    "checks": [
+      {
+        "field": 133347292,
+        "condition": "equals",
+        "option": "Yes"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "option_layout": "vertical",
+  "option_other": 0,
+  "option_checkall": 0,
+  "randomize_options": 0,
+  "option_store": "value",
+  "option_show_values": 0,
+  "use_images": 0,
+  "image_dimensions": "customDimensions",
+  "image_height": 100,
+  "image_width": 100,
+  "lock_image_ratio": true,
+  "lock_image_ratio_option": "fitProportionally",
+  "image_label_alignment": "bottom",
+  "hide_option_button": true
+}

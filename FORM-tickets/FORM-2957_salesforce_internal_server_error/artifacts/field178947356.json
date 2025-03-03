@@ -1,0 +1,47 @@
+{
+  "id": "178947356",
+  "label": "",
+  "hide_label": "0",
+  "description": "",
+  "name": "",
+  "type": "richtext",
+  "options": "",
+  "required": "0",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "2",
+  "sort": "83",
+  "logic": {
+    "action": "show",
+    "conditional": "any",
+    "checks": [
+      {
+        "field": 133346971,
+        "condition": "equals",
+        "option": "By Bookings"
+      },
+      {
+        "field": 133346971,
+        "condition": "equals",
+        "option": "Do Not Prorate"
+      },
+      {
+        "field": 133346891,
+        "condition": "equals",
+        "option": "Yes"
+      },
+      {
+        "field": 133346891,
+        "condition": "equals",
+        "option": "No"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "section_text": "",
+  "text_editor": "wysiwyg"
+}

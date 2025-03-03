@@ -1,0 +1,63 @@
+{
+  "id": "133346940",
+  "label": "Must be the required age on",
+  "hide_label": "0",
+  "description": "",
+  "name": "must_be_the_required_age_on",
+  "type": "radio",
+  "options": [
+    {
+      "label": "Start Date of Program",
+      "value": "Start Date of Program",
+      "imageUrl": null
+    },
+    {
+      "label": "Date Registering for Program",
+      "value": "Date Registering for Program",
+      "imageUrl": null
+    },
+    {
+      "label": "Specific Date",
+      "value": "Specific Date",
+      "imageUrl": null
+    }
+  ],
+  "required": "1",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "68",
+  "logic": {
+    "action": "show",
+    "conditional": "any",
+    "checks": [
+      {
+        "field": 133346938,
+        "condition": "equals",
+        "option": "Specific Age(s) Only"
+      },
+      {
+        "field": 133346938,
+        "condition": "equals",
+        "option": "Specific Age(s) & Grade(s)"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "option_layout": "vertical",
+  "option_other": 0,
+  "randomize_options": 0,
+  "option_store": "value",
+  "option_show_values": 0,
+  "use_images": 0,
+  "image_dimensions": "customDimensions",
+  "image_height": 100,
+  "image_width": 100,
+  "lock_image_ratio": true,
+  "lock_image_ratio_option": "fitProportionally",
+  "image_label_alignment": "bottom"
+}

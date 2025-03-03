@@ -1,0 +1,43 @@
+{
+  "id": "133346922",
+  "label": "Will this program/event occur one time or over multiple dates?",
+  "hide_label": "0",
+  "description": "",
+  "name": "will_this_programevent_occur_one_time_or_over_multiple_dates",
+  "type": "radio",
+  "options": [
+    {
+      "label": "One Time Only",
+      "value": "One Time Only",
+      "imageUrl": null
+    },
+    {
+      "label": "Multiple Dates",
+      "value": "Multiple Dates",
+      "imageUrl": null
+    }
+  ],
+  "required": "1",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "49",
+  "logic": null,
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "One Time Only",
+  "option_layout": "vertical",
+  "option_other": 0,
+  "randomize_options": 0,
+  "option_store": "value",
+  "option_show_values": 0,
+  "use_images": 0,
+  "image_dimensions": "customDimensions",
+  "image_height": 100,
+  "image_width": 100,
+  "lock_image_ratio": true,
+  "lock_image_ratio_option": "fitProportionally",
+  "image_label_alignment": "bottom"
+}

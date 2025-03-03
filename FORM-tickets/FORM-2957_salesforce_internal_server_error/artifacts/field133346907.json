@@ -1,0 +1,21 @@
+{
+  "id": "133346907",
+  "label": "",
+  "hide_label": "0",
+  "description": "",
+  "name": "",
+  "type": "embed",
+  "options": "",
+  "required": "0",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "2",
+  "sort": "426",
+  "logic": null,
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "section_text": "<link href=\"https://fonts.googleapis.com/css2?family=Bitter:wght@700&display=swap\" rel=\"stylesheet\">\n<link rel=\"stylesheet\" href=\"https://use.typekit.net/lbb7gxo.css\">\n\n\n\n\n\n"
+}

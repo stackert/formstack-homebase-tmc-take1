@@ -1,0 +1,45 @@
+{
+  "id": "133346905",
+  "label": "Do any of the following apply to this program/event?",
+  "hide_label": "0",
+  "description": "Check all that apply.  If any of the above are checked, the Event Security Checklist will appear at the end of this form.  Note: Events occurring outside normal business hours require approval and will incur an additional security expense.",
+  "name": "do_any_of_the_following_apply_to_this_programevent",
+  "type": "checkbox",
+  "options": [
+    {
+      "label": "Occurs outside the MJCCA's normal hours of operation",
+      "value": "Occurs outside the MJCCA's normal hours of operation",
+      "imageUrl": null
+    },
+    {
+      "label": "May impact or interfere with another MJCCA program or service (e.g. other events occurring simultaneously, requires 50+ parking spaces, etc.)",
+      "value": "May impact or interfere with another MJCCA program or service (e.g. other events occurring simultaneously, requires 50+ parking spaces, etc.)",
+      "imageUrl": null
+    }
+  ],
+  "required": "0",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "2",
+  "sort": "62",
+  "logic": null,
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "option_layout": "vertical",
+  "option_other": 0,
+  "option_checkall": 0,
+  "randomize_options": 0,
+  "option_store": "label",
+  "option_show_values": false,
+  "use_images": 0,
+  "image_dimensions": "customDimensions",
+  "image_height": 100,
+  "image_width": 100,
+  "lock_image_ratio": true,
+  "lock_image_ratio_option": "fitProportionally",
+  "image_label_alignment": "bottom",
+  "hide_option_button": true
+}

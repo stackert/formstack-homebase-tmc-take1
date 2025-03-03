@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Formstack Forms Renderer Code Snippets</title>
+  </head>
+  <body>
+    <!-- Basic Form Container -->
+    <div id="form-container"></div>
+
+    <!-- Example 1: Basic Form Initialization -->
+    <h3>Basic Form Initialization</h3>
+    <pre><code>
+    <!-- Copy this snippet -->
+    <script>
+
+        // Formstack can not provided support
+        window.FSForm.render({
+            id: "YOUR_FORM_ID",
+            target: "form-container",
+            baseUrl: "https://www.formstack.com"
+        });
+    </script>
+    </code></pre>
+
+    <!-- Example 2: Form Submit Handler -->
+    <h3>Form Submit Handler</h3>
+    <pre><code>
+    <!-- Copy this snippet -->
+    <script>
+        const form = window.fsApi().getForm("YOUR_FORM_ID");
+        
+        form.registerFormEventListener({
+            type: 'submit',
+            onFormEvent: async (data) => {
+                // Prevent default form submission
+                data.preventDefault();
+                
+                // Get form data
+                const submissionData = form.getSubmissionJSON();
+                
+                // Custom submission handling
+                try {
+                    const response = await fetch('YOUR_ENDPOINT', {
+                        method: 'POST',
+                        body: JSON.stringify(submissionData)
+                    });
+                    const result = await response.json();
+                    console.log('Submission successful:', result);
+                } catch (error) {
+                    console.error('Submission failed:', error);
+                }
+                
+                return Promise.resolve();
+            }
+        });
+    </script>
+    </code></pre>
+
+    <!-- Example 3: Auto-populate Form Fields -->
+    <h3>Auto-populate Form Fields</h3>
+    <pre><code>
+    <!-- Copy this snippet -->
+    <script>
+        window.addEventListener('load', async () => {
+            const form = window.fsApi().getForm("YOUR_FORM_ID");
+            
+            // Wait for form to be ready
+            form.registerFormEventListener({
+                type: 'ready',
+                onFormEvent: async () => {
+                    // Set multiple field values
+                    await form.setValues({
+                        "FIELD_ID_1": { value: "Auto-populated text" },
+                        "FIELD_ID_2": { 
+                            first: "John",
+                            last: "Doe",
+                            email: "john@example.com"
+                        },
+                        "FIELD_ID_3": {
+                            address: "123 Main St",
+                            city: "Boston",
+                            state: "MA",
+                            zip: "02108"
+                        }
+                    });
+                    return Promise.resolve();
+                }
+            });
+        });
+    </script>
+    </code></pre>
+
+    <!-- Example 4: Field Change Listener -->
+    <h3>Field Change Listener</h3>
+    <pre><code>
+    <!-- Copy this snippet -->
+    <script>
+        const form = window.fsApi().getForm("YOUR_FORM_ID");
+        
+        form.registerFormEventListener({
+            type: 'change',
+            onFormEvent: async (data) => {
+                // Check which field changed
+                console.log('Changed field ID:', data.fieldId);
+                
+                // Get updated field value
+                const field = form.getField(data.fieldId);
+                const value = field.getValue();
+                
+                // Perform actions based on field changes
+                if (data.fieldId === "FIELD_ID") {
+                    // Do something when specific field changes
+                    console.log('Field value updated:', value);
+                }
+                
+                return Promise.resolve();
+            }
+        });
+    </script>
+    </code></pre>
+
+    <!-- Example 5: Multi-page Form Navigation -->
+    <h3>Multi-page Form Navigation</h3>
+    <pre><code>
+    <!-- Copy this snippet -->
+    <script>
+        const form = window.fsApi().getForm("YOUR_FORM_ID");
+        
+        // Track page changes
+        form.registerFormEventListener({
+            type: 'change-page',
+            onFormEvent: async (data) => {
+                const context = form.getPagingContext();
+                
+                // Update progress indicator
+                const progress = (context.currentPage / context.totalPages) * 100;
+                console.log(`Form Progress: ${progress}%`);
+                
+                // Store partial progress
+                localStorage.setItem('formProgress', JSON.stringify({
+                    currentPage: context.currentPage,
+                    timestamp: new Date().toISOString()
+                }));
+                
+                return Promise.resolve();
+            }
+        });
+    </script>
+    </code></pre>
+
+    <!-- Example 6: Form Validation -->
+    <h3>Form Validation</h3>
+    <pre><code>
+    <!-- Copy this snippet -->
+    <script>
+        const form = window.fsApi().getForm("YOUR_FORM_ID");
+        
+        form.registerFormEventListener({
+            type: 'validation-complete',
+            onFormEvent: async (data) => {
+                if (form.isWithErrors()) {
+                    console.log('Form has validation errors');
+                    // Handle validation errors
+                    return Promise.resolve();
+                }
+                
+                // Form is valid, proceed with submission
+                const submissionData = form.getSubmissionJSON();
+                console.log('Form is valid:', submissionData);
+                
+                return Promise.resolve();
+            }
+        });
+    </script>
+    </code></pre>
+  </body>
+</html>

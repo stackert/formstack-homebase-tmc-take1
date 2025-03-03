@@ -1,0 +1,50 @@
+{
+  "id": "133346944",
+  "label": "Other rules or prerequisites for registering into this program",
+  "hide_label": "0",
+  "description": "",
+  "name": "other_rules_or_prerequisites_for_registering_into_this_program",
+  "type": "text",
+  "options": "",
+  "required": "0",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "71",
+  "logic": {
+    "action": "show",
+    "conditional": "any",
+    "checks": [
+      {
+        "field": 133348718,
+        "condition": "equals",
+        "option": "1000"
+      },
+      {
+        "field": 133346842,
+        "condition": "equals",
+        "option": "Add Another Course Option"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "text_size": 50,
+  "minlength": 0,
+  "maxlength": 0,
+  "placeholder": "",
+  "field_one_calculation": 0,
+  "field_two_calculation": 0,
+  "calculation_units": "",
+  "calculation_operator": "",
+  "calculation_type": "",
+  "calculation_allow_negatives": 0,
+  "hide_input_characters": 0,
+  "remove_data_from_emails": 0,
+  "require_confirmation": 0,
+  "confirmationText": "",
+  "restrict_data_access": 0
+}

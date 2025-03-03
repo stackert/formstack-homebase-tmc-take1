@@ -1,0 +1,43 @@
+{
+  "id": "135412500",
+  "label": "6. Is there a capacity limit?",
+  "hide_label": "0",
+  "description": "",
+  "name": "6_is_there_a_capacity_limit",
+  "type": "radio",
+  "options": [
+    {
+      "label": "Yes, capacity is limited",
+      "value": "Yes, capacity is limited",
+      "imageUrl": null
+    },
+    {
+      "label": "No, capacity is unlimited",
+      "value": "No, capacity is unlimited",
+      "imageUrl": null
+    }
+  ],
+  "required": "1",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "398",
+  "logic": null,
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "option_layout": "vertical",
+  "option_other": 0,
+  "randomize_options": 0,
+  "option_store": "value",
+  "option_show_values": 0,
+  "use_images": 0,
+  "image_dimensions": "customDimensions",
+  "image_height": 100,
+  "image_width": 100,
+  "lock_image_ratio": true,
+  "lock_image_ratio_option": "fitProportionally",
+  "image_label_alignment": "bottom"
+}

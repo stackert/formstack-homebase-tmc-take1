@@ -1,0 +1,70 @@
+{
+  "id": "133346928",
+  "label": "Day(s) of the week",
+  "hide_label": "0",
+  "description": "",
+  "name": "days_of_the_week",
+  "type": "checkbox",
+  "options": [
+    {
+      "label": "Sunday",
+      "value": "Sunday",
+      "imageUrl": ""
+    },
+    {
+      "label": "Monday",
+      "value": "Monday",
+      "imageUrl": ""
+    },
+    {
+      "label": "Tuesday",
+      "value": "Tuesday",
+      "imageUrl": ""
+    },
+    {
+      "label": "Wednesday",
+      "value": "Wednesday",
+      "imageUrl": ""
+    },
+    {
+      "label": "Thursday",
+      "value": "Thursday",
+      "imageUrl": ""
+    },
+    {
+      "label": "Friday",
+      "value": "Friday",
+      "imageUrl": ""
+    },
+    {
+      "label": "Saturday",
+      "value": "Saturday",
+      "imageUrl": ""
+    }
+  ],
+  "required": "1",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "57",
+  "logic": null,
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "option_layout": "horizontal",
+  "option_other": 0,
+  "option_checkall": 0,
+  "randomize_options": 0,
+  "option_store": "value",
+  "option_show_values": false,
+  "use_images": 0,
+  "image_dimensions": "customDimensions",
+  "image_height": 100,
+  "image_width": 100,
+  "lock_image_ratio": true,
+  "lock_image_ratio_option": "fitProportionally",
+  "image_label_alignment": "bottom",
+  "hide_option_button": true
+}

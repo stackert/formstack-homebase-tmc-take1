@@ -1,0 +1,63 @@
+{
+  "id": "178740562",
+  "label": "zzHow many Course Options should be created for this program??",
+  "hide_label": "0",
+  "description": "E.g. If registrants can choose between a Wednesday class or a Thursday class, there would be 2 Course Options.",
+  "name": "zzhow_many_course_options_should_be_created_for_this_program",
+  "type": "radio",
+  "options": [
+    {
+      "label": "1",
+      "value": "1",
+      "imageUrl": null
+    },
+    {
+      "label": "2",
+      "value": "2",
+      "imageUrl": null
+    },
+    {
+      "label": "3",
+      "value": "3",
+      "imageUrl": null
+    },
+    {
+      "label": "4",
+      "value": "4",
+      "imageUrl": ""
+    },
+    {
+      "label": "5",
+      "value": "5",
+      "imageUrl": ""
+    },
+    {
+      "label": "6",
+      "value": "6",
+      "imageUrl": ""
+    }
+  ],
+  "required": "0",
+  "uniq": "0",
+  "hidden": "1",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "507",
+  "logic": null,
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "option_layout": "horizontal",
+  "option_other": 0,
+  "randomize_options": 0,
+  "option_store": "value",
+  "option_show_values": true,
+  "use_images": 0,
+  "image_dimensions": "customDimensions",
+  "image_height": 100,
+  "image_width": 100,
+  "lock_image_ratio": true,
+  "lock_image_ratio_option": "fitProportionally",
+  "image_label_alignment": "bottom"
+}

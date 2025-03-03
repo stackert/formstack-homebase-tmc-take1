@@ -1,0 +1,41 @@
+{
+  "id": "133347039",
+  "label": "3. End Date",
+  "hide_label": "0",
+  "description": "",
+  "name": "3_end_date",
+  "type": "datetime",
+  "options": "",
+  "required": "1",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "196",
+  "logic": {
+    "action": "show",
+    "conditional": "all",
+    "checks": [
+      {
+        "field": 133347036,
+        "condition": "equals",
+        "option": "Multiple Dates"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "field_one_calculation": 0,
+  "field_two_calculation": 0,
+  "calculation_units": "",
+  "calculation_operator": "",
+  "calculation_type": "",
+  "date_format": "m/d/YY",
+  "max_date": "",
+  "time_format": "",
+  "year_minus": "",
+  "year_plus": 5,
+  "display_option": "calendar"
+}

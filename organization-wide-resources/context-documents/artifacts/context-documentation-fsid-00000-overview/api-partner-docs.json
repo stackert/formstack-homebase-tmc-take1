@@ -1,0 +1,521 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Partner API",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://admin.formstack.com/partner-api/v1",
+      "description": "Docs"
+    }
+  ],
+  "paths": {
+    "/{organizationId}/subaccounts/{subaccountId}/sso/config": {
+      "get": {
+        "tags": ["PartnerApi"],
+        "description": "Returns current Organization's SSO config",
+        "operationId": "showSsoConfig",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "in": "path",
+            "description": "ID of the organization",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "subaccountId",
+            "in": "path",
+            "description": "ID of the subaccount",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "apps api keys",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SsoConfig"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Organization could not be found"
+          }
+        }
+      }
+    },
+    "/{organizationId}/subaccounts": {
+      "get": {
+        "tags": ["PartnerApi"],
+        "description": "Get a list of subaccounts",
+        "operationId": "listSubaccounts",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Filter by subaccount name",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "organizationId",
+            "in": "path",
+            "description": "ID of the organization",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "subaccounts list",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "total": {
+                      "title": "total",
+                      "type": "integer"
+                    },
+                    "page": {
+                      "title": "page",
+                      "type": "integer"
+                    },
+                    "data": {
+                      "title": "result set",
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/PartnerApiSubaccount"
+                      }
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Organization could not be found"
+          },
+          "422": {
+            "description": "Errors occured",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/general_validation_error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{organizationId}/subaccounts/{subaccountId}/app-api-keys": {
+      "get": {
+        "tags": ["PartnerApi"],
+        "description": "Get app api keys for a subaccount",
+        "operationId": "getSubaccountAppApiKeys",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "in": "path",
+            "description": "ID of the organization",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "subaccountId",
+            "in": "path",
+            "description": "ID of the subaccount",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Apps API keys",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PartnerApiOrganizationAppApiKeys"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Organization could not be found"
+          },
+          "502": {
+            "description": "Failed to retrieve app API keys, safe to retry"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "OrganizationBillingOverviewUsage": {
+        "properties": {
+          "label": {
+            "description": "Text for the feature",
+            "type": "string",
+            "example": "Users"
+          },
+          "current": {
+            "description": "current usage value for the feature",
+            "type": "integer",
+            "example": 2
+          },
+          "currentFormatted": {
+            "description": "current usage formatted (optional)",
+            "type": "string",
+            "example": "512M",
+            "nullable": true
+          },
+          "limit": {
+            "description": "maximum usage value for the feature",
+            "type": "integer",
+            "example": 10
+          },
+          "limitFormatted": {
+            "description": "limit formatted (optional)",
+            "type": "string",
+            "example": "3G",
+            "nullable": true
+          },
+          "warningMessage": {
+            "description": "Warning message",
+            "type": "string",
+            "example": "Nearing monthly limit"
+          },
+          "validUntil": {
+            "description": "Usage valid until",
+            "type": "string",
+            "example": "6 days 20 hours",
+            "nullable": true
+          }
+        },
+        "type": "object"
+      },
+      "general_validation_error": {
+        "properties": {
+          "message": {
+            "description": "Basic error description",
+            "type": "string",
+            "example": "The given data failed to pass validation."
+          },
+          "errors": {
+            "description": "Basic error description",
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "example": "cannot be blank"
+              }
+            }
+          }
+        },
+        "type": "object"
+      },
+      "Idp": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": false
+          },
+          "updatedBy": {
+            "type": "string",
+            "nullable": false
+          },
+          "updatedAt": {
+            "type": "integer",
+            "nullable": true
+          },
+          "isEnabled": {
+            "type": "boolean",
+            "nullable": false
+          },
+          "type": {
+            "type": "string",
+            "enum": ["saml", "oidc"],
+            "nullable": false
+          },
+          "idpMetadata": {
+            "description": "Identity Provider metadata",
+            "nullable": false,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/SamlIdpMetadata"
+              },
+              {
+                "$ref": "#/components/schemas/OidcIdpMetadata"
+              }
+            ]
+          },
+          "spMetadata": {
+            "description": "Service Provider metadata",
+            "nullable": false,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/SamlSpMetadata"
+              },
+              {
+                "$ref": "#/components/schemas/OidcSpMetadata"
+              }
+            ]
+          }
+        },
+        "type": "object"
+      },
+      "SamlIdpMetadata": {
+        "properties": {
+          "metadataUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "entityId": {
+            "type": "string",
+            "nullable": true
+          },
+          "ssoUrl": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "type": "object"
+      },
+      "OidcIdpMetadata": {
+        "properties": {
+          "providerUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "clientId": {
+            "type": "string",
+            "nullable": true
+          },
+          "customScopes": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "type": "object"
+      },
+      "SamlSpMetadata": {
+        "properties": {
+          "entityId": {
+            "type": "string",
+            "nullable": true
+          },
+          "acsUrl": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "type": "object"
+      },
+      "OidcSpMetadata": {
+        "properties": {
+          "redirectUri": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "type": "object"
+      },
+      "PartnerApiOrganizationAppApiKeys": {
+        "properties": {
+          "apiKeys": {
+            "properties": {
+              "forms": {
+                "type": "string",
+                "example": "secret",
+                "nullable": true
+              },
+              "docs": {
+                "type": "string",
+                "example": "secret",
+                "nullable": true
+              }
+            },
+            "type": "object",
+            "nullable": false
+          }
+        },
+        "type": "object"
+      },
+      "SsoConfig": {
+        "properties": {
+          "verifiedSsoDomains": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": false
+          },
+          "idps": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Idp"
+            },
+            "nullable": false
+          },
+          "allowsGoogleAuth": {
+            "type": "boolean",
+            "nullable": false
+          },
+          "allowsAppleAuth": {
+            "type": "boolean",
+            "nullable": false
+          },
+          "requireLoginViaSso": {
+            "type": "boolean",
+            "nullable": false
+          },
+          "enableQuietUserCreation": {
+            "type": "boolean",
+            "nullable": false
+          },
+          "autoRedirectToIdentityProvider": {
+            "type": "boolean",
+            "nullable": false
+          },
+          "allowUserCreation": {
+            "type": "boolean",
+            "nullable": false
+          }
+        },
+        "type": "object"
+      },
+      "PartnerApiSubaccount": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true
+          },
+          "name": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date",
+            "readOnly": true,
+            "example": "2022-11-14T17:00:50-05:00",
+            "nullable": false
+          },
+          "appIds": {
+            "properties": {
+              "forms": {
+                "type": "string",
+                "example": "123456"
+              },
+              "docs": {
+                "type": "string",
+                "example": "78910"
+              },
+              "sign": {
+                "type": "string",
+                "example": "111213"
+              }
+            },
+            "type": "object",
+            "example": {
+              "forms": "123456",
+              "docs": "654321"
+            },
+            "nullable": false
+          },
+          "appUsage": {
+            "properties": {
+              "forms": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/OrganizationBillingOverviewUsage"
+                }
+              },
+              "docs": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/OrganizationBillingOverviewUsage"
+                }
+              },
+              "sign": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/OrganizationBillingOverviewUsage"
+                }
+              }
+            },
+            "type": "object",
+            "nullable": false
+          },
+          "appAdmins": {
+            "properties": {
+              "forms": {
+                "type": "string",
+                "example": "john@doe.org"
+              },
+              "docs": {
+                "type": "string",
+                "example": "jane@doe.org"
+              },
+              "sign": {
+                "type": "string",
+                "example": "john@doe.org"
+              }
+            },
+            "type": "object",
+            "nullable": false
+          }
+        },
+        "type": "object"
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "Bearer authentication"
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "PartnerApi",
+      "description": "PartnerApi"
+    }
+  ]
+}

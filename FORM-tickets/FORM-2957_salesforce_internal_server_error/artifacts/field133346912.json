@@ -1,0 +1,44 @@
+{
+  "id": "133346912",
+  "label": "How many rack cards do you envision that you'll need?",
+  "hide_label": "0",
+  "description": "i.e. Are you bringing rack cards to other places around town?",
+  "name": "how_many_rack_cards_do_you_envision_that_youll_need",
+  "type": "number",
+  "options": "",
+  "required": "0",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "430",
+  "logic": {
+    "action": "show",
+    "conditional": "all",
+    "checks": [
+      {
+        "field": 133346910,
+        "condition": "equals",
+        "option": "Rack Card (cost varies based on quantity)"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "field_one_calculation": 0,
+  "field_two_calculation": 0,
+  "calculation_units": "",
+  "calculation_operator": "",
+  "calculation_type": "",
+  "calculation_category": "",
+  "calculation_allow_negatives": 0,
+  "text_size": 5,
+  "min_value": "",
+  "max_value": "",
+  "currency": "",
+  "decimals": "0",
+  "slider": "0",
+  "placeholder": ""
+}

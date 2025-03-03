@@ -1,0 +1,68 @@
+{
+  "id": "133346886",
+  "label": "Membership Requirement",
+  "hide_label": "0",
+  "description": "",
+  "name": "membership_requirement",
+  "type": "radio",
+  "options": [
+    {
+      "label": "Members Only",
+      "value": "Members Only",
+      "imageUrl": null
+    },
+    {
+      "label": "Open to the Community (Members & Nonmembers)",
+      "value": "Open to the Community (Members & Nonmembers)",
+      "imageUrl": null
+    }
+  ],
+  "required": "1",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "65",
+  "logic": {
+    "action": "show",
+    "conditional": "any",
+    "checks": [
+      {
+        "field": "133348718",
+        "condition": "equals",
+        "option": "1000"
+      },
+      {
+        "field": "133346842",
+        "condition": "equals",
+        "option": "Add Another Course Option"
+      },
+      {
+        "field": "133346842",
+        "condition": "equals",
+        "option": "Pricing"
+      },
+      {
+        "field": 133346842,
+        "condition": "equals",
+        "option": "Who Can Participate - Membership Requirement"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "option_layout": "vertical",
+  "option_other": 0,
+  "randomize_options": 0,
+  "option_store": "value",
+  "option_show_values": 0,
+  "use_images": 0,
+  "image_dimensions": "customDimensions",
+  "image_height": 100,
+  "image_width": 100,
+  "lock_image_ratio": true,
+  "lock_image_ratio_option": "fitProportionally",
+  "image_label_alignment": "bottom"
+}

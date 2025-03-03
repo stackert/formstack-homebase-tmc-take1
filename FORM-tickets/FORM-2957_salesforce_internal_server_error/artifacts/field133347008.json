@@ -1,0 +1,58 @@
+{
+  "id": "133347008",
+  "label": "2. Payment Options",
+  "hide_label": "0",
+  "description": "Note: If a payment plan is offered, people will still have the option to pay in full.",
+  "name": "2_payment_options",
+  "type": "radio",
+  "options": [
+    {
+      "label": "Payment Due Immediately",
+      "value": "Payment Due Immediately",
+      "imageUrl": null
+    },
+    {
+      "label": "Payment Plan",
+      "value": "Payment Plan",
+      "imageUrl": null
+    }
+  ],
+  "required": "1",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "156",
+  "logic": {
+    "action": "show",
+    "conditional": "all",
+    "checks": [
+      {
+        "field": "133346878",
+        "condition": "notequals",
+        "option": "20"
+      },
+      {
+        "field": 133347312,
+        "condition": "greaterthan",
+        "option": 1
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "Payment Due Immediately",
+  "option_layout": "vertical",
+  "option_other": 0,
+  "randomize_options": 0,
+  "option_store": "value",
+  "option_show_values": false,
+  "use_images": 0,
+  "image_dimensions": "customDimensions",
+  "image_height": 100,
+  "image_width": 100,
+  "lock_image_ratio": true,
+  "lock_image_ratio_option": "fitProportionally",
+  "image_label_alignment": "bottom"
+}

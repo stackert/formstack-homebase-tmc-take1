@@ -1,0 +1,58 @@
+{
+  "id": "133346878",
+  "label": "Where will they complete this next step?",
+  "hide_label": "0",
+  "description": "",
+  "name": "where_will_they_complete_this_next_step",
+  "type": "radio",
+  "options": [
+    {
+      "label": "TRec",
+      "value": "10",
+      "imageUrl": null
+    },
+    {
+      "label": "3rd party website",
+      "value": "20",
+      "imageUrl": null
+    }
+  ],
+  "required": "1",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "20",
+  "logic": {
+    "action": "show",
+    "conditional": "any",
+    "checks": [
+      {
+        "field": "133347311",
+        "condition": "greaterthan",
+        "option": 2
+      },
+      {
+        "field": 133346842,
+        "condition": "equals",
+        "option": "Add Another Course Option"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "10",
+  "option_layout": "vertical",
+  "option_other": 0,
+  "randomize_options": 0,
+  "option_store": "label",
+  "option_show_values": true,
+  "use_images": 0,
+  "image_dimensions": "customDimensions",
+  "image_height": 100,
+  "image_width": 100,
+  "lock_image_ratio": true,
+  "lock_image_ratio_option": "fitProportionally",
+  "image_label_alignment": "bottom"
+}

@@ -1,0 +1,49 @@
+{
+  "id": "133347054",
+  "label": "zz3. Must be this age on",
+  "hide_label": "0",
+  "description": "",
+  "name": "zz3_must_be_this_age_on",
+  "type": "select",
+  "options": [
+    {
+      "label": "",
+      "value": "",
+      "imageUrl": ""
+    },
+    {
+      "label": "Date Registering for Program (Default)",
+      "value": "Date Registering for Program (Default)",
+      "imageUrl": null
+    },
+    {
+      "label": "Start Date of Program",
+      "value": "Start Date of Program",
+      "imageUrl": null
+    },
+    {
+      "label": "Specific Date",
+      "value": "Specific Date",
+      "imageUrl": null
+    }
+  ],
+  "required": "0",
+  "uniq": "0",
+  "hidden": "1",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "529",
+  "logic": null,
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "select_size": 1,
+  "option_layout": "vertical",
+  "option_other": 0,
+  "option_placeholder": false,
+  "randomize_options": 0,
+  "option_store": "value",
+  "option_show_values": 0,
+  "use_searchable_options": false
+}

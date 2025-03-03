@@ -1,0 +1,288 @@
+{
+  "fieldId180029305": {
+    "fieldType": "number",
+    "labelText": "Working Hours Adjustment  IF Lower Than 30 Hours - Main Calulation",
+    "calculation": "( [180029304] / [180029299] ) + .48",
+    "calculation_category": "number",
+    "depChain": [
+      "180029305",
+      "180029304",
+      "_TERMINAL_",
+      "180029299",
+      "_TERMINAL_"
+    ]
+  },
+  "fieldId180029306": {
+    "fieldType": "number",
+    "labelText": "Working Hours Adjustment  IF Lower Than 30 Hours - Difference",
+    "calculation": "[180029305] - 12",
+    "calculation_category": "number",
+    "depChain": [
+      "180029306",
+      "180029305",
+      "180029304",
+      "_TERMINAL_",
+      "180029299",
+      "_TERMINAL_"
+    ]
+  },
+  "fieldId180029307": {
+    "fieldType": "number",
+    "labelText": "Working Hours Adjustment  IF Lower Than 30 Hours",
+    "calculation": "[180029306] + [180029290]",
+    "calculation_category": "number",
+    "depChain": [
+      "180029307",
+      "180029306",
+      "180029305",
+      "180029304",
+      "_TERMINAL_",
+      "180029299",
+      "_TERMINAL_",
+      "180029290",
+      "_TERMINAL_"
+    ]
+  },
+  "fieldId180029308": {
+    "fieldType": "number",
+    "labelText": "Course Duration DIFFERENCE IF course Falls Below 12months",
+    "calculation": "( [180029290] + [180029282] ) - 12 - [180029303]",
+    "calculation_category": "number",
+    "depChain": [
+      "180029308",
+      "180029290",
+      "_TERMINAL_",
+      "180029282",
+      "_TERMINAL_",
+      "180029303",
+      "_TERMINAL_"
+    ]
+  },
+  "fieldId180029314": {
+    "fieldType": "number",
+    "labelText": "Final Less Than 30 -Apprenticeship end date Months",
+    "calculation": "date_plus([180029310], [180029324], 'Months')",
+    "calculation_category": "date",
+    "depChain": [
+      "180029314",
+      "180029310",
+      "_TERMINAL_",
+      "180029324",
+      "_TERMINAL_"
+    ]
+  },
+  "fieldId180029317": {
+    "fieldType": "number",
+    "labelText": "Final (< 30 Hours) Practical Period Months",
+    "calculation": "[180029282] + [180029307] - [180029303]",
+    "calculation_category": "number",
+    "depChain": [
+      "180029317",
+      "180029282",
+      "_TERMINAL_",
+      "180029307",
+      "180029306",
+      "180029305",
+      "180029304",
+      "_TERMINAL_",
+      "180029299",
+      "_TERMINAL_",
+      "180029290",
+      "_TERMINAL_",
+      "180029303",
+      "_TERMINAL_"
+    ]
+  },
+  "fieldId180029318": {
+    "fieldType": "number",
+    "labelText": "Final < 30 Hours - Practical Period Months - Month Based",
+    "calculation": "[180029282] + [180029290] - [180029303]",
+    "calculation_category": "number",
+    "depChain": [
+      "180029318",
+      "180029282",
+      "_TERMINAL_",
+      "180029290",
+      "_TERMINAL_",
+      "180029303",
+      "_TERMINAL_"
+    ]
+  },
+  "fieldId180029321": {
+    "fieldType": "number",
+    "labelText": "Final Less Than 30 - Actual End Date Months",
+    "calculation": "date_plus([180029310], [180029324], 'Months')",
+    "calculation_category": "date",
+    "depChain": [
+      "180029321",
+      "180029310",
+      "_TERMINAL_",
+      "180029324",
+      "_TERMINAL_"
+    ]
+  },
+  "fieldId180029325": {
+    "fieldType": "number",
+    "labelText": "Final (=> 30 Hours) Practical Period Months",
+    "calculation": "[180029282] + [180029290] - [180029303]",
+    "calculation_category": "number",
+    "depChain": [
+      "180029325",
+      "180029282",
+      "_TERMINAL_",
+      "180029290",
+      "_TERMINAL_",
+      "180029303",
+      "_TERMINAL_"
+    ]
+  },
+  "fieldId180029326": {
+    "fieldType": "number",
+    "labelText": "Final => 30 Hours - Practical Period Months - Month Based",
+    "calculation": "[180029282] + [180029290] - [180029303]",
+    "calculation_category": "number",
+    "depChain": [
+      "180029326",
+      "180029282",
+      "_TERMINAL_",
+      "180029290",
+      "_TERMINAL_",
+      "180029303",
+      "_TERMINAL_"
+    ]
+  },
+  "fieldId180029332": {
+    "fieldType": "number",
+    "labelText": "Final More Than 30 - Actual End Date Months",
+    "calculation": "date_plus([180029310], [180029331], 'Months')",
+    "calculation_category": "date",
+    "depChain": [
+      "180029332",
+      "180029310",
+      "_TERMINAL_",
+      "180029331",
+      "_TERMINAL_"
+    ]
+  },
+  "fieldId180029336": {
+    "fieldType": "number",
+    "labelText": "Fewer than OTJH Weeks to Days",
+    "calculation": "date_plus([180029310], [180029335], 'days')",
+    "calculation_category": "date",
+    "depChain": [
+      "180029336",
+      "180029310",
+      "_TERMINAL_",
+      "180029335",
+      "_TERMINAL_"
+    ]
+  },
+  "fieldId180029338": {
+    "fieldType": "number",
+    "labelText": "Greater Than 30 than OTJH Weeks to Days",
+    "calculation": "date_plus([180029310], [180029330], 'days')",
+    "calculation_category": "date",
+    "depChain": [
+      "180029338",
+      "180029310",
+      "_TERMINAL_",
+      "180029330",
+      "_TERMINAL_"
+    ]
+  },
+  "fieldId180029339": {
+    "fieldType": "number",
+    "labelText": "Greater Than 30 than OTJH Weeks on Pogramme",
+    "calculation": "[180029338] / 7",
+    "calculation_category": "number",
+    "depChain": [
+      "180029339",
+      "180029338",
+      "180029310",
+      "_TERMINAL_",
+      "180029330",
+      "_TERMINAL_"
+    ]
+  },
+  "fieldId180029340": {
+    "fieldType": "number",
+    "labelText": "Fewer than OTJH Weeks on Programme",
+    "calculation": "[180029336] / 7",
+    "calculation_category": "number",
+    "depChain": [
+      "180029340",
+      "180029336",
+      "180029310",
+      "_TERMINAL_",
+      "180029335",
+      "_TERMINAL_"
+    ]
+  },
+  "fieldId180029341": {
+    "fieldType": "number",
+    "labelText": "Fall Back OTJH Days on Programme",
+    "calculation": "date_plus([180029310], [180029333], 'days')",
+    "calculation_category": "date",
+    "depChain": [
+      "180029341",
+      "180029310",
+      "_TERMINAL_",
+      "180029333",
+      "_TERMINAL_"
+    ]
+  },
+  "fieldId180029342": {
+    "fieldType": "number",
+    "labelText": "Fall Back OTJH Weeks on Programme",
+    "calculation": "[180029341] / 7",
+    "calculation_category": "number",
+    "depChain": [
+      "180029342",
+      "180029341",
+      "180029310",
+      "_TERMINAL_",
+      "180029333",
+      "_TERMINAL_"
+    ]
+  },
+  "fieldId180029343": {
+    "fieldType": "number",
+    "labelText": "Fall Back Months o",
+    "calculation": "[180029341] / 7",
+    "calculation_category": "number",
+    "depChain": [
+      "180029343",
+      "180029341",
+      "180029310",
+      "_TERMINAL_",
+      "180029333",
+      "_TERMINAL_"
+    ]
+  },
+  "fieldId180029344": {
+    "fieldType": "number",
+    "labelText": "Fewer than 30 - Course Difference",
+    "calculation": "date_plus([180029324], [180029310], 'days')",
+    "calculation_category": "date",
+    "depChain": [
+      "180029344",
+      "180029324",
+      "_TERMINAL_",
+      "180029310",
+      "_TERMINAL_"
+    ]
+  },
+  "fieldId180029345": {
+    "fieldType": "number",
+    "labelText": "Greater than 30 - Course Difference",
+    "calculation": "date_plus([180029331], [180029310], 'days')",
+    "calculation_category": "date",
+    "depChain": [
+      "180029345",
+      "180029331",
+      "_TERMINAL_",
+      "180029310",
+      "_TERMINAL_"
+    ]
+  }
+}

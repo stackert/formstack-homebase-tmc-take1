@@ -1,0 +1,49 @@
+{
+  "id": "133347181",
+  "label": "5. Total Fee",
+  "hide_label": "0",
+  "description": "If a payment plan is offered, people will still have the option to pay in full.",
+  "name": "5_total_fee",
+  "type": "number",
+  "options": "",
+  "required": "1",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "319",
+  "logic": {
+    "action": "show",
+    "conditional": "all",
+    "checks": [
+      {
+        "field": 133347312,
+        "condition": "greaterthan",
+        "option": 1
+      },
+      {
+        "field": 133346878,
+        "condition": "notequals",
+        "option": "20"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "field_one_calculation": 0,
+  "field_two_calculation": 0,
+  "calculation_units": "",
+  "calculation_operator": "",
+  "calculation_type": "",
+  "calculation_category": "",
+  "calculation_allow_negatives": 0,
+  "text_size": 5,
+  "min_value": "",
+  "max_value": "",
+  "currency": "local",
+  "decimals": "2",
+  "slider": "0",
+  "placeholder": ""
+}

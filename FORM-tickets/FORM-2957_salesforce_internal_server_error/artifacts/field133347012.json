@@ -1,0 +1,43 @@
+{
+  "id": "133347012",
+  "label": "zz2. Is a registration fee due at the time of registration?",
+  "hide_label": "0",
+  "description": "",
+  "name": "zz2_is_a_registration_fee_due_at_the_time_of_registration",
+  "type": "radio",
+  "options": [
+    {
+      "label": "Yes",
+      "value": "Yes",
+      "imageUrl": null
+    },
+    {
+      "label": "No",
+      "value": "No",
+      "imageUrl": null
+    }
+  ],
+  "required": "0",
+  "uniq": "0",
+  "hidden": "1",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "514",
+  "logic": null,
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "option_layout": "horizontal",
+  "option_other": 0,
+  "randomize_options": 0,
+  "option_store": "value",
+  "option_show_values": 0,
+  "use_images": 0,
+  "image_dimensions": "customDimensions",
+  "image_height": 100,
+  "image_width": 100,
+  "lock_image_ratio": true,
+  "lock_image_ratio_option": "fitProportionally",
+  "image_label_alignment": "bottom"
+}

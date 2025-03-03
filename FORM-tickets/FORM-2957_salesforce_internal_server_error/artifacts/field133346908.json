@@ -1,0 +1,22 @@
+{
+  "id": "133346908",
+  "label": "",
+  "hide_label": "0",
+  "description": "",
+  "name": "",
+  "type": "richtext",
+  "options": "",
+  "required": "0",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "2",
+  "sort": "427",
+  "logic": null,
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "section_text": "<p>This is a collaborative process! Your marketing lead will work with you to determine exactly which materials will work best, and will incorporate other marketing tools as needed, like email marketing, social media, digital and print ads, public relations, and website presence.&nbsp;</p>",
+  "text_editor": "wysiwyg"
+}

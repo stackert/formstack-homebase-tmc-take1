@@ -1,0 +1,43 @@
+{
+  "id": "133346889",
+  "label": "zzIs there an Optional Additional Fee?",
+  "hide_label": "0",
+  "description": "",
+  "name": "zzis_there_an_optional_additional_fee",
+  "type": "radio",
+  "options": [
+    {
+      "label": "Yes",
+      "value": "1",
+      "imageUrl": ""
+    },
+    {
+      "label": "No",
+      "value": "0",
+      "imageUrl": ""
+    }
+  ],
+  "required": "0",
+  "uniq": "0",
+  "hidden": "1",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "510",
+  "logic": null,
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "option_layout": "horizontal",
+  "option_other": 0,
+  "randomize_options": 0,
+  "option_store": "value",
+  "option_show_values": true,
+  "use_images": 0,
+  "image_dimensions": "customDimensions",
+  "image_height": 100,
+  "image_width": 100,
+  "lock_image_ratio": true,
+  "lock_image_ratio_option": "fitProportionally",
+  "image_label_alignment": "bottom"
+}

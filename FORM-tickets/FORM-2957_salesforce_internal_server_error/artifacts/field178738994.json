@@ -1,0 +1,37 @@
+{
+  "id": "178738994",
+  "label": "",
+  "hide_label": "0",
+  "description": "",
+  "name": "",
+  "type": "richtext",
+  "options": "",
+  "required": "0",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "2",
+  "sort": "77",
+  "logic": {
+    "action": "hide",
+    "conditional": "any",
+    "checks": [
+      {
+        "field": 133346886,
+        "condition": "equals",
+        "option": "Members Only"
+      },
+      {
+        "field": 133346886,
+        "condition": "equals",
+        "option": "Open to the Community (Members & Nonmembers)"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "section_text": "<p><strong><em>Membership Requirement</em></strong> must be answered before completing this section.</p>",
+  "text_editor": "wysiwyg"
+}

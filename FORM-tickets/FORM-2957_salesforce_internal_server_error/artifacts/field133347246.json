@@ -1,0 +1,49 @@
+{
+  "id": "133347246",
+  "label": "zz6. Is the deposit refundable?",
+  "hide_label": "0",
+  "description": "",
+  "name": "zz6_is_the_deposit_refundable",
+  "type": "select",
+  "options": [
+    {
+      "label": "",
+      "value": "",
+      "imageUrl": ""
+    },
+    {
+      "label": "No",
+      "value": "No",
+      "imageUrl": ""
+    },
+    {
+      "label": "Yes - Only through a set date",
+      "value": "Yes - Only through a set date",
+      "imageUrl": ""
+    },
+    {
+      "label": "Yes - Always",
+      "value": "Yes - Always",
+      "imageUrl": ""
+    }
+  ],
+  "required": "0",
+  "uniq": "0",
+  "hidden": "1",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "581",
+  "logic": null,
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "select_size": 1,
+  "option_layout": "vertical",
+  "option_other": 0,
+  "option_placeholder": false,
+  "randomize_options": 0,
+  "option_store": "value",
+  "option_show_values": 0,
+  "use_searchable_options": false
+}

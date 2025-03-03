@@ -1,0 +1,22 @@
+{
+  "id": "178861491",
+  "label": "",
+  "hide_label": "0",
+  "description": "",
+  "name": "",
+  "type": "richtext",
+  "options": "",
+  "required": "0",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "276",
+  "logic": null,
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": "4. Reg Fee Refundable Date",
+  "default": "",
+  "section_text": "",
+  "text_editor": "wysiwyg"
+}

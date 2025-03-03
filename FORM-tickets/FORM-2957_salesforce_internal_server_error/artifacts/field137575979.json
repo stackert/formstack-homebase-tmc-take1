@@ -1,0 +1,63 @@
+{
+  "id": "137575979",
+  "label": "When should this program be promoted on the MJCCA website?",
+  "hide_label": "0",
+  "description": "",
+  "name": "when_should_this_program_be_promoted_on_the_mjcca_website",
+  "type": "radio",
+  "options": [
+    {
+      "label": "ASAP",
+      "value": "ASAP",
+      "imageUrl": null
+    },
+    {
+      "label": "On a specific date",
+      "value": "On a specific date",
+      "imageUrl": null
+    },
+    {
+      "label": "Do not promote - Exclude from website program listings",
+      "value": "Do not promote - Exclude from website program listings",
+      "imageUrl": ""
+    }
+  ],
+  "required": "1",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "27",
+  "logic": {
+    "action": "show",
+    "conditional": "any",
+    "checks": [
+      {
+        "field": "133348718",
+        "condition": "equals",
+        "option": "1000"
+      },
+      {
+        "field": "133346842",
+        "condition": "equals",
+        "option": "MJCCA Website - Date to Promote"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "option_layout": "vertical",
+  "option_other": 0,
+  "randomize_options": 0,
+  "option_store": "value",
+  "option_show_values": 0,
+  "use_images": 0,
+  "image_dimensions": "customDimensions",
+  "image_height": 100,
+  "image_width": 100,
+  "lock_image_ratio": true,
+  "lock_image_ratio_option": "fitProportionally",
+  "image_label_alignment": "bottom"
+}

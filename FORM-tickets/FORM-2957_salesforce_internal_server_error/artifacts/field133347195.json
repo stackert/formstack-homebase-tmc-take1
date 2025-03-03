@@ -1,0 +1,44 @@
+{
+  "id": "133347195",
+  "label": "5. Monthly Payment (Nonmember Rate)",
+  "hide_label": "0",
+  "description": "",
+  "name": "5_monthly_payment_nonmember_rate",
+  "type": "number",
+  "options": "",
+  "required": "0",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "1",
+  "colspan": "1",
+  "sort": "340",
+  "logic": {
+    "action": "show",
+    "conditional": "all",
+    "checks": [
+      {
+        "field": "133346890",
+        "condition": "equals",
+        "option": "Different Rates for Members & Nonmembers"
+      }
+    ]
+  },
+  "calculation": "( [178888615] + [179114358] ) / [178879087]",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "field_one_calculation": 0,
+  "field_two_calculation": 0,
+  "calculation_units": "",
+  "calculation_operator": "",
+  "calculation_type": "",
+  "calculation_category": "number",
+  "calculation_allow_negatives": 0,
+  "text_size": 5,
+  "min_value": "",
+  "max_value": "",
+  "currency": "local",
+  "decimals": "2",
+  "slider": "0",
+  "placeholder": ""
+}

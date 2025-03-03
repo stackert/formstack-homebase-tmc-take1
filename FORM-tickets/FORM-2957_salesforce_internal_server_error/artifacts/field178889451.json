@@ -1,0 +1,81 @@
+{
+  "id": "178889451",
+  "label": "",
+  "hide_label": "0",
+  "description": "",
+  "name": "",
+  "type": "section",
+  "options": "",
+  "required": "0",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "433",
+  "logic": {
+    "action": "show",
+    "conditional": "any",
+    "checks": [
+      {
+        "field": "133348718",
+        "condition": "equals",
+        "option": "10"
+      },
+      {
+        "field": "133346905",
+        "condition": "equals",
+        "option": "Occurs outside the MJCCA's normal hours of operation"
+      },
+      {
+        "field": "133346905",
+        "condition": "equals",
+        "option": "May impact or interfere with another MJCCA program or service (e.g. other events occurring simultaneously, requires 50+ parking spaces, etc.)"
+      },
+      {
+        "field": "133346898",
+        "condition": "greaterthan",
+        "option": 99
+      },
+      {
+        "field": "133346989",
+        "condition": "equals",
+        "option": "Offsite"
+      },
+      {
+        "field": "133347046",
+        "condition": "equals",
+        "option": "Offsite"
+      },
+      {
+        "field": "133347103",
+        "condition": "equals",
+        "option": "Offsite"
+      },
+      {
+        "field": "133347160",
+        "condition": "equals",
+        "option": "Offsite"
+      },
+      {
+        "field": "133347217",
+        "condition": "equals",
+        "option": "Offsite"
+      },
+      {
+        "field": 133346842,
+        "condition": "equals",
+        "option": "Event Security Checklist"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "section_break": 0,
+  "section_heading": "Event Security Checklist",
+  "section_text": "",
+  "text_editor": "wysiwyg",
+  "label_position": "default",
+  "num_columns": "2"
+}

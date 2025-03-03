@@ -1,0 +1,78 @@
+{
+  "id": "133348718",
+  "label": "What are you requesting?",
+  "hide_label": "0",
+  "description": "",
+  "name": "what_are_you_requesting",
+  "type": "radio",
+  "options": [
+    {
+      "label": "MJCCA Program - NEW",
+      "value": "1000",
+      "imageUrl": null
+    },
+    {
+      "label": "MJCCA Program - CHANGE",
+      "value": "2000",
+      "imageUrl": null
+    },
+    {
+      "label": "MJCCA Program - CANCEL",
+      "value": "3000",
+      "imageUrl": ""
+    },
+    {
+      "label": "Facility Booking (other use) - NEW",
+      "value": "100",
+      "imageUrl": null
+    },
+    {
+      "label": "Facility Booking (other use) - CHANGE",
+      "value": "200",
+      "imageUrl": ""
+    },
+    {
+      "label": "Facility Booking (other use) - CANCEL",
+      "value": "300",
+      "imageUrl": ""
+    },
+    {
+      "label": "Ad Hoc Request - Event Security Checklist",
+      "value": "10",
+      "imageUrl": ""
+    },
+    {
+      "label": "Ad Hoc Request - A/V Equipment",
+      "value": "20",
+      "imageUrl": ""
+    },
+    {
+      "label": "Ad Hoc Request - Marketing Materials",
+      "value": "30",
+      "imageUrl": ""
+    }
+  ],
+  "required": "1",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "1",
+  "logic": null,
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "option_layout": "vertical",
+  "option_other": false,
+  "randomize_options": false,
+  "option_store": "label",
+  "option_show_values": true,
+  "use_images": false,
+  "image_dimensions": "customDimensions",
+  "image_height": 100,
+  "image_width": 100,
+  "lock_image_ratio": true,
+  "lock_image_ratio_option": "fitProportionally",
+  "image_label_alignment": "bottom"
+}

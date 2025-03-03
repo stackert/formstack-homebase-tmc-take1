@@ -1,0 +1,21 @@
+{
+  "name": "s3-audit-misaligned",
+  "version": "1.0.0",
+  "description": "Script to analyze S3 storage allocation",
+  "main": "scripts/audit-s3-storage.ts",
+  "scripts": {
+    "start": "ts-node scripts/audit-s3-storage.ts",
+    "audit": "ts-node scripts/audit-s3-storage.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^20.11.19",
+    "csv-parse": "^5.5.3",
+    "fs-extra": "^11.2.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  }
+}

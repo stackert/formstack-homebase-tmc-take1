@@ -1,0 +1,53 @@
+{
+  "id": "133347295",
+  "label": "Will the presenter be utilizing a PC or MAC?",
+  "hide_label": "0",
+  "description": "",
+  "name": "will_the_presenter_be_utilizing_a_pc_or_mac",
+  "type": "radio",
+  "options": [
+    {
+      "label": "PC (Windows)",
+      "value": "PC (Windows)",
+      "imageUrl": null
+    },
+    {
+      "label": "MAC",
+      "value": "MAC",
+      "imageUrl": null
+    }
+  ],
+  "required": "0",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "468",
+  "logic": {
+    "action": "show",
+    "conditional": "all",
+    "checks": [
+      {
+        "field": 133347292,
+        "condition": "equals",
+        "option": "Yes"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "option_layout": "vertical",
+  "option_other": 0,
+  "randomize_options": 0,
+  "option_store": "value",
+  "option_show_values": 0,
+  "use_images": 0,
+  "image_dimensions": "customDimensions",
+  "image_height": 100,
+  "image_width": 100,
+  "lock_image_ratio": true,
+  "lock_image_ratio_option": "fitProportionally",
+  "image_label_alignment": "bottom"
+}

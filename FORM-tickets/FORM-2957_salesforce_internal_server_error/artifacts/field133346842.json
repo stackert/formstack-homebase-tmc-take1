@@ -1,0 +1,170 @@
+{
+  "id": "133346842",
+  "label": "What needs to be changed?",
+  "hide_label": "0",
+  "description": "Hold the Ctrl key to select multiple items",
+  "name": "what_needs_to_be_changed",
+  "type": "checkbox",
+  "options": [
+    {
+      "label": "Add Another Course Option",
+      "value": "Add Another Course Option",
+      "imageUrl": ""
+    },
+    {
+      "label": "A/V Equipment Request",
+      "value": "A/V Equipment Request",
+      "imageUrl": ""
+    },
+    {
+      "label": "Capacity",
+      "value": "Capacity",
+      "imageUrl": ""
+    },
+    {
+      "label": "Confirmation Email",
+      "value": "Confirmation Email",
+      "imageUrl": ""
+    },
+    {
+      "label": "Dates & Times",
+      "value": "Dates & Times",
+      "imageUrl": null
+    },
+    {
+      "label": "Event Security Checklist",
+      "value": "Event Security Checklist",
+      "imageUrl": ""
+    },
+    {
+      "label": "Event Security Checklist - Was submitted but is no longer necessary",
+      "value": "Event Security Checklist - Was submitted but is no longer necessary",
+      "imageUrl": ""
+    },
+    {
+      "label": "Expected Attendance",
+      "value": "Expected Attendance",
+      "imageUrl": ""
+    },
+    {
+      "label": "Instructor",
+      "value": "Instructor",
+      "imageUrl": ""
+    },
+    {
+      "label": "Location",
+      "value": "Location",
+      "imageUrl": ""
+    },
+    {
+      "label": "Marketing Materials",
+      "value": "Marketing Materials",
+      "imageUrl": ""
+    },
+    {
+      "label": "MJCCA Program Guide",
+      "value": "MJCCA Program Guide",
+      "imageUrl": ""
+    },
+    {
+      "label": "MJCCA Website - Date to Promote",
+      "value": "MJCCA Website - Date to Promote",
+      "imageUrl": ""
+    },
+    {
+      "label": "MJCCA Website - Age Group",
+      "value": "MJCCA Website - Age Group",
+      "imageUrl": ""
+    },
+    {
+      "label": "MJCCA Website - Program Description",
+      "value": "MJCCA Website - Program Description",
+      "imageUrl": ""
+    },
+    {
+      "label": "Online Registration Dates",
+      "value": "Online Registration Dates",
+      "imageUrl": ""
+    },
+    {
+      "label": "Pricing",
+      "value": "Pricing",
+      "imageUrl": ""
+    },
+    {
+      "label": "Program/Event Name",
+      "value": "Program/Event Name",
+      "imageUrl": ""
+    },
+    {
+      "label": "Registration Questions",
+      "value": "Registration Questions",
+      "imageUrl": ""
+    },
+    {
+      "label": "Registration Type (incl. 3rd party website)",
+      "value": "Registration Type (incl. 3rd party website)",
+      "imageUrl": ""
+    },
+    {
+      "label": "Who Can Participate - Membership Requirement",
+      "value": "Who Can Participate - Membership Requirement",
+      "imageUrl": ""
+    },
+    {
+      "label": "Who Can Participate - Age/Grade Requirement",
+      "value": "Who Can Participate - Age/Grade Requirement",
+      "imageUrl": null
+    },
+    {
+      "label": "VIPs/Pacesetters in Attendance",
+      "value": "VIPs/Pacesetters in Attendance",
+      "imageUrl": ""
+    },
+    {
+      "label": "OTHER",
+      "value": "OTHER",
+      "imageUrl": ""
+    }
+  ],
+  "required": "1",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "2",
+  "sort": "9",
+  "logic": {
+    "action": "show",
+    "conditional": "any",
+    "checks": [
+      {
+        "field": "133348718",
+        "condition": "equals",
+        "option": "200"
+      },
+      {
+        "field": "133348718",
+        "condition": "equals",
+        "option": "2000"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "option_layout": "vertical",
+  "option_other": 0,
+  "option_checkall": 0,
+  "randomize_options": 0,
+  "option_store": "value",
+  "option_show_values": 0,
+  "use_images": 0,
+  "image_dimensions": "customDimensions",
+  "image_height": 100,
+  "image_width": 100,
+  "lock_image_ratio": true,
+  "lock_image_ratio_option": "fitProportionally",
+  "image_label_alignment": "bottom",
+  "hide_option_button": true
+}

@@ -1,0 +1,55 @@
+{
+  "id": "133346973",
+  "label": "Optional Additional Fee",
+  "hide_label": "0",
+  "description": "Amount and what it is for. NOTE: Item sales are subject to sales tax and must be discussed with Accounting first.",
+  "name": "optional_additional_fee",
+  "type": "text",
+  "options": "",
+  "required": "0",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "85",
+  "logic": {
+    "action": "show",
+    "conditional": "all",
+    "checks": [
+      {
+        "field": 133347312,
+        "condition": "greaterthan",
+        "option": 0
+      },
+      {
+        "field": 133347312,
+        "condition": "lessthan",
+        "option": 3
+      },
+      {
+        "field": 133346878,
+        "condition": "notequals",
+        "option": "20"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "text_size": 50,
+  "minlength": 0,
+  "maxlength": 0,
+  "placeholder": "",
+  "field_one_calculation": 0,
+  "field_two_calculation": 0,
+  "calculation_units": "",
+  "calculation_operator": "",
+  "calculation_type": "",
+  "calculation_allow_negatives": 0,
+  "hide_input_characters": 0,
+  "remove_data_from_emails": 0,
+  "require_confirmation": 0,
+  "confirmationText": "",
+  "restrict_data_access": 0
+}

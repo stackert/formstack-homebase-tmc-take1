@@ -1,0 +1,80 @@
+{
+  "id": "168611237",
+  "label": "Age Group",
+  "hide_label": "0",
+  "description": "Used for website grouping/filtering and for reporting.",
+  "name": "age_group",
+  "type": "checkbox",
+  "options": [
+    {
+      "label": "Early Childhood (0-5)",
+      "value": "Early Childhood (0-5)",
+      "imageUrl": null
+    },
+    {
+      "label": "Youth (6-11)",
+      "value": "Youth (6-11)",
+      "imageUrl": null
+    },
+    {
+      "label": "Teens (12-18)",
+      "value": "Teens (12-18)",
+      "imageUrl": null
+    },
+    {
+      "label": "Young Adults (21-40)",
+      "value": "Young Adults (21-40)",
+      "imageUrl": ""
+    },
+    {
+      "label": "Adults (18+)",
+      "value": "Adults (18+)",
+      "imageUrl": ""
+    },
+    {
+      "label": "Active Seniors (60+)",
+      "value": "Active Seniors (60+)",
+      "imageUrl": ""
+    }
+  ],
+  "required": "1",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "26",
+  "logic": {
+    "action": "show",
+    "conditional": "any",
+    "checks": [
+      {
+        "field": 133348718,
+        "condition": "equals",
+        "option": "1000"
+      },
+      {
+        "field": 133346842,
+        "condition": "equals",
+        "option": "MJCCA Website - Age Group"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "option_layout": "vertical",
+  "option_other": 0,
+  "option_checkall": true,
+  "randomize_options": 0,
+  "option_store": "value",
+  "option_show_values": 0,
+  "use_images": 0,
+  "image_dimensions": "customDimensions",
+  "image_height": 100,
+  "image_width": 100,
+  "lock_image_ratio": true,
+  "lock_image_ratio_option": "fitProportionally",
+  "image_label_alignment": "bottom",
+  "hide_option_button": true
+}

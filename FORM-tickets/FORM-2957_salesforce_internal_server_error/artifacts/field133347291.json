@@ -1,0 +1,51 @@
+{
+  "id": "133347291",
+  "label": "",
+  "hide_label": "0",
+  "description": "",
+  "name": "",
+  "type": "section",
+  "options": "",
+  "required": "0",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "464",
+  "logic": {
+    "action": "show",
+    "conditional": "any",
+    "checks": [
+      {
+        "field": "133346842",
+        "condition": "equals",
+        "option": "A/V Equipment Request"
+      },
+      {
+        "field": 133348718,
+        "condition": "equals",
+        "option": "20"
+      },
+      {
+        "field": 133348718,
+        "condition": "equals",
+        "option": "100"
+      },
+      {
+        "field": 133348718,
+        "condition": "equals",
+        "option": "1000"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "section_break": 0,
+  "section_heading": "A/V (Audio Visual) Equipment",
+  "section_text": "",
+  "text_editor": "wysiwyg",
+  "label_position": "default",
+  "num_columns": "2"
+}

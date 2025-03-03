@@ -1,0 +1,52 @@
+{
+  "id": "133346899",
+  "label": "",
+  "hide_label": "0",
+  "description": "",
+  "name": "",
+  "type": "richtext",
+  "options": "",
+  "required": "0",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "2",
+  "sort": "119",
+  "logic": {
+    "action": "show",
+    "conditional": "any",
+    "checks": [
+      {
+        "field": 133346842,
+        "condition": "equals",
+        "option": "Expected Attendance"
+      },
+      {
+        "field": 133346842,
+        "condition": "equals",
+        "option": "Add Another Course Option"
+      },
+      {
+        "field": 133348718,
+        "condition": "equals",
+        "option": "10"
+      },
+      {
+        "field": 133348718,
+        "condition": "equals",
+        "option": "1000"
+      },
+      {
+        "field": 133348718,
+        "condition": "equals",
+        "option": "100"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "section_text": "<p>If expected attendance is 75+, Support Services will be notified.</p><p>If expected attendance is 100+, the Event Security Checklist will appear at the end of this form.</p>",
+  "text_editor": "wysiwyg"
+}

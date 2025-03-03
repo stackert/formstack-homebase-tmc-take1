@@ -1,0 +1,35 @@
+{
+  "id": "133347100",
+  "label": "4. List any dates that your class will not be held. (e.g. holidays)",
+  "hide_label": "0",
+  "description": "Provide specific dates, e.g. \"3/29/2021 - 4/2/2021\" instead of \"Passover Break\".  Do not include dates later than the end of your program (this confuses us).",
+  "name": "4_list_any_dates_that_your_class_will_not_be_held_eg_holidays",
+  "type": "textarea",
+  "options": "",
+  "required": "1",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "255",
+  "logic": {
+    "action": "show",
+    "conditional": "all",
+    "checks": [
+      {
+        "field": 133347093,
+        "condition": "equals",
+        "option": "Multiple Dates"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "rows": 3,
+  "cols": 50,
+  "minlength": 0,
+  "maxlength": 0,
+  "placeholder": ""
+}

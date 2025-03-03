@@ -1,0 +1,37 @@
+{
+  "id": "179071700",
+  "label": "",
+  "hide_label": "0",
+  "description": "",
+  "name": "",
+  "type": "richtext",
+  "options": "",
+  "required": "0",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "2",
+  "sort": "415",
+  "logic": {
+    "action": "show",
+    "conditional": "any",
+    "checks": [
+      {
+        "field": "133348718",
+        "condition": "equals",
+        "option": "2000"
+      },
+      {
+        "field": "133348718",
+        "condition": "equals",
+        "option": "3000"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "section_text": "<p>Marketing will receive a copy of this request. &nbsp;Please note that if the deadline has passed, it may be too late to update the Program Guide.</p>",
+  "text_editor": "wysiwyg"
+}

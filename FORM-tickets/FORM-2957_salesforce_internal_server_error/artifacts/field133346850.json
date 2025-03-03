@@ -1,0 +1,48 @@
+{
+  "id": "133346850",
+  "label": "MJCCA Program Guide",
+  "hide_label": "0",
+  "description": "If cancelling program, pick original selection.  Please note that if the deadline has passed, it may be too late to update the program guide.",
+  "name": "mjcca_program_guide",
+  "type": "radio",
+  "options": [
+    {
+      "label": "Fall/Winter Program Guide",
+      "value": "Fall/Winter Program Guide",
+      "imageUrl": null
+    },
+    {
+      "label": "Winter/Spring Program Guide",
+      "value": "Winter/Spring Program Guide",
+      "imageUrl": null
+    },
+    {
+      "label": "Not in the MJCCA Program Guide",
+      "value": "Not in the MJCCA Program Guide",
+      "imageUrl": ""
+    }
+  ],
+  "required": "1",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "412",
+  "logic": null,
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "option_layout": "vertical",
+  "option_other": 0,
+  "randomize_options": 0,
+  "option_store": "label",
+  "option_show_values": false,
+  "use_images": 0,
+  "image_dimensions": "customDimensions",
+  "image_height": 100,
+  "image_width": 100,
+  "lock_image_ratio": true,
+  "lock_image_ratio_option": "fitProportionally",
+  "image_label_alignment": "bottom"
+}

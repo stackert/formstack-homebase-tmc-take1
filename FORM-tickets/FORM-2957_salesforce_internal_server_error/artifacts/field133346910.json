@@ -1,0 +1,110 @@
+{
+  "id": "133346910",
+  "label": "Marketing materials I'm interested in:",
+  "hide_label": "0",
+  "description": "",
+  "name": "marketing_materials_im_interested_in",
+  "type": "checkbox",
+  "options": [
+    {
+      "label": "I’m not sure what marketing materials I should use (or will need) and want to speak with my marketing lead to discuss how to best promote my program.",
+      "value": "I’m not sure what marketing materials I should use (or will need) and want to speak with my marketing lead to discuss how to best promote my program.",
+      "imageUrl": ""
+    },
+    {
+      "label": "11 x 17 Poster ($1.37 each)",
+      "value": "11 x 17 Poster ($1.37 each)",
+      "imageUrl": ""
+    },
+    {
+      "label": "22 x 28 Poster ($29.75 each - Main Street Sign)",
+      "value": "22 x 28 Poster ($29.75 each - Main Street Sign)",
+      "imageUrl": ""
+    },
+    {
+      "label": "24 x 32 Poster ($36 each - Highlights Case Sign)",
+      "value": "24 x 32 Poster ($36 each - Highlights Case Sign)",
+      "imageUrl": ""
+    },
+    {
+      "label": "Flyer: Half page (2-up)",
+      "value": "Flyer: Half page (2-up)",
+      "imageUrl": ""
+    },
+    {
+      "label": "Flyer: Full page (1-up)",
+      "value": "Flyer: Full page (1-up)",
+      "imageUrl": ""
+    },
+    {
+      "label": "Banner ($100-$230 each based on size and location)",
+      "value": "Banner ($100-$230 each based on size and location)",
+      "imageUrl": ""
+    },
+    {
+      "label": "Postcard (cost varies based on quantity)",
+      "value": "Postcard (cost varies based on quantity)",
+      "imageUrl": ""
+    },
+    {
+      "label": "Playbill or Event Program (cost varies based on quantity)",
+      "value": "Playbill or Event Program (cost varies based on quantity)",
+      "imageUrl": ""
+    },
+    {
+      "label": "Rack Card (cost varies based on quantity)",
+      "value": "Rack Card (cost varies based on quantity)",
+      "imageUrl": ""
+    },
+    {
+      "label": "Signage for use at the program",
+      "value": "Signage for use at the program",
+      "imageUrl": ""
+    },
+    {
+      "label": "Grassroots image (for your email signature)",
+      "value": "Grassroots image (for your email signature)",
+      "imageUrl": ""
+    },
+    {
+      "label": "Facebook Cover Image",
+      "value": "Facebook Cover Image",
+      "imageUrl": ""
+    },
+    {
+      "label": "Facebook Post Image",
+      "value": "Facebook Post Image",
+      "imageUrl": ""
+    },
+    {
+      "label": "Instagram Post Image",
+      "value": "Instagram Post Image",
+      "imageUrl": ""
+    }
+  ],
+  "required": "0",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "2",
+  "sort": "428",
+  "logic": null,
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "option_layout": "vertical",
+  "option_other": true,
+  "option_checkall": 0,
+  "randomize_options": 0,
+  "option_store": "value",
+  "option_show_values": 0,
+  "use_images": 0,
+  "image_dimensions": "customDimensions",
+  "image_height": 100,
+  "image_width": 100,
+  "lock_image_ratio": true,
+  "lock_image_ratio_option": "fitProportionally",
+  "image_label_alignment": "bottom",
+  "hide_option_button": true
+}

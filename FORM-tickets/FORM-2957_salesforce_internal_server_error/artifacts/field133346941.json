@@ -1,0 +1,41 @@
+{
+  "id": "133346941",
+  "label": "Specific Date (age requirement)",
+  "hide_label": "0",
+  "description": "",
+  "name": "specific_date_age_requirement",
+  "type": "datetime",
+  "options": "",
+  "required": "1",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "69",
+  "logic": {
+    "action": "show",
+    "conditional": "all",
+    "checks": [
+      {
+        "field": 133346940,
+        "condition": "equals",
+        "option": "Specific Date"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "field_one_calculation": 0,
+  "field_two_calculation": 0,
+  "calculation_units": "",
+  "calculation_operator": "",
+  "calculation_type": "",
+  "date_format": "m/d/YY",
+  "max_date": "",
+  "time_format": "",
+  "year_minus": 5,
+  "year_plus": 5,
+  "display_option": "calendar"
+}

@@ -1,0 +1,370 @@
+{
+  "fields": [
+    {
+      "id": 180022060,
+      "label": "Working Hours Adjustment  IF Lower Than 30 Hours - Main Calulation",
+      "type": "number",
+      "calculation": "( [180022059] / [180022054] ) + .48"
+    },
+    {
+      "id": 180022061,
+      "label": "Working Hours Adjustment  IF Lower Than 30 Hours - Difference",
+      "type": "number",
+      "calculation": "[180022060] - 12"
+    },
+    {
+      "id": 180022062,
+      "label": "Working Hours Adjustment  IF Lower Than 30 Hours",
+      "type": "number",
+      "calculation": "[180022061] + [180022045]"
+    },
+    {
+      "id": 180022063,
+      "label": "Course Duration DIFFERENCE IF course Falls Below 12months",
+      "type": "number",
+      "calculation": "( [180022045] + [180022037] ) - 12 - [180022058]"
+    },
+    {
+      "id": 180022067,
+      "label": "Fewer Than 30 - Practical Period End date + Working Hour Adjustment",
+      "type": "datetime",
+      "calculation": "date_plus([180022065], [180022062], 'Months')"
+    },
+    {
+      "id": 180022068,
+      "label": "Fewer Than 30 - Practical Period End date + ALS Adjustment",
+      "type": "datetime",
+      "calculation": "date_plus([180022067], [180022057], 'Months')"
+    },
+    {
+      "id": 180022069,
+      "label": "Final Less Than 30 -Apprenticeship end date Months",
+      "type": "number",
+      "calculation": "date_plus([180022065], [180022079], 'Months')"
+    },
+    {
+      "id": 180022070,
+      "label": "Actual App End Date Fewer Than 30 - Start Date + Working Hour Adjustment",
+      "type": "datetime",
+      "calculation": "date_plus([180022065], [180022062], 'Months')"
+    },
+    {
+      "id": 180022071,
+      "label": "Actual App End Date Fewer Than 30 - Start Date + Working Hour Adjustment+EPA",
+      "type": "datetime",
+      "calculation": "date_plus([180022070], [180022051], 'Months')"
+    },
+    {
+      "id": 180022072,
+      "label": "Final (< 30 Hours) Practical Period Months",
+      "type": "number",
+      "calculation": "[180022037] + [180022062] - [180022058]"
+    },
+    {
+      "id": 180022073,
+      "label": "Final < 30 Hours - Practical Period Months - Month Based",
+      "type": "number",
+      "calculation": "[180022037] + [180022045] - [180022058]"
+    },
+    {
+      "id": 180022074,
+      "label": "FINAL (< than 30 Hours) - Actual practical period end date",
+      "type": "datetime",
+      "calculation": "date_minus([180022068], [180022058], 'Months')"
+    },
+    {
+      "id": 180022075,
+      "label": "Actual App End Date Fewer Than 30 - Start Date + Working Hour Adjustment+ EPA+ALS",
+      "type": "datetime",
+      "calculation": "date_plus([180022071], [180022057], 'Months')"
+    },
+    {
+      "id": 180022076,
+      "label": "Final Less Than 30 - Actual End Date Months",
+      "type": "number",
+      "calculation": "date_plus([180022065], [180022079], 'Months')"
+    },
+    {
+      "id": 180022077,
+      "label": "More Than 30 - Practical Period End date - Start Date + Course Duration",
+      "type": "datetime",
+      "calculation": "date_plus([180022065], [180022045], 'Months')"
+    },
+    {
+      "id": 180022078,
+      "label": "More Than 30 - Practical Period End date - Start Date + Course Duration + ALS Adjustment",
+      "type": "datetime",
+      "calculation": "date_plus([180022077], [180022057], 'Months')"
+    },
+    {
+      "id": 180022079,
+      "label": "FINAL (< 30 Hours) Apprenticeship end date",
+      "type": "datetime",
+      "calculation": "date_minus([180022075], [180022058], 'Months')"
+    },
+    {
+      "id": 180022080,
+      "label": "Final (=> 30 Hours) Practical Period Months",
+      "type": "number",
+      "calculation": "[180022037] + [180022045] - [180022058]"
+    },
+    {
+      "id": 180022081,
+      "label": "Final => 30 Hours - Practical Period Months - Month Based",
+      "type": "number",
+      "calculation": "[180022037] + [180022045] - [180022058]"
+    },
+    {
+      "id": 180022082,
+      "label": "More Than 30 - Actual End date Start Date+ Course Duration",
+      "type": "datetime",
+      "calculation": "date_plus([180022065], [180022045], 'Months')"
+    },
+    {
+      "id": 180022083,
+      "label": "More Than 30 - Actual End date Start Date+ Course Duration + EPA",
+      "type": "datetime",
+      "calculation": "date_plus([180022082], [180022051], 'Months')"
+    },
+    {
+      "id": 180022084,
+      "label": "More Than 30 - Actual End date Start Date+ Course Duration + EPA + ALS",
+      "type": "datetime",
+      "calculation": "date_plus([180022083], [180022057], 'Months')"
+    },
+    {
+      "id": 180022085,
+      "label": "FINAL (=> 30 Hours) Practical Period End date",
+      "type": "datetime",
+      "calculation": "date_minus([180022078], [180022058], 'Months')"
+    },
+    {
+      "id": 180022086,
+      "label": "FINAL (=> 30 Hours) Apprenticeship end date",
+      "type": "datetime",
+      "calculation": "date_minus([180022084], [180022058], 'Months')"
+    },
+    {
+      "id": 180022087,
+      "label": "Final More Than 30 - Actual End Date Months",
+      "type": "number",
+      "calculation": "date_plus([180022065], [180022086], 'Months')"
+    },
+    {
+      "id": 180022088,
+      "label": "FALL BACK DATE FINAL Course Duration MIN Practicle Period -  12 Months",
+      "type": "datetime",
+      "calculation": "date_plus([180022065], [180022064], 'Days')"
+    },
+    {
+      "id": 180022089,
+      "label": "FALL BACK DATE FINAL Course Duration MIN Actual End Date - 12 Months",
+      "type": "datetime",
+      "calculation": "date_plus([180022088], [180022051], 'Months')"
+    },
+    {
+      "id": 180022090,
+      "label": "Fewer than OTJH Weeks Date 1",
+      "type": "datetime",
+      "calculation": "date_minus([180022075], [180022051], 'Months')"
+    },
+    {
+      "id": 180022091,
+      "label": "Fewer than OTJH Weeks to Days",
+      "type": "number",
+      "calculation": "date_plus([180022065], [180022090], 'days')"
+    },
+    {
+      "id": 180022092,
+      "label": "Greater than OTJH Weeks Date 1",
+      "type": "datetime",
+      "calculation": "date_minus([180022084], [180022051], 'Months')"
+    },
+    {
+      "id": 180022093,
+      "label": "Greater Than 30 than OTJH Weeks to Days",
+      "type": "number",
+      "calculation": "date_plus([180022065], [180022085], 'days')"
+    },
+    {
+      "id": 180022094,
+      "label": "Greater Than 30 than OTJH Weeks on Pogramme",
+      "type": "number",
+      "calculation": "[180022093] / 7"
+    },
+    {
+      "id": 180022095,
+      "label": "Fewer than OTJH Weeks on Programme",
+      "type": "number",
+      "calculation": "[180022091] / 7"
+    },
+    {
+      "id": 180022096,
+      "label": "Fall Back OTJH Days on Programme",
+      "type": "number",
+      "calculation": "date_plus([180022065], [180022088], 'days')"
+    },
+    {
+      "id": 180022097,
+      "label": "Fall Back OTJH Weeks on Programme",
+      "type": "number",
+      "calculation": "[180022096] / 7"
+    },
+    {
+      "id": 180022098,
+      "label": "Fall Back Months o",
+      "type": "number",
+      "calculation": "[180022096] / 7"
+    },
+    {
+      "id": 180022099,
+      "label": "Fewer than 30 - Course Difference",
+      "type": "number",
+      "calculation": "date_plus([180022079], [180022065], 'days')"
+    },
+    {
+      "id": 180022100,
+      "label": "Greater than 30 - Course Difference",
+      "type": "number",
+      "calculation": "date_plus([180022086], [180022065], 'days')"
+    },
+    {
+      "id": 180022148,
+      "label": "Age at signup",
+      "type": "number",
+      "calculation": "date_plus([180022147], [180022065], 'Years')"
+    },
+    {
+      "id": 180022271,
+      "label": "( < 30 Hours) Annual statutory leave entitlement including bank holidays (weeks)",
+      "type": "number",
+      "calculation": "(  / 5 ) - .49"
+    },
+    {
+      "id": 180022273,
+      "label": "(>= 30 Hours) Annual statutory leave entitlement including bank holidays (weeks)",
+      "type": "number",
+      "calculation": "(  / 5 ) - .49"
+    },
+    {
+      "id": 180022274,
+      "label": "( <30 Hours ) Get Hours a Day",
+      "type": "number",
+      "calculation": "[180022054] / "
+    },
+    {
+      "id": 180022275,
+      "label": "(=>30 Hours) Get Hours a Day",
+      "type": "number",
+      "calculation": "[180022054] / "
+    },
+    {
+      "id": 180022276,
+      "label": "( < 30 Hours) Annual Leave entitlement hours",
+      "type": "number",
+      "calculation": " * "
+    },
+    {
+      "id": 180022277,
+      "label": "(>= 30 Hours) Annual Leave entitlement hours",
+      "type": "number",
+      "calculation": " * "
+    },
+    {
+      "id": 180022278,
+      "label": "Debug: Course Minimum Total Weeks on Programme 372 days",
+      "type": "number",
+      "calculation": "[180022096] / 7"
+    },
+    {
+      "id": 180022279,
+      "label": "Fewer: Calculation - Hours Worked",
+      "type": "number",
+      "calculation": "[180022054] *  - "
+    },
+    {
+      "id": 180022280,
+      "label": "Greater: Calculation - Hours Worked",
+      "type": "number",
+      "calculation": " *  - "
+    },
+    {
+      "id": 180022281,
+      "label": "(< 30 Hours)  Minimum OTJT Calculation",
+      "type": "number",
+      "calculation": "( ( (  -  ) *  ) / 100 * 20 ) + .49"
+    },
+    {
+      "id": 180022282,
+      "label": "(=> 30 Hours) Minimum OTJT calculation",
+      "type": "number",
+      "calculation": "(  -  ) * 6"
+    },
+    {
+      "id": 180022285,
+      "label": " Minimum off the job hours",
+      "type": "number",
+      "calculation": "( 0.2 *  ) * "
+    },
+    {
+      "id": 180022286,
+      "label": "( < 30 Hours ) Off the job hours difference",
+      "type": "number",
+      "calculation": " - "
+    },
+    {
+      "id": 180022261,
+      "label": "Total Recommended OTJ Hours reduction (NB: This cannot result in fewer hours than the required minimum duration) ",
+      "type": "number",
+      "calculation": " +  +  +  + "
+    },
+    {
+      "id": 180022287,
+      "label": "Course Minimum Off the job hours difference",
+      "type": "number",
+      "calculation": " - "
+    },
+    {
+      "id": 180022288,
+      "label": "(=> 30 Hours) Off the job hours difference",
+      "type": "number",
+      "calculation": " - "
+    },
+    {
+      "id": 180022290,
+      "label": "RPL Hours % (Course Cost Reduction)",
+      "type": "number",
+      "calculation": "(  / [180022052] * 100 ) / 2"
+    },
+    {
+      "id": 180022292,
+      "label": "RPL Hours % (Course Cost Reduction) New Version - Not in Use",
+      "type": "number",
+      "calculation": " / [180022052] * 100"
+    },
+    {
+      "id": 180022293,
+      "label": "Planned OTJ Hours",
+      "type": "number",
+      "calculation": "[180022052] - "
+    },
+    {
+      "id": 180022295,
+      "label": "Planned OTJ Hours - Copy - Not in Use",
+      "type": "number",
+      "calculation": "[180022052] - "
+    },
+    {
+      "id": 180022333,
+      "label": "FS English : Expected End Date",
+      "type": "datetime",
+      "calculation": "date_plus([180022332], [180022328], 'Months')"
+    },
+    {
+      "id": 180022336,
+      "label": "FS Maths : Expected End Date ",
+      "type": "datetime",
+      "calculation": "date_plus([180022065], [180022328], 'Months')"
+    }
+  ]
+}

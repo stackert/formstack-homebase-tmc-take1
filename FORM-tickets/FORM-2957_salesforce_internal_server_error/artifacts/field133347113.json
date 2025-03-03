@@ -1,0 +1,140 @@
+{
+  "id": "133347113",
+  "label": "4. Grade(s)",
+  "hide_label": "0",
+  "description": "",
+  "name": "4_grades",
+  "type": "checkbox",
+  "options": [
+    {
+      "label": "Preschool: Infants",
+      "value": "Preschool: Infants",
+      "imageUrl": null
+    },
+    {
+      "label": "Preschool: 1s",
+      "value": "Preschool: 1s",
+      "imageUrl": null
+    },
+    {
+      "label": "Preschool: 2s",
+      "value": "Preschool: 2s",
+      "imageUrl": null
+    },
+    {
+      "label": "Preschool: 3s",
+      "value": "Preschool: 3s",
+      "imageUrl": ""
+    },
+    {
+      "label": "Preschool: Pre-K",
+      "value": "Preschool: Pre-K",
+      "imageUrl": ""
+    },
+    {
+      "label": "Kindergarten",
+      "value": "Kindergarten",
+      "imageUrl": ""
+    },
+    {
+      "label": "Grade 1",
+      "value": "Grade 1",
+      "imageUrl": ""
+    },
+    {
+      "label": "Grade 2",
+      "value": "Grade 2",
+      "imageUrl": ""
+    },
+    {
+      "label": "Grade 3",
+      "value": "Grade 3",
+      "imageUrl": ""
+    },
+    {
+      "label": "Grade 4",
+      "value": "Grade 4",
+      "imageUrl": ""
+    },
+    {
+      "label": "Grade 5",
+      "value": "Grade 5",
+      "imageUrl": ""
+    },
+    {
+      "label": "Grade 6",
+      "value": "Grade 6",
+      "imageUrl": ""
+    },
+    {
+      "label": "Grade 7",
+      "value": "Grade 7",
+      "imageUrl": ""
+    },
+    {
+      "label": "Grade 8",
+      "value": "Grade 8",
+      "imageUrl": ""
+    },
+    {
+      "label": "Grade 9",
+      "value": "Grade 9",
+      "imageUrl": ""
+    },
+    {
+      "label": "Grade 10",
+      "value": "Grade 10",
+      "imageUrl": ""
+    },
+    {
+      "label": "Grade 11",
+      "value": "Grade 11",
+      "imageUrl": ""
+    },
+    {
+      "label": "Grade 12",
+      "value": "Grade 12",
+      "imageUrl": ""
+    }
+  ],
+  "required": "1",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "2",
+  "sort": "262",
+  "logic": {
+    "action": "show",
+    "conditional": "any",
+    "checks": [
+      {
+        "field": 133346938,
+        "condition": "equals",
+        "option": "Specific Grade(s) Only"
+      },
+      {
+        "field": 133346938,
+        "condition": "equals",
+        "option": "Specific Age(s) & Grade(s)"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "option_layout": "horizontal",
+  "option_other": 0,
+  "option_checkall": 0,
+  "randomize_options": 0,
+  "option_store": "value",
+  "option_show_values": 0,
+  "use_images": 0,
+  "image_dimensions": "customDimensions",
+  "image_height": 100,
+  "image_width": 100,
+  "lock_image_ratio": true,
+  "lock_image_ratio_option": "fitProportionally",
+  "image_label_alignment": "bottom",
+  "hide_option_button": true
+}

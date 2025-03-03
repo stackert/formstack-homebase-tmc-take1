@@ -1,0 +1,63 @@
+{
+  "id": "133346890",
+  "label": "Do Members & Nonmembers pay different rates?",
+  "hide_label": "0",
+  "description": "",
+  "name": "do_members__nonmembers_pay_different_rates",
+  "type": "radio",
+  "options": [
+    {
+      "label": "One Rate for Everyone",
+      "value": "One Rate for Everyone",
+      "imageUrl": ""
+    },
+    {
+      "label": "Different Rates for Members & Nonmembers",
+      "value": "Different Rates for Members & Nonmembers",
+      "imageUrl": ""
+    }
+  ],
+  "required": "1",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "79",
+  "logic": {
+    "action": "show",
+    "conditional": "all",
+    "checks": [
+      {
+        "field": "133346886",
+        "condition": "equals",
+        "option": "Open to the Community (Members & Nonmembers)"
+      },
+      {
+        "field": "133347312",
+        "condition": "greaterthan",
+        "option": 1
+      },
+      {
+        "field": 133346878,
+        "condition": "notequals",
+        "option": "20"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": "",
+  "default": "Different Rates for Members & Nonmembers",
+  "option_layout": "vertical",
+  "option_other": 0,
+  "randomize_options": 0,
+  "option_store": "value",
+  "option_show_values": true,
+  "use_images": 0,
+  "image_dimensions": "customDimensions",
+  "image_height": 100,
+  "image_width": 100,
+  "lock_image_ratio": true,
+  "lock_image_ratio_option": "fitProportionally",
+  "image_label_alignment": "bottom"
+}

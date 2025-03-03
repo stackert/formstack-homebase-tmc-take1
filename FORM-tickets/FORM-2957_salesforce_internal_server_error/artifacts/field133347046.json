@@ -1,0 +1,63 @@
+{
+  "id": "133347046",
+  "label": "3. Location",
+  "hide_label": "0",
+  "description": "",
+  "name": "3_location",
+  "type": "radio",
+  "options": [
+    {
+      "label": "Zaban Park",
+      "value": "Zaban Park",
+      "imageUrl": null
+    },
+    {
+      "label": "Offsite",
+      "value": "Offsite",
+      "imageUrl": ""
+    },
+    {
+      "label": "Virtual",
+      "value": "Virtual",
+      "imageUrl": ""
+    },
+    {
+      "label": "Camp Barney Medintz",
+      "value": "Camp Barney Medintz",
+      "imageUrl": ""
+    },
+    {
+      "label": "Temple Kol Emeth",
+      "value": "Temple Kol Emeth",
+      "imageUrl": ""
+    },
+    {
+      "label": "Temple Emanu-El",
+      "value": "Temple Emanu-El",
+      "imageUrl": ""
+    }
+  ],
+  "required": "1",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "237",
+  "logic": null,
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "Zaban Park",
+  "option_layout": "vertical",
+  "option_other": 0,
+  "randomize_options": 0,
+  "option_store": "value",
+  "option_show_values": 0,
+  "use_images": 0,
+  "image_dimensions": "customDimensions",
+  "image_height": 100,
+  "image_width": 100,
+  "lock_image_ratio": true,
+  "lock_image_ratio_option": "fitProportionally",
+  "image_label_alignment": "bottom"
+}

@@ -1,0 +1,63 @@
+{
+  "id": "137840997",
+  "label": "Add inclusion question to the registration?",
+  "hide_label": "0",
+  "description": "",
+  "name": "add_inclusion_question_to_the_registration",
+  "type": "radio",
+  "options": [
+    {
+      "label": "Yes",
+      "value": "Yes",
+      "imageUrl": null
+    },
+    {
+      "label": "No",
+      "value": "No",
+      "imageUrl": ""
+    }
+  ],
+  "required": "1",
+  "uniq": "0",
+  "hidden": "0",
+  "readonly": "0",
+  "colspan": "1",
+  "sort": "45",
+  "logic": {
+    "action": "show",
+    "conditional": "any",
+    "checks": [
+      {
+        "field": 168611237,
+        "condition": "equals",
+        "option": "Early Childhood (0-5)"
+      },
+      {
+        "field": 168611237,
+        "condition": "equals",
+        "option": "Youth (6-11)"
+      },
+      {
+        "field": 168611237,
+        "condition": "equals",
+        "option": "Teens (12-18)"
+      }
+    ]
+  },
+  "calculation": "",
+  "workflow_access": "write",
+  "internal_label": null,
+  "default": "",
+  "option_layout": "horizontal",
+  "option_other": 0,
+  "randomize_options": 0,
+  "option_store": "value",
+  "option_show_values": 0,
+  "use_images": 0,
+  "image_dimensions": "customDimensions",
+  "image_height": 100,
+  "image_width": 100,
+  "lock_image_ratio": true,
+  "lock_image_ratio_option": "fitProportionally",
+  "image_label_alignment": "bottom"
+}
