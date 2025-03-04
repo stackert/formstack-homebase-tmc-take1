@@ -1,6 +1,6 @@
 # Objective
 
-This is a task to create a help documentation article about Content Security Policy (CSP) settings for Forms V4, specifically to help customers who want to embed forms on their websites that have CSP enabled.
+This is a task to create a help documentation article about Content Security Policy (CSP) settings for Forms V4, **specifically to help customers who want to embed forms on their websites that have CSP enabled**.
 
 Key objectives:
 
@@ -12,6 +12,9 @@ Key objectives:
 Let me check if there are any additional details in the case review files.
 
 ### Action Plan (knockoff list)
+
+- Primary output document: `FORM-3041-helpdoc-csp/artifacts/help-forms-csp-header.md`
+- Internal documentation: `FORM-3041-helpdoc-csp/artifacts/help-forms-csp-header-internal.md`
 
 Here's what I suggest we do:
 
