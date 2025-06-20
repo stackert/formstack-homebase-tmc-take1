@@ -1,0 +1,77 @@
+<html>
+  <body>
+    <script>
+      // Formstack can not provide support for custom javascript.
+      // Replace with appropriate values for your specific form
+      "use strict";
+
+      // CONFIGURATION: Update these values for each form
+      const FORM_ID = "YOUR_FORM_ID";           // Replace with your form ID
+      const SOURCE_FIELD_ID = "SOURCE_FIELD";   // Replace with source field ID
+      const TARGET_FIELD_ID = "TARGET_FIELD";   // Replace with target field ID
+
+      const form = window.fsApi().getForm(FORM_ID);
+
+      // Function to handle copying values from source to target field
+      function handleValueCopy(event) {
+        // Only process changes to our source field
+        if (event.data.fieldId !== SOURCE_FIELD_ID) {
+          return Promise.resolve(event);
+        }
+
+        console.log("Field change detected on source field:", SOURCE_FIELD_ID);
+
+        const sourceField = form.getField(SOURCE_FIELD_ID);
+        const targetField = form.getField(TARGET_FIELD_ID);
+
+        // Get the current value from source field
+        const sourceValue = sourceField.getValue();
+        console.log("Source field value:", sourceValue);
+
+        // Extract the actual value (handling different field types)
+        const actualValue = sourceValue.value || sourceValue;
+        console.log("Actual value to copy:", actualValue);
+
+        // Set the target field to the source value
+        targetField.setValue({ value: actualValue });
+        console.log("Value copied to target field:", TARGET_FIELD_ID);
+
+        return Promise.resolve(event);
+      }
+
+      // Register the change event listener
+      form.registerFormEventListener({
+        type: "change",
+        onFormEvent: handleValueCopy,
+      });
+
+      // Handle initial value when form loads
+      form.registerFormEventListener({
+        type: "ready",
+        onFormEvent: function (event) {
+          console.log("Form ready, checking for initial values...");
+          
+          const sourceField = form.getField(SOURCE_FIELD_ID);
+          const initialValue = sourceField.getValue();
+
+          if (initialValue && (initialValue.value || initialValue)) {
+            console.log("Initial value found in source field:", initialValue);
+            handleValueCopy({
+              data: {
+                fieldId: SOURCE_FIELD_ID,
+              },
+            });
+          } else {
+            console.log("No initial value found in source field");
+          }
+          
+          return Promise.resolve(event);
+        },
+      });
+
+      console.log("Field copy script initialized for form:", FORM_ID);
+      console.log("Monitoring source field:", SOURCE_FIELD_ID);
+      console.log("Target field:", TARGET_FIELD_ID);
+    </script>
+  </body>
+</html>
