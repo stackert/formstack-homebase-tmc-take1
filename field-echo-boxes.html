@@ -1,0 +1,191 @@
+<script>
+// Formstack can not provide support for custom javascript.
+'use strict';
+
+// ========== CONFIGURATION ==========
+const FORM_ID = 6224483; // Your form ID
+// ===================================
+
+const form = window.fsApi().getForm(FORM_ID);
+
+// Function to find field container with multiple strategies
+function findFieldContainer(fieldId) {
+    // Try multiple selectors
+    const selectors = [
+        `[data-field-id="${fieldId}"]`,
+        `#field${fieldId}`,
+        `.field-${fieldId}`,
+        `[id*="field${fieldId}"]`,
+        `[class*="field-${fieldId}"]`,
+        `[data-field="${fieldId}"]`,
+        `#fsfield${fieldId}`,
+        `.fsfield${fieldId}`
+    ];
+    
+    for (const selector of selectors) {
+        const element = document.querySelector(selector);
+        if (element) {
+            console.log(`Found field container for ${fieldId} using selector: ${selector}`);
+            return element;
+        }
+    }
+    
+    // Last resort: find by looking for input elements with field ID in name/id
+    const inputs = document.querySelectorAll(`input[name*="${fieldId}"], textarea[name*="${fieldId}"], select[name*="${fieldId}"]`);
+    if (inputs.length > 0) {
+        const input = inputs[0];
+        let container = input.parentElement;
+        // Walk up to find a reasonable container
+        while (container && container !== document.body) {
+            if (container.classList.length > 0 || container.id) {
+                console.log(`Found field container for ${fieldId} by walking up from input`);
+                return container;
+            }
+            container = container.parentElement;
+        }
+    }
+    
+    return null;
+}
+
+// Function to create and append echo box for a field
+function createEchoBox(field) {
+    const fieldId = field.getGeneralAttribute('id');
+    console.log(`Attempting to create echo box for field ${fieldId}`);
+    
+    // Create echo box element
+    const echoBox = document.createElement('div');
+    echoBox.id = `echo-${fieldId}`;
+    echoBox.style.cssText = `
+        margin: 10px 0;
+        padding: 10px;
+        background-color: #e8f4f8;
+        border: 2px solid #007cba;
+        border-radius: 5px;
+        font-family: monospace;
+        font-size: 11px;
+        white-space: pre-wrap;
+        color: #333;
+    `;
+    echoBox.textContent = `Echo Box for Field ${fieldId} - Loading...`;
+    
+    // Find field container
+    const fieldContainer = findFieldContainer(fieldId);
+    
+    if (fieldContainer) {
+        fieldContainer.appendChild(echoBox);
+        console.log(`Successfully created echo box for field ${fieldId}`);
+        
+        // Set initial value
+        updateEchoBox(field);
+        return true;
+    } else {
+        console.error(`Could not find container for field ${fieldId}`);
+        // As a last resort, try appending to form container
+        const formContainer = document.querySelector('.fsForm') || document.querySelector('[data-formstack-form]') || document.body;
+        if (formContainer) {
+            echoBox.style.cssText += `
+                position: relative;
+                z-index: 1000;
+                margin: 5px;
+                display: block;
+            `;
+            echoBox.textContent = `Echo Box for Field ${fieldId} (Fallback Position) - Loading...`;
+            formContainer.appendChild(echoBox);
+            console.log(`Created fallback echo box for field ${fieldId}`);
+            updateEchoBox(field);
+            return true;
+        }
+        return false;
+    }
+}
+
+// Function to update echo box content
+function updateEchoBox(field) {
+    const fieldId = field.getGeneralAttribute('id');
+    const echoBox = document.getElementById(`echo-${fieldId}`);
+    
+    if (echoBox) {
+        try {
+            const value = field.getValue();
+            const jsonValue = JSON.stringify(value, null, 2);
+            echoBox.textContent = `Field ${fieldId}:\n${jsonValue}`;
+            
+            console.log(`Setting echo box for form ${FORM_ID}, field ${fieldId}, value:`, jsonValue);
+        } catch (error) {
+            echoBox.textContent = `Field ${fieldId}: Error reading value - ${error.message}`;
+            console.error(`Error updating echo box for field ${fieldId}:`, error);
+        }
+    } else {
+        console.warn(`Echo box not found for field ${fieldId}`);
+    }
+}
+
+// Initialize echo boxes when form is ready
+form.registerFormEventListener({
+    type: 'ready',
+    onFormEvent: function(event) {
+        console.log('Form ready event - starting echo box creation');
+        
+        // Add a small delay to ensure DOM is fully rendered
+        setTimeout(() => {
+            console.log('Creating echo boxes...');
+            
+            let createdCount = 0;
+            const sections = form.getSections();
+            
+            console.log(`Found ${sections.length} sections`);
+            
+            sections.forEach((section, sectionIndex) => {
+                const fields = section.getFields();
+                console.log(`Section ${sectionIndex} has ${fields.length} fields`);
+                
+                fields.forEach((field, fieldIndex) => {
+                    const fieldType = field.getGeneralAttribute('type');
+                    const fieldId = field.getGeneralAttribute('id');
+                    
+                    console.log(`Processing field ${fieldIndex}: ID=${fieldId}, Type=${fieldType}`);
+                    
+                    // Skip embed fields to avoid recursion
+                    if (fieldType !== 'embed') {
+                        if (createEchoBox(field)) {
+                            createdCount++;
+                        }
+                    } else {
+                        console.log(`Skipping embed field ${fieldId}`);
+                    }
+                });
+            });
+            
+            console.log(`Created ${createdCount} echo boxes total`);
+            
+            // Show all elements on page for debugging
+            console.log('All form elements:', document.querySelectorAll('[class*="field"], [id*="field"], [data-field]'));
+            
+        }, 250);
+        
+        return Promise.resolve(event);
+    }
+});
+
+// Update echo boxes when field values change
+form.registerFormEventListener({
+    type: 'change',
+    onFormEvent: function(event) {
+        const fieldId = event.data.fieldId;
+        console.log(`Change event for field ${fieldId}`);
+        
+        try {
+            const field = form.getField(fieldId);
+            updateEchoBox(field);
+        } catch (error) {
+            console.error(`Error handling change for field ${fieldId}:`, error);
+        }
+        
+        return Promise.resolve(event);
+    }
+});
+
+console.log('Echo Box Script loaded for form:', FORM_ID);
+console.log('Available form methods:', Object.getOwnPropertyNames(form));
+</script>
