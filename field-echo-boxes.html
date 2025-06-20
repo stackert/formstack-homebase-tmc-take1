@@ -1,0 +1,95 @@
+<script>
+// Formstack can not provide support for custom javascript.
+'use strict';
+
+// ========== CONFIGURATION ==========
+const FORM_ID = 6224483; // Your form ID
+// ===================================
+
+const form = window.fsApi().getForm(FORM_ID);
+
+// Function to create and append echo box for a field
+function createEchoBox(field) {
+    const fieldId = field.getGeneralAttribute('id');
+    
+    // Create echo box element
+    const echoBox = document.createElement('div');
+    echoBox.id = `echo-${fieldId}`;
+    echoBox.style.cssText = `
+        margin: 5px 0;
+        padding: 10px;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-family: monospace;
+        font-size: 12px;
+        white-space: pre-wrap;
+    `;
+    
+    // Find field container and append echo box
+    const fieldContainer = document.querySelector(`[data-field-id="${fieldId}"]`) || 
+                          document.querySelector(`#field${fieldId}`) ||
+                          document.querySelector(`.field-${fieldId}`);
+    
+    if (fieldContainer) {
+        fieldContainer.appendChild(echoBox);
+        console.log(`Created echo box for field ${fieldId}`);
+        
+        // Set initial value
+        updateEchoBox(field);
+    } else {
+        console.warn(`Could not find container for field ${fieldId}`);
+    }
+}
+
+// Function to update echo box content
+function updateEchoBox(field) {
+    const fieldId = field.getGeneralAttribute('id');
+    const echoBox = document.getElementById(`echo-${fieldId}`);
+    
+    if (echoBox) {
+        const value = field.getValue();
+        const jsonValue = JSON.stringify(value, null, 2);
+        echoBox.textContent = `Field ${fieldId}: ${jsonValue}`;
+        
+        console.log(`Setting echo box for form ${FORM_ID}, field ${fieldId}, value:`, jsonValue);
+    }
+}
+
+// Initialize echo boxes when form is ready
+form.registerFormEventListener({
+    type: 'ready',
+    onFormEvent: function(event) {
+        console.log('Form ready - creating echo boxes');
+        
+        // Get all fields and create echo boxes
+        const sections = form.getSections();
+        sections.forEach(section => {
+            const fields = section.getFields();
+            fields.forEach(field => {
+                const fieldType = field.getGeneralAttribute('type');
+                // Skip embed fields to avoid recursion
+                if (fieldType !== 'embed') {
+                    createEchoBox(field);
+                }
+            });
+        });
+        
+        return Promise.resolve(event);
+    }
+});
+
+// Update echo boxes when field values change
+form.registerFormEventListener({
+    type: 'change',
+    onFormEvent: function(event) {
+        const fieldId = event.data.fieldId;
+        const field = form.getField(fieldId);
+        updateEchoBox(field);
+        
+        return Promise.resolve(event);
+    }
+});
+
+console.log('Echo Box Script loaded for form:', FORM_ID);
+</script>
